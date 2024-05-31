@@ -74,5 +74,10 @@
 		"type": "individual",
 		"url": "https://www.patreon.com/zaions"
 	},
-	"private": false
+	"private": false,
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/@zaions/tool-kit",
+		"tag": "latest"
+	}
 }
