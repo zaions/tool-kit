@@ -1,7 +1,7 @@
 {
 	"name": "@zaions/tool-kit",
 	"version": "0.0.1",
-	"description": "Zaions Tool Kit, this is generic tool kit package created by team working at Zaions (https://zaions.com), there are two other packages named \"@zaions/server-tool-kit\" and \"@zaions/client-tool-kit\" while this package is generic and contains code which will work both on frontend (reactjs/typescript) as well as on backend (nodejs/typescript) the other two packages are specific to server side or client side (due to the dependencies used in them and their usage nature. We hope you will love this and all other packages we have developed for you, please do react out if you face any issue in packages we deliver. Once again have fun while working with these packages and let us know your feedback, it keeps us motivated. Have a great day :)",
+	"description": "Zaions Tool Kit, this is generic tool kit package created by Zaions Dev Team (https://zaions.com), there are two other packages named \"@zaions/server-tool-kit\" and \"@zaions/client-tool-kit\" while this package is generic and contains code which will work both on frontend (ReactJs/typescript) as well as on backend (nodejs/typescript) the other two packages are specific to server side or client side (due to the dependencies used in them and their usage nature. We hope you will love this and all other packages we have developed for you, please do react out if you face any issue in packages we deliver. Once again have fun while working with these packages and let us know your feedback, it keeps us motivated. Have a great day :)",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
@@ -9,6 +9,7 @@
 		"dist"
 	],
 	"scripts": {
+		"dev": "tsup --watch",
 		"build": "tsup",
 		"test": "jest"
 	},
@@ -55,10 +56,10 @@
 	"devDependencies": {
 		"@types/jest": "^29.5.12",
 		"jest": "^29.7.0",
-		"ts-jest": "^29.1.4",
+		"ts-jest": "^29.1.5",
 		"ts-node": "^10.9.2",
-		"tsup": "^8.0.2",
-		"typescript": "^5.4.5"
+		"tsup": "^8.1.0",
+		"typescript": "^5.5.2"
 	},
 	"contributors": [
 		{

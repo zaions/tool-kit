@@ -1,6 +1,6 @@
-import { add } from '../src';
+import { logPackage } from '@helpers/index';
 
 test('adds two numbers correctly', () => {
-	const result = add(2, 3);
+	const result = logPackage();
 	expect(result).toBe(5);
 });
