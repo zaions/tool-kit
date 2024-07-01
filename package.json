@@ -54,7 +54,9 @@
 	},
 	"packageManager": "yarn@1.22.22",
 	"devDependencies": {
+		"@types/crypto-js": "^4.2.2",
 		"@types/node": "^20.14.9",
+		"crypto-js": "^4.2.0",
 		"ts-node": "^10.9.2",
 		"tsup": "^8.1.0",
 		"typescript": "^5.5.2",

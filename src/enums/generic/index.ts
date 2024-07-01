@@ -22,3 +22,26 @@ export enum ResponseStatusEnum {
 	tooManyRequests = 429,
 	invalidRequest = 410,
 }
+
+export enum FormFieldType {
+	text = 'text',
+	email = 'email',
+	password = 'password',
+	date = 'date',
+	select = 'select',
+}
+
+export enum RequestTypeEnum {
+	get = 'get',
+	post = 'post',
+	put = 'put',
+	delete = 'delete',
+}
+
+export enum LinkTargetEnum {
+	blank = '_blank',
+}
+
+export enum SearchParamKeysEnum {
+	encryptedDataSearchParam = 's',
+}
