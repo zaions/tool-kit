@@ -13,6 +13,7 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			'@helpers': path.resolve(__dirname, './src/utils/helpers'),
+			'@enums': path.resolve(__dirname, './src/enums'),
 		},
 	},
 	define: {
