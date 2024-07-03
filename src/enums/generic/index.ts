@@ -9,6 +9,9 @@ export enum ResponseCodeEnum {
 	updated = 'updated',
 	tooManyRequests = 'tooManyRequests',
 	invalidRequest = 'invalidRequest', // invalid url/api request which does not exists in express app router/routes for that OnRequest expressHandler
+	unAuthenticated = 'unAuthenticated',
+	unAuthorized = 'unAuthorized',
+	itemExists = 'itemExists',
 }
 
 export enum ResponseStatusEnum {
@@ -21,6 +24,7 @@ export enum ResponseStatusEnum {
 	unAuthorized = 403,
 	tooManyRequests = 429,
 	invalidRequest = 410,
+	itemExists = 400,
 }
 
 export enum FormFieldType {
