@@ -14,5 +14,7 @@ export const ztkMessages = {
 		unAuthenticated: 'unAuthenticated',
 		unAuthorized: 'unAuthorized',
 		serverError: 'serverError',
+		badRequest: 'badRequest',
+		itemExists: 'itemExists',
 	},
 } as const;
