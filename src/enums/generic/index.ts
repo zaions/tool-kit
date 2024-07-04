@@ -45,3 +45,7 @@ export enum LinkTargetEnum {
 export enum SearchParamKeysEnum {
 	encryptedDataSearchParam = 's',
 }
+export enum RequestContentType {
+	Json = 'application/json',
+	FormData = 'multipart/form-data'
+}

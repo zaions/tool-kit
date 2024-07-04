@@ -9,6 +9,7 @@ export const ztkMessages = {
 		updated: 'item updated',
 		deleted: 'item deleted',
 		notFound: 'item notFound',
+		invalidData: 'invalid data',
 		tooManyRequests: 'tooManyRequests',
 		unAuthenticated: 'unAuthenticated',
 		unAuthorized: 'unAuthorized',
