@@ -1,3 +1,4 @@
 export * from './encryptDecrypt';
 export * from './generic';
-export * from './errorHandler'
+export * from './errorHandler';
+export * from './validators';
