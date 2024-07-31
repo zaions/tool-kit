@@ -51,5 +51,10 @@ export enum SearchParamKeysEnum {
 }
 export enum RequestContentType {
 	Json = 'application/json',
-	FormData = 'multipart/form-data'
+	FormData = 'multipart/form-data',
+}
+
+export enum RequestStatusEnum {
+	approved = 'approved',
+	rejected = 'rejected',
 }
