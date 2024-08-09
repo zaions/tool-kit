@@ -13,7 +13,8 @@
     "build": "npm run update:linked-packages && tsup",
     "test": "npm run update:linked-packages && vitest",
     "update:linked-packages": "yarn && tsup",
-    "push:code": "git add . && git commit -m 'logic updated, taking code backup' && git push -u o main"
+    "push:code": "git add . && git commit -m 'logic updated, taking code backup' && git push -u o main",
+    "deploy": "yarn && tsup && npm publish"
   },
   "repository": {
     "type": "git",
@@ -60,13 +61,13 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",
-    "@types/node": "^20.14.12",
+    "@types/node": "^22.1.0",
     "crypto-js": "^4.2.0",
     "dayjs": "^1.11.12",
     "ts-node": "^10.9.2",
-    "tsup": "^8.2.2",
+    "tsup": "^8.2.4",
     "typescript": "^5.5.4",
-    "vitest": "^2.0.4"
+    "vitest": "^2.0.5"
   },
   "contributors": [
     {
