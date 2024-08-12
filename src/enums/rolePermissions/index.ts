@@ -62,17 +62,6 @@ export enum PermissionEnum {
 	viewTrashedTopupRequests = 43,
 	viewTrashedTopupRequest = 44,
 
-	// withdraws // for frontend player user
-	listWithdraws = 45,
-	viewWithdraw = 46,
-	createWithdraw = 47,
-	updateWithdraw = 48,
-	deleteWithdraw = 49,
-	forceDeleteWithdraw = 50,
-	reviewWithdraw = 51,
-	viewTrashedWithdraws = 52,
-	viewTrashedWithdraw = 53,
-
 	// withdrawRequests // for backend admin level user
 	listWithdrawRequests = 54,
 	viewWithdrawRequest = 55,
@@ -151,13 +140,4 @@ export enum PermissionEnum {
 	forceDeleteTransaction = 119,
 	viewTrashedTransactions = 120,
 	viewTrashedTransaction = 121,
-
-	listUserHistoryLogs = 122,
-	viewUserHistoryLog = 123,
-	createUserHistoryLog = 124,
-	updateUserHistoryLog = 125,
-	deleteUserHistoryLog = 126,
-	forceDeleteUserHistoryLog = 127,
-	viewTrashedUserHistoryLogs = 128,
-	viewTrashedUserHistoryLog = 129,
 }
