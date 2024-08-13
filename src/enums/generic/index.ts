@@ -58,3 +58,8 @@ export enum RequestStatusEnum {
 	approved = 'approved',
 	rejected = 'rejected',
 }
+
+export enum TransferMethodEnum {
+	easypaisa = 1,
+	jazzcash = 2,
+} 
