@@ -14,7 +14,7 @@
     "test": "npm run unlink-packages && vitest",
     "update:linked-packages": "yarn install --force",
     "unlink-packages": "yarn install --force",
-    "push:code": "git add . && git commit -m 'logic updated, taking code backup' && git push -u o main",
+    "push:code": "git add . && git commit -m 'updated & pushed' && git push -u o main",
     "deploy": "npm run build && npm publish"
   },
   "repository": {
@@ -58,8 +58,7 @@
   "packageManager": "yarn@1.22.22",
   "peerDependencies": {
     "crypto-js": "^4.2.0",
-    "dayjs": "^1.11.12",
-    "zod": "^3.23.8"
+    "dayjs": "^1.11.12"
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",
@@ -69,8 +68,7 @@
     "ts-node": "^10.9.2",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4",
-    "vitest": "^2.0.5",
-    "zod": "^3.23.8"
+    "vitest": "^2.0.5"
   },
   "contributors": [
     {
