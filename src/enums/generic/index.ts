@@ -27,14 +27,6 @@ export enum ResponseStatusEnum {
 	itemExists = 400,
 }
 
-export enum FormFieldType {
-	text = 'text',
-	email = 'email',
-	password = 'password',
-	date = 'date',
-	select = 'select',
-}
-
 export enum RequestTypeEnum {
 	get = 'get',
 	post = 'post',
@@ -55,6 +47,6 @@ export enum RequestContentType {
 }
 
 export enum RequestStatusEnum {
-	approved = 'approved',
-	rejected = 'rejected',
+	approved = 1,
+	rejected = 2,
 }

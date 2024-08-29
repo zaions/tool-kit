@@ -1,3 +1,5 @@
+import { checkForDuplicateEnumValues } from '@utils/helpers';
+
 export enum RoleEnum {
 	superAdmin = 1,
 	admin = 2,
@@ -141,3 +143,32 @@ export enum PermissionEnum {
 	viewTrashedTransactions = 111,
 	viewTrashedTransaction = 112,
 }
+
+// only used for request input data validation in register request
+export enum _UserRoleEnum {
+	superAdmin = '197g24g-28h3v2g9g972g3f',
+	admin = '28h3v2g9g9--72g3f',
+	manager = '38h3vrv3-ion2g9g97-2g3f',
+	editor = '48h3v2g9g97-2g3f',
+	creator = '58h3v2g9g8h-972g3f',
+	reviewer = '68h-3v2g9g972g3f',
+	player = '78h3v2g9-g972g3f',
+	engager = '8hfrfr----8h3v2g9-g972g3f',
+}
+
+export enum PermissionTypeEnum {
+	viewTrashedItem = 1,
+	viewTrashedItems = 2,
+	viewBlockedItem = 3,
+}
+
+// Check for duplicates
+checkForDuplicateEnumValues(RoleEnum, 'Duplicate RoleEnum value found:');
+checkForDuplicateEnumValues(
+	_UserRoleEnum,
+	'Duplicate _UserRoleEnum value found:'
+);
+checkForDuplicateEnumValues(
+	PermissionEnum,
+	'Duplicate PermissionEnum value found:'
+);

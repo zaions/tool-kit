@@ -5,9 +5,9 @@
 
 		"baseUrl": "./",
 		"paths": {
-			"@utils/*": ["./src/utils/*"],
+			"@types/*": ["./src/types/*"],
 			"@enums/*": ["./src/enums/*"],
-			"@types/*": ["./src/types/*"]
+			"@utils/*": ["./src/utils/*"]
 		},
 
 		"types": ["vitest/globals", "vitest/importMeta"],
