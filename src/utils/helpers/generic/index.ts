@@ -4,6 +4,8 @@ import { RequestContentType } from '@enums/generic';
 import { apiConstants } from '@utils/constants';
 import { DBColumnKeysShortFormEnum } from '@enums/firebaseEnum';
 import { DBItemGenericDataType } from './../../../types/firebaseTypes'; // will need to study this, the absolute import was giving error
+import { IGenericObject } from './../../../types/genericTypes';
+import { getDateFromFrbTimestamp } from '../dateTimeHelpers';
 
 /**
  * Generates a unique random key.
@@ -338,4 +340,16 @@ export const isSoftDeleted = ({ item }: { item: DBItemGenericDataType }) => {
 
 export const dbItemIsBlocked = ({ item }: { item: DBItemGenericDataType }) => {
 	return typeof item[DBColumnKeysShortFormEnum.blockedAt] === 'number';
+};
+
+export const getDBTimeColumnValue = (
+	item: IGenericObject,
+	key: DBColumnKeysShortFormEnum
+): string | undefined => {
+	const value = item[key];
+	if (value) {
+		return getDateFromFrbTimestamp(value);
+	} else {
+		return undefined;
+	}
 };
