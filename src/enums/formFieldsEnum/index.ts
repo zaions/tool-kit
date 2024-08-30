@@ -1,4 +1,4 @@
-import { checkForDuplicateEnumValues } from '@utils/helpers';
+import { checkForDuplicateEnumValues } from '@utils/helpers/generic';
 
 export enum FormFieldsEnum {
 	// Generic/Common Form Fields

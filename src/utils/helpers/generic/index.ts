@@ -1,11 +1,11 @@
 import dayjs from 'dayjs';
 import { reportCustomError } from '../errorHandler';
 import { RequestContentType } from '@enums/generic';
-import { apiConstants } from '@utils/constants';
 import { DBColumnKeysShortFormEnum } from '@enums/firebaseEnum';
 import { DBItemGenericDataType } from './../../../types/firebaseTypes'; // will need to study this, the absolute import was giving error
 import { IGenericObject } from './../../../types/genericTypes';
 import { getDateFromFrbTimestamp } from '../dateTimeHelpers';
+import { apiConstants } from '@utils/constants/generic';
 
 /**
  * Generates a unique random key.
