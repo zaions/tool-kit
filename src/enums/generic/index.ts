@@ -50,3 +50,20 @@ export enum RequestStatusEnum {
 	approved = 1,
 	rejected = 2,
 }
+
+export enum TransferMethodEnum {
+	easypaisa = 1,
+	jazzcash = 2,
+}
+
+export enum QueryKeyTypeEnum {
+	id = 1,
+	roomCode = 2,
+	email = 3,
+	phoneNumber = 4
+}
+
+export enum ProcessStatusEnum {
+	completed = 1,
+	rejected = 2,
+}
