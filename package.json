@@ -57,12 +57,12 @@
 	},
 	"packageManager": "yarn@1.22.22",
 	"peerDependencies": {
-		"crypto-js": "*",
-		"dayjs": "*"
+		"crypto-js": "^4.2.0",
+		"dayjs": "^1.11.13"
 	},
 	"devDependencies": {
 		"@types/crypto-js": "^4.2.2",
-		"@types/node": "^22.5.1",
+		"@types/node": "^22.5.2",
 		"crypto-js": "^4.2.0",
 		"dayjs": "^1.11.13",
 		"ts-node": "^10.9.2",
