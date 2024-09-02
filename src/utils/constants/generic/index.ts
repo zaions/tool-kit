@@ -6,3 +6,11 @@ export const apiConstants = {
 		bearer: 'Bearer',
 	},
 } as const;
+
+export const defaultValue = {
+	fallbackValue: '---'
+}
+
+export const dayjs = {
+	formate: 'DD-MM-YYYY HH:mm A'
+}

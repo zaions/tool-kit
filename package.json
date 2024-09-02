@@ -87,5 +87,17 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"pricing": "Free"
+	"pricing": "Free",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		},
+		"./mawinga": {
+			"import": "./dist/play-and-win/index.mjs",
+			"require": "./dist/play-and-win/index.js",
+			"types": "./dist/play-and-win/index.d.ts"
+		}
+	}
 }

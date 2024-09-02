@@ -15,6 +15,7 @@ export enum FormFieldsEnum {
 	playerData = 'playerData', // player user data return key (used in topup requests)
 	otherPlayerId = 'otherPlayerId',
 	otherPlayerData = 'otherPlayerData',
+	isActive = 'isActive',
 
 	title = 'title',
 	description = 'description',

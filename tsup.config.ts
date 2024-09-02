@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-	entry: ['src/index.ts'],
+	entry: ['src/index.ts', 'src/play-and-win/index.ts',],
 	format: ['cjs', 'esm'], // Build for commonJS and ESmodules
 	dts: true, // Generate declaration file (.d.ts)
 	splitting: true,
@@ -12,6 +12,6 @@ export default defineConfig({
 	outDir: './dist',
 	tsconfig: './tsconfig.json',
 	treeshake: 'recommended',
-  target: "es2015",
-  keepNames: false
+	target: "es2015",
+	keepNames: false
 });
