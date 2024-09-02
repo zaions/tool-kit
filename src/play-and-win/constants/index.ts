@@ -21,6 +21,9 @@ export const appServiceFee = (envs: any) => {
 }
 
 export const fieldsLength = {
+    user: {
+        phoneNumber: 13
+    },
     gameRoom: {
         code: 8
     },

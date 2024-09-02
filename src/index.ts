@@ -1,5 +1,5 @@
 export { configureZTK } from './configure';
-export { ApiPathEnum } from './enums/backendApi';
+export { ApiPathEnum } from './enums/backendApi/index';
 export {
 	DBColumnKeysShortFormEnum,
 	FrbOrderbyDirectionEnum,
@@ -18,8 +18,7 @@ export {
 export {
 	PermissionEnum,
 	PermissionTypeEnum,
-	RoleEnum,
-	_UserRoleEnum
+	RoleEnum, _UserRoleEnum
 } from './enums/rolePermissionsEnum';
 export { getCryptoSecret, setCryptoSecret } from './privateModule';
 export {
@@ -39,8 +38,7 @@ export {
 export { decryptData, encryptData } from './utils/helpers/encryptDecrypt';
 export { reportCustomError } from './utils/helpers/errorHandler';
 export {
-	ZTotalPages,
-	checkForDuplicateEnumValues,
+	ZTotalPages, checkForDuplicateEnumValues,
 	convertToTitleCase,
 	dbItemIsBlocked,
 	dumpValueNoLogNothing,
@@ -75,5 +73,7 @@ export {
 	validateURL
 } from './utils/helpers/validators';
 export { ztkMessages } from './utils/messages';
-export { requestStatusVal } from './validationEvalEnums';
+export { inAppNotificationsSendToEnumVal, requestStatusVal, selectorEnumVal, transferMethodVal, userRoleEnumVal } from './validationEvalEnums';
+
+export { BalanceUpdateActionEnum, BalanceUpdateTypeEnum, GameRoomStatusEnum, IGame, IGameRoom, INotifications, ITopUp, ITopupRequest, ITransferCoin, IUser, IWithdraw, IWithdrawRequest, InAppNotificationSendToEnum, TopupStatusEnum, WithdrawRequestStatusEnum, appServiceFee, fieldsLength } from './play-and-win/index';
 

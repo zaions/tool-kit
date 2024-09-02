@@ -1,0 +1,35 @@
+import { FormFieldsEnum } from '@enums/formFieldsEnum';
+import { TransferMethodEnum } from '@enums/generic';
+import { PermissionEnum, RoleEnum } from '@enums/rolePermissionsEnum';
+
+
+// Interfaces  
+export interface IUser {
+    [FormFieldsEnum.id]?: string;
+    [FormFieldsEnum.name]?: string;
+    [FormFieldsEnum.email]?: string;
+    [FormFieldsEnum.createdAt]?: string;
+    [FormFieldsEnum.updatedAt]?: string;
+    [FormFieldsEnum.country]?: string
+    [FormFieldsEnum.city]?: string
+    [FormFieldsEnum.referralCode]?: string
+    [FormFieldsEnum.withdrawOptions]?: Array<TransferMethodEnum>
+    [FormFieldsEnum.phoneNumber]?: string
+    [FormFieldsEnum.blockedAt]?: string
+    [FormFieldsEnum.photoURL]?: string
+    [FormFieldsEnum.referredBy]?: string
+    [FormFieldsEnum.cnic]?: string
+    [FormFieldsEnum.address]?: string
+
+    [FormFieldsEnum.permissions]?: Array<PermissionEnum>
+    [FormFieldsEnum.balance]?: number
+    [FormFieldsEnum.role]?: RoleEnum
+    [FormFieldsEnum.updatedAt]?: string
+
+    [FormFieldsEnum.password]?: string
+    [FormFieldsEnum.passwordConfirmation]?: string
+    // For frontend
+    actions?: string
+    isBlocked?: boolean
+
+}
