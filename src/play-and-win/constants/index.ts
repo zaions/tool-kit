@@ -30,5 +30,8 @@ export const fieldsLength = {
     transfer: {
         maxPlayerPhoneNumber: 100,
         minPlayerPhoneNumber: 13,
+    },
+    notification: {
+        description: 100
     }
 } 

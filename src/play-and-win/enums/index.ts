@@ -7,6 +7,13 @@ export enum BalanceUpdateTypeEnum {
     percentage = 2,
 }
 
+export enum PlayerBalanceUpdateRequestTypeEnum {
+    topup = 1,
+    withdraw = 2,
+    transferred = 3,
+    received = 4,
+}
+
 export enum InAppNotificationSendToEnum {
     allUsers = 1,
     allAdmins = 2,
@@ -14,6 +21,13 @@ export enum InAppNotificationSendToEnum {
     allPlayers = 4,
     allEngagersAndPlayers = 5,
     specificUsers = 6,
+}
+
+
+export enum InAppNotificationStatusEnum {
+    sent = 1,
+    pending = 2,
+    draft = 3,
 }
 
 export enum GameRoomStatusEnum {
@@ -40,4 +54,11 @@ export enum TopupStatusEnum {
     completed = 3,
     rejected = 4,
     cancelled = 5,
+}
+
+export enum TransactionTypeEnum {
+    topup = 1,
+    withdraw = 2,
+    transfer = 3,
+    received = 4,
 }

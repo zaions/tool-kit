@@ -75,5 +75,5 @@ export {
 export { ztkMessages } from './utils/messages';
 export { inAppNotificationsSendToEnumVal, requestStatusVal, selectorEnumVal, transferMethodVal, userRoleEnumVal } from './validationEvalEnums';
 
-export { BalanceUpdateActionEnum, BalanceUpdateTypeEnum, GameRoomStatusEnum, IGame, IGameRoom, INotifications, ITopUp, ITopupRequest, ITransferCoin, IUser, IWithdraw, IWithdrawRequest, InAppNotificationSendToEnum, TopupStatusEnum, WithdrawRequestStatusEnum, appServiceFee, fieldsLength } from './play-and-win/index';
+export { BalanceUpdateActionEnum, BalanceUpdateTypeEnum, GameRoomStatusEnum, IGame, IGameRoom, INotifications, ITopUp, ITopupRequest, ITransferCoin, IUser, IWithdraw, IWithdrawRequest, InAppNotificationSendToEnum, PlayerBalanceUpdateRequestTypeEnum, TopupStatusEnum, WithdrawRequestStatusEnum, appServiceFee, fieldsLength } from './play-and-win/index';
 

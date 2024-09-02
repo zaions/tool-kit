@@ -1,21 +1,11 @@
 import { FormFieldsEnum } from "@enums/formFieldsEnum";
-import { InAppNotificationSendToEnum } from "src/play-and-win/enums";
+import { IDefaultDBColumns } from "src/types/genericTypes";
+import { IInAppNotificationFormData } from "../formInputDataTypes";
 
 // Interfaces
-export interface INotifications {
-    [FormFieldsEnum.id]?: string;
-    [FormFieldsEnum.title]?: string;
-    [FormFieldsEnum.description]?: string;
-    [FormFieldsEnum.icon]?: string;
-    [FormFieldsEnum.image]?: string;
-    [FormFieldsEnum.sendAt]?: string;
-    [FormFieldsEnum.sendTo]?: InAppNotificationSendToEnum;
-    [FormFieldsEnum.specificUsersPhoneNumbers]?: Array<string>;
-    // [FormFieldsEnum.saveAsDraft]?: boolean;
-    [FormFieldsEnum.createdAt]?: string;
-    [FormFieldsEnum.updatedAt]?: string;
-    [FormFieldsEnum.deletedAt]?: string;
-
+// IInAppNotification
+export interface INotifications extends IInAppNotificationFormData,
+    IDefaultDBColumns {
     // For Frontend
     searchText?: string
     imageFile?: File | null

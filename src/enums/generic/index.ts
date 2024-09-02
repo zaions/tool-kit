@@ -63,6 +63,7 @@ export enum QueryKeyTypeEnum {
 	phoneNumber = 4
 }
 
+// TransferCoinsRequestStatusEnum
 export enum ProcessStatusEnum {
 	completed = 1,
 	rejected = 2,

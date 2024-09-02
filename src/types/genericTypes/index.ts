@@ -1,6 +1,6 @@
 import { FormFieldsEnum } from '@enums/formFieldsEnum';
 
-export interface IGenericObject extends Record<string, any> {}
+export interface IGenericObject extends Record<string, any> { }
 
 export interface IDefaultDBColumns {
 	[FormFieldsEnum.id]: string;

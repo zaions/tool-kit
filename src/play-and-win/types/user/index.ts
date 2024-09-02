@@ -1,11 +1,11 @@
 import { FormFieldsEnum } from '@enums/formFieldsEnum';
 import { TransferMethodEnum } from '@enums/generic';
 import { PermissionEnum, RoleEnum } from '@enums/rolePermissionsEnum';
+import { IDefaultDBColumns } from 'src/types/genericTypes';
 
 
 // Interfaces  
-export interface IUser {
-    [FormFieldsEnum.id]?: string;
+export interface IUser extends IDefaultDBColumns {
     [FormFieldsEnum.name]?: string;
     [FormFieldsEnum.email]?: string;
     [FormFieldsEnum.createdAt]?: string;
@@ -20,11 +20,13 @@ export interface IUser {
     [FormFieldsEnum.referredBy]?: string
     [FormFieldsEnum.cnic]?: string
     [FormFieldsEnum.address]?: string
+    [FormFieldsEnum.emailVerifiedAt]?: string | number;
+    [FormFieldsEnum.emailVerified]?: boolean;
+    [FormFieldsEnum.disabled]?: boolean;
 
     [FormFieldsEnum.permissions]?: Array<PermissionEnum>
     [FormFieldsEnum.balance]?: number
     [FormFieldsEnum.role]?: RoleEnum
-    [FormFieldsEnum.updatedAt]?: string
 
     [FormFieldsEnum.password]?: string
     [FormFieldsEnum.passwordConfirmation]?: string
