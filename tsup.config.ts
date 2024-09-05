@@ -12,6 +12,7 @@ export default defineConfig({
 	outDir: './dist',
 	tsconfig: './tsconfig.json',
 	treeshake: 'safest',
-	target: "es2015",
-	keepNames: false
+	target: 'es2015',
+	keepNames: false,
+	platform: 'neutral',
 });
