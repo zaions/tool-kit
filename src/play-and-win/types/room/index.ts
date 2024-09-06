@@ -9,7 +9,7 @@ import { IUser } from '../user';
 // Interface
 export interface IGameRoom
 	extends IGameRoomFormData,
-		Partial<IDefaultDBColumns> {
+	Partial<IDefaultDBColumns> {
 	[FormFieldsEnum.roomCode]?: string;
 	[FormFieldsEnum.status]?: GameRoomStatusEnum;
 	[FormFieldsEnum.gameRoomStartedAt]: string | number;
@@ -27,6 +27,7 @@ export interface IGameRoom
 			| FormFieldsEnum.feePerPlayer
 			| FormFieldsEnum.serviceCharges
 			| FormFieldsEnum.maxPlayersAllowed
+			| FormFieldsEnum.image
 		>
 	>; // we will store the required field when we create the room directly in room object for later reference
 
