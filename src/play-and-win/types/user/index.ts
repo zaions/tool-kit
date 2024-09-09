@@ -1,5 +1,5 @@
 import { FormFieldsEnum } from '@enums/formFieldsEnum';
-import { TransferMethodEnum } from '@enums/generic';
+import { BooleanEnum, TransferMethodEnum } from '@enums/generic';
 import { PermissionEnum, RoleEnum } from '@enums/rolePermissionsEnum';
 import { IDefaultDBColumns } from 'src/types/genericTypes';
 
@@ -21,8 +21,8 @@ export interface IUser extends IDefaultDBColumns {
     [FormFieldsEnum.cnic]?: string
     [FormFieldsEnum.address]?: string
     [FormFieldsEnum.emailVerifiedAt]?: string | number;
-    [FormFieldsEnum.emailVerified]?: boolean;
-    [FormFieldsEnum.disabled]?: boolean;
+    [FormFieldsEnum.emailVerified]?: BooleanEnum;
+    [FormFieldsEnum.disabled]?: BooleanEnum;
 
     [FormFieldsEnum.permissions]?: Array<PermissionEnum>
     [FormFieldsEnum.balance]?: number
@@ -32,6 +32,6 @@ export interface IUser extends IDefaultDBColumns {
     [FormFieldsEnum.passwordConfirmation]?: string
     // For frontend
     actions?: string
-    isBlocked?: boolean
+    isBlocked?: BooleanEnum
 
 }

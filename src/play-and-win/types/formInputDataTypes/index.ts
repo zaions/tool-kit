@@ -1,5 +1,5 @@
 import { FormFieldsEnum } from "@enums/formFieldsEnum";
-import { TransferMethodEnum } from "@enums/generic";
+import { BooleanEnum, TransferMethodEnum } from "@enums/generic";
 import { PermissionEnum } from "@enums/rolePermissionsEnum";
 import { InAppNotificationSendToEnum } from "src/play-and-win/enums";
 import { IUser } from "../user";
@@ -77,7 +77,7 @@ export interface IInAppNotificationFormData {
     [FormFieldsEnum.sendAt]?: string;
     [FormFieldsEnum.sendTo]: InAppNotificationSendToEnum;
     [FormFieldsEnum.specificUsersPhoneNumbers]?: string[]; // send array of users phone numbers
-    [FormFieldsEnum.saveAsDraft]?: boolean;
+    [FormFieldsEnum.saveAsDraft]?: BooleanEnum;
 }
 
 export interface IUpdateUserFormData extends Partial<IUser> { }
@@ -87,6 +87,6 @@ export interface IAppUserRoleFormData {
     [FormFieldsEnum.title]: string;
     [FormFieldsEnum.description]: string;
     [FormFieldsEnum.roleIdentifier]: string;
-    [FormFieldsEnum.isDefault]: boolean;
+    [FormFieldsEnum.isDefault]: BooleanEnum;
     [FormFieldsEnum.permissions]: PermissionEnum[];
 }

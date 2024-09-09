@@ -1,5 +1,5 @@
 import { FormFieldsEnum } from '@enums/formFieldsEnum';
-import { QueryKeyTypeEnum } from '@enums/generic';
+import { BooleanEnum, QueryKeyTypeEnum } from '@enums/generic';
 import { GameRoomStatusEnum } from 'src/play-and-win/enums';
 import { IDefaultDBColumns } from 'src/types/genericTypes';
 import { IGameRoomFormData } from '../formInputDataTypes';
@@ -18,7 +18,7 @@ export interface IGameRoom
 	[FormFieldsEnum.gameRoomWinnerPlayerId]?: string;
 	[FormFieldsEnum.gameRoomResultScreenShot]?: string;
 	[FormFieldsEnum.gameRoomPlayersData]?: Array<Partial<IUser>>;
-	[FormFieldsEnum.isActive]?: boolean;
+	[FormFieldsEnum.isActive]?: BooleanEnum;
 	[FormFieldsEnum.gameData]?: Partial<
 		Pick<
 			IGame,
