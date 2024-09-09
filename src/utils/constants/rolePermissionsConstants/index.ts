@@ -6,11 +6,17 @@ const permissionsToExcludeForAdmin = [
 	'permission',
 	'forcedelete',
 	'trashed',
+	'transaction',
+	'appsetting',
+	'inappnotification',
 ];
 const permissionsToExcludeForManager = [
 	...permissionsToExcludeForAdmin,
 	'user',
 	'delete',
+	'topuprequest',
+	'withdrawrequest',
+	'transfercoinsrequest',
 ];
 const permissionsToExcludeForEditor = [
 	...permissionsToExcludeForManager,
