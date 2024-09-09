@@ -68,3 +68,8 @@ export enum ProcessStatusEnum {
 	completed = 1,
 	rejected = 2,
 }
+
+export enum BooleanEnum {
+	true = 1,
+	false = 0
+}

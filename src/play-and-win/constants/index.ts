@@ -21,6 +21,8 @@ export const appServiceFee = (envs: any) => {
 }
 
 export const fieldsLength = {
+    textarea: 500,
+    input: 225,
     user: {
         phoneNumber: 13
     },

@@ -1,4 +1,4 @@
-import { QueryKeyTypeEnum, RequestStatusEnum, TransferMethodEnum } from '@enums/generic';
+import { BooleanEnum, QueryKeyTypeEnum, RequestStatusEnum, TransferMethodEnum } from '@enums/generic';
 import { _UserRoleEnum } from '@enums/rolePermissionsEnum';
 import { InAppNotificationSendToEnum } from 'src/play-and-win';
 
@@ -36,3 +36,8 @@ export const userRoleEnumVal = [
 	_UserRoleEnum.player,
 	_UserRoleEnum.engager,
 ] as const;
+
+export const booleanEnumVal = [
+	BooleanEnum.false,
+	BooleanEnum.true,
+]
