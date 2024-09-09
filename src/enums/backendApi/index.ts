@@ -1,4 +1,4 @@
-declare enum ApiPathEnum {
+export enum ApiPathEnum {
 	register = 'register',
 	login = 'login',
 	logout = 'logout',
