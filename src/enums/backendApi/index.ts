@@ -48,5 +48,9 @@ export enum ApiPathEnum {
 	getPlayersTransferCoinsRequests = 'get_players_transfer_coins_requests',
 	getGenericInAppNotifications = 'get_generic_in_app_notifications',
 	getUserSpecificInInAppNotifications = 'get-user-specific-in-app-notifications',
-	getUserRoleSpecificInAppNotifications = 'get-user-role-specific-in-app-notifications'
+	getUserRoleSpecificInAppNotifications = 'get-user-role-specific-in-app-notifications',
+	listRoles = 'list-roles',
+	deleteRoles = 'delete-roles',
+	updateRoles = 'update-roles',
+	createRoles = 'create-roles',
 }
