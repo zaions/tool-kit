@@ -47,4 +47,6 @@ export enum ApiPathEnum {
 	deleteInAppNotification = 'delete_in_app_notification',
 	getPlayersTransferCoinsRequests = 'get_players_transfer_coins_requests',
 	getGenericInAppNotifications = 'get_generic_in_app_notifications',
+	getUserSpecificInInAppNotifications = 'get-user-specific-in-app-notifications',
+	getUserRoleSpecificInAppNotifications = 'get-user-role-specific-in-app-notifications'
 }
