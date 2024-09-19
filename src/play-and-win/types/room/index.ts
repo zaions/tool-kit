@@ -27,6 +27,7 @@ export interface IGameRoom
 			| FormFieldsEnum.feePerPlayer
 			| FormFieldsEnum.serviceCharges
 			| FormFieldsEnum.maxPlayersAllowed
+			| FormFieldsEnum.minPlayersToStartGame
 			| FormFieldsEnum.image
 		>
 	>; // we will store the required field when we create the room directly in room object for later reference
