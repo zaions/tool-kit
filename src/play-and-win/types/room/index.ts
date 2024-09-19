@@ -19,18 +19,7 @@ export interface IGameRoom
 	[FormFieldsEnum.gameRoomResultScreenShot]?: string;
 	[FormFieldsEnum.gameRoomPlayersData]?: Array<Partial<IUser>>;
 	[FormFieldsEnum.isActive]?: BooleanEnum;
-	[FormFieldsEnum.gameData]?: Partial<
-		Pick<
-			IGame,
-			| FormFieldsEnum.id
-			| FormFieldsEnum.title
-			| FormFieldsEnum.feePerPlayer
-			| FormFieldsEnum.serviceCharges
-			| FormFieldsEnum.maxPlayersAllowed
-			| FormFieldsEnum.minPlayersToStartGame
-			| FormFieldsEnum.image
-		>
-	>; // we will store the required field when we create the room directly in room object for later reference
+	[FormFieldsEnum.gameData]?: Partial<IGame>; // we will store the required field when we create the room directly in room object for later reference
 
 	// Frontend only
 	gameTitle?: string;
