@@ -73,3 +73,12 @@ export enum BooleanEnum {
 	true = 1,
 	false = 0
 }
+
+export enum varTypesEnum {
+	STRING = 'string',
+	OBJECT = 'object',
+	ARRAY = 'array',
+	boolean = 'boolean',
+	NUMBER = 'number',
+	FUNCTION = 'function'
+}
