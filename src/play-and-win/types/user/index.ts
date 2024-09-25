@@ -35,3 +35,4 @@ export interface IUser extends IDefaultDBColumns {
     isBlocked?: BooleanEnum
 
 }
+

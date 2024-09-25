@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig({
-	entry: ['src/index.ts', 'src/play-and-win/index.ts'],
+	entry: ['src/index.ts', 'src/play-and-win/index.ts', 'src/roommate/index.ts'],
 	format: ['cjs', 'esm'], // Build for commonJS and ESmodules
 	dts: true, // Generate declaration file (.d.ts)
 	splitting: true,
