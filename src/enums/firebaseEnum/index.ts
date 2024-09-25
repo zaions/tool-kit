@@ -20,6 +20,7 @@ export enum DBColumnKeysShortFormEnum {
 	userData = 'ud',
 	playerId = 'pid',
 	otherPlayerId = 'opid', // this is mainly to use for transfer coins request, when it's between two players, i'm using userId, to identify main player (who created the request), and otherPlayerId to identify the receiver player, and if for any future collection we needed a request between current player and multiple other players then we will create and use "otherPlayerIds"
+	extraData = 'ed',
 
 	// Keys used for "user"
 	name = 'n',
@@ -95,6 +96,9 @@ export enum DBColumnKeysShortFormEnum {
 	gameRoomStartedAt = 'grsat',
 	gameRoomWinnerPlayerId = 'grwpid',
 	gameRoomResultScreenShot = 'grrss',
+	timerForEngagerToStartActualGameInMinutes = 'tfetsag',
+	timerForPlayersToJoinActualGameInMinutes = 'tfptjag',
+	actualGameInfo = 'agi',
 
 	// Topups
 	agentRemarks = 'ars',
