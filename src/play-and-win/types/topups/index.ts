@@ -1,21 +1,19 @@
-import { FormFieldsEnum } from "@enums/formFieldsEnum";
-import { BooleanEnum } from "@enums/generic";
-import { TopupStatusEnum } from "src/play-and-win/enums";
-import { IDefaultDBColumns } from "src/types/genericTypes";
-import { ITopupRequestFormData } from "../formInputDataTypes";
-import { IUser } from "../user/index";
+import { FormFieldsEnum } from '@enums/formFieldsEnum';
+import { BooleanEnum } from '@enums/generic';
+import { TopupStatusEnum } from 'src/play-and-win/enums';
+import { IDefaultDBColumns } from 'src/types/genericTypes';
+import { ITopupRequestFormData } from '../formInputDataTypes';
+import { IUser } from '../user/index';
 
+// Interface
+export interface ITopUp extends ITopupRequestFormData, IDefaultDBColumns {
+	[FormFieldsEnum.status]?: TopupStatusEnum | null;
+	[FormFieldsEnum.isActive]?: BooleanEnum;
 
-// Interface 
-export interface ITopUp extends ITopupRequestFormData,
-    IDefaultDBColumns {
-    [FormFieldsEnum.status]?: TopupStatusEnum | null;
-    [FormFieldsEnum.isActive]?: BooleanEnum;
-
-    // frontend only
-    receptScreenshotFile?: File | null;
+	// frontend only
+	[FormFieldsEnum.receptScreenshotFile]?: File | null;
 }
 
 export interface ITopupRequest extends ITopUp {
-    playerData?: IUser
-} 
+	[FormFieldsEnum.playerData]?: IUser;
+}

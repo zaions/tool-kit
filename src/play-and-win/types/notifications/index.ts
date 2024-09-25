@@ -7,9 +7,9 @@ export interface IInAppNotification
 	extends IInAppNotificationFormData,
 		IDefaultDBColumns {
 	// For Frontend
-	searchText?: string;
-	imageFile?: File | null;
-	iconFile?: File | null;
+	[FormFieldsEnum.searchText]?: string;
+	[FormFieldsEnum.imageFile]?: File | null;
+	[FormFieldsEnum.iconFile]?: File | null;
 	[FormFieldsEnum.phoneNumber]?: string;
 	[FormFieldsEnum.status]: InAppNotificationStatusEnum;
 }

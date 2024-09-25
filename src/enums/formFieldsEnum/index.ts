@@ -19,6 +19,13 @@ export enum FormFieldsEnum {
 	extraData = 'extraData',
 	title = 'title',
 	description = 'description',
+	isBlocked = 'isBlocked',
+	actions = 'actions',
+	imageFile = 'imageFile',
+	searchText = 'searchText',
+	iconFile = 'iconFile',
+	gameTitle = 'gameTitle',
+	receptScreenshotFile = 'receptScreenshotFile',
 
 	// User related Forms Fields Enum
 	firstName = 'firstName',
