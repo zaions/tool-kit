@@ -16,9 +16,16 @@ export enum FormFieldsEnum {
   otherPlayerId = "otherPlayerId",
   otherPlayerData = "otherPlayerData",
   isActive = "isActive",
-
+  extraData = "extraData",
   title = "title",
   description = "description",
+  isBlocked = "isBlocked",
+  actions = "actions",
+  imageFile = "imageFile",
+  searchText = "searchText",
+  iconFile = "iconFile",
+  gameTitle = "gameTitle",
+  receptScreenshotFile = "receptScreenshotFile",
 
   // User related Forms Fields Enum
   firstName = "firstName",
@@ -99,6 +106,9 @@ export enum FormFieldsEnum {
   gameRoomStartedAt = "gameRoomStartedAt", // we will use this to show a timer (count down) timer to players to join the actual game, once engager has started the game.
   gameRoomWinnerPlayerId = "gameRoomWinnerPlayerId",
   gameRoomResultScreenShot = "gameRoomResultScreenShot",
+  timerForEngagerToStartActualGameInMinutes = "timerForEngagerToStartActualGameInMinutes",
+  timerForPlayersToJoinActualGameInMinutes = "timerForPlayersToJoinActualGameInMinutes",
+  actualGameInfo = "actualGameInfo",
 
   // Top ups
   amount = "amount",

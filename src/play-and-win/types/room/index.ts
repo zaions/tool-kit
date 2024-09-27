@@ -9,7 +9,7 @@ import { IUser } from '../user';
 // Interface
 export interface IGameRoom
 	extends IGameRoomFormData,
-	Partial<IDefaultDBColumns> {
+		Partial<IDefaultDBColumns> {
 	[FormFieldsEnum.roomCode]?: string;
 	[FormFieldsEnum.status]?: GameRoomStatusEnum;
 	[FormFieldsEnum.gameRoomStartedAt]: string | number;
@@ -22,7 +22,7 @@ export interface IGameRoom
 	[FormFieldsEnum.gameData]?: Partial<IGame>; // we will store the required field when we create the room directly in room object for later reference
 
 	// Frontend only
-	gameTitle?: string;
+	[FormFieldsEnum.gameTitle]?: string;
 }
 
 export interface IGameRoomSearchReqInputData {
