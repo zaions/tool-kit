@@ -99,6 +99,7 @@ export enum DBColumnKeysShortFormEnum {
 	timerForEngagerToStartActualGameInMinutes = 'tfetsag',
 	timerForPlayersToJoinActualGameInMinutes = 'tfptjag',
 	actualGameInfo = 'agi',
+	gameData = 'gd',
 
 	// Topups
 	agentRemarks = 'ars',
