@@ -76,3 +76,44 @@ export enum BuildingTypeEnum {
   house = 5,
   basement = 6,
 }
+
+export enum PlaceAvailabilityTermEnum {
+  shortTerm = 1,
+  longTerm = 2,
+}
+
+export enum TimeUnitEnum {
+  month = 1,
+  year = 2,
+}
+
+export enum PrivateShareEnum {
+  private = 1,
+  share = 2,
+}
+
+export enum AgreementStatusEnum {
+  yes = 1,
+  no = 2,
+  negotiated = 3,
+}
+
+export enum RentInclusionsEnum {
+  wifi = 1,
+  dishWash = 2,
+  tv = 3,
+  heater = 4,
+  closet = 5,
+  water = 6,
+  balcony = 7,
+  personalEnter = 8,
+  electric = 9,
+  laundry = 10,
+  security = 11,
+  parking = 12,
+}
+
+export enum PlaceStatusEnum {
+  inProgress = 1,
+  completed = 2,
+}

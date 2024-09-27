@@ -1,4 +1,5 @@
 import {
+  AgreementStatusEnum,
   BuildingTypeEnum,
   CleanlinessEnum,
   ConstellationsEnum,
@@ -7,10 +8,15 @@ import {
   GuestsEnum,
   OccupationEnum,
   PetsEnum,
+  PlaceAvailabilityTermEnum,
   PlacePreferenceEnum,
+  PlaceStatusEnum,
+  RentInclusionsEnum,
   SmokeEnum,
+  TimeUnitEnum,
   WorkScheduleEnum,
 } from "../enums";
+import { PrivateShareEnum } from "./../enums/index";
 
 export const cleanlinessVal = [
   CleanlinessEnum.clean,
@@ -78,11 +84,49 @@ export const placePreferenceVal = [
   PlacePreferenceEnum.sharedPlace,
 ] as const;
 
-export const buildingTypeEnumVal = [
+export const buildingTypeVal = [
   BuildingTypeEnum.apartment,
   BuildingTypeEnum.basement,
   BuildingTypeEnum.condo,
   BuildingTypeEnum.house,
   BuildingTypeEnum.noPreference,
   BuildingTypeEnum.twonHouse,
+] as const;
+
+export const placeAvailabilityTermVal = [
+  PlaceAvailabilityTermEnum.shortTerm,
+  PlaceAvailabilityTermEnum.longTerm,
+] as const;
+
+export const timeUnitVal = [TimeUnitEnum.month, TimeUnitEnum.year] as const;
+
+export const privateShareVal = [
+  PrivateShareEnum.private,
+  PrivateShareEnum.share,
+] as const;
+
+export const agreementStatusVal = [
+  AgreementStatusEnum.yes,
+  AgreementStatusEnum.no,
+  AgreementStatusEnum.negotiated,
+] as const;
+
+export const rentInclusionsVal = [
+  RentInclusionsEnum.wifi,
+  RentInclusionsEnum.dishWash,
+  RentInclusionsEnum.tv,
+  RentInclusionsEnum.heater,
+  RentInclusionsEnum.closet,
+  RentInclusionsEnum.water,
+  RentInclusionsEnum.balcony,
+  RentInclusionsEnum.personalEnter,
+  RentInclusionsEnum.electric,
+  RentInclusionsEnum.laundry,
+  RentInclusionsEnum.security,
+  RentInclusionsEnum.parking,
+] as const;
+
+export const placeStatusVal = [
+  PlaceStatusEnum.completed,
+  PlaceStatusEnum.inProgress,
 ] as const;
