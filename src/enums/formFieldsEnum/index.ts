@@ -25,6 +25,8 @@ export enum FormFieldsEnum {
   searchText = "searchText",
   iconFile = "iconFile",
   gameTitle = "gameTitle",
+  engagerStartTime = "engagerStartTime",
+  playerJoinTime = "playerJoinTime",
   receptScreenshotFile = "receptScreenshotFile",
 
   // User related Forms Fields Enum
