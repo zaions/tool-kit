@@ -10,12 +10,11 @@ import { IUser } from "../user";
 export interface IGameRoom
   extends IGameRoomFormData,
     Partial<IDefaultDBColumns> {
-  [FormFieldsEnum.roomCode]?: string;
   [FormFieldsEnum.status]?: GameRoomStatusEnum;
-  [FormFieldsEnum.gameRoomStartedAt]: string | number;
-  [FormFieldsEnum.gameRoomWillStartAt]: string | number;
-  [FormFieldsEnum.engagerStartTime]: string | number;
-  [FormFieldsEnum.playerJoinTime]: string | number;
+  [FormFieldsEnum.firstPlayerGameRoomJoinedAt]: string | number;
+  [FormFieldsEnum.gameRoomWillStartAt]?: string | number;
+  [FormFieldsEnum.playerJoinCutoffTime]?: string | number;
+  [FormFieldsEnum.engagerStartedTheActualGameAt]?: string | number;
   [FormFieldsEnum.gameRoomPlayerIds]?: Array<string>;
   [FormFieldsEnum.gameRoomWinnerPlayerId]?: string;
   [FormFieldsEnum.gameRoomResultScreenShot]?: string;

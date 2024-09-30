@@ -25,8 +25,6 @@ export enum FormFieldsEnum {
   searchText = "searchText",
   iconFile = "iconFile",
   gameTitle = "gameTitle",
-  engagerStartTime = "engagerStartTime",
-  playerJoinTime = "playerJoinTime",
   receptScreenshotFile = "receptScreenshotFile",
 
   // User related Forms Fields Enum
@@ -88,6 +86,7 @@ export enum FormFieldsEnum {
   other = "other",
   min = "min",
   max = "max",
+  verificationCode = "verificationCode",
 
   // Game related Forms Fields Enum
   maxPlayersAllowed = "maxPlayersAllowed",
@@ -105,7 +104,16 @@ export enum FormFieldsEnum {
   gameRoomPlayerIds = "gameRoomPlayerIds",
   gameRoomPlayersData = "gameRoomPlayersData",
   gameRoomWillStartAt = "gameRoomWillStartAt", // count down timer to show, when the game room with start the game
-  gameRoomStartedAt = "gameRoomStartedAt", // we will use this to show a timer (count down) timer to players to join the actual game, once engager has started the game.
+  playerJoinCutoffTime = "playerJoinCutoffTime",
+
+  // this is store the time when first player join the game, in this store time we will add the time (in minutes) that store in 'timerForEngagerToStartActualGameInMinutes' to show the first timer, the timer for engager to start or release game if this timer is expired then engager can not start (start button will get disable) the game release option will be enable.
+  firstPlayerGameRoomJoinedAt = "firstPlayerGameRoomJoinedAt",
+
+  // when engager started the game this will store the time in which the game started and in this store time we will add the time (in minutes) that store in 'timerForPlayersToJoinActualGameInMinutes' to show the second timer, the timer for players to oin game room for last time after this timer got expire no player can join the game
+  engagerStartedTheActualGameAt = "engagerStartedTheActualGameAt",
+
+  engagerUpdatedGameRoomWinnerInfoAt = "engagerUpdatedGameRoomWinnerInfoAt",
+
   gameRoomWinnerPlayerId = "gameRoomWinnerPlayerId",
   gameRoomResultScreenShot = "gameRoomResultScreenShot",
   timerForEngagerToStartActualGameInMinutes = "timerForEngagerToStartActualGameInMinutes",

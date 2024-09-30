@@ -76,6 +76,7 @@ export enum DBColumnKeysShortFormEnum {
   other = "ot",
   min = "mi",
   max = "ma",
+  verificationCode = "vc",
 
   // Keys defined in "Game related Form Fields"
   title = "t",
@@ -93,7 +94,9 @@ export enum DBColumnKeysShortFormEnum {
   gameId = "gid",
   gameRoomPlayerIds = "grpsd", // basically there are two ways to do this, if we store the data of players (id, email, phoneNumber, the bare minimum), using this will keep that data for completed game rooms in DB (increasing the DB size, i think uselessly, as a gameRoom will get finished after 1h or max few days if you must :), but after that it's just read only data, staying there in DB, so storing just the IDs i think is a better way and we fetch and return users data using another API request, both ways have their ups and downs and i'm going with the second one), and i'm also removing the "gameRoomPlayersCount" field, just sticking with "gameRoomPlayerIds" for now, also removing "gameRoomPlayersData", but keeping that in "FormFieldsEnum" as will use that to send back users data in frontend.
   gameRoomWillStartAt = "grwsat",
-  gameRoomStartedAt = "grsat",
+  // gameRoomStartedAt = "grsat",
+  firstPlayerGameRoomJoinedAt = "fpgrja",
+  engagerStartedTheActualGameAt = "estaga",
   gameRoomWinnerPlayerId = "grwpid",
   gameRoomResultScreenShot = "grrss",
   timerForEngagerToStartActualGameInMinutes = "tfetsag",
