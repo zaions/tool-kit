@@ -16,10 +16,10 @@ export {
   SmokeEnum,
   TimeUnitEnum,
   WorkScheduleEnum,
-} from "./enums";
-export { IRegisterFormData } from "./types/formInputDataTypes";
-export { IHobby } from "./types/hobbies";
-export { ILifeStyle } from "./types/lifeStyle";
+} from './enums';
+export { IRegisterFormData } from './types/formInputDataTypes';
+export { IHobby } from './types/hobbies';
+export { ILifeStyle } from './types/lifeStyle';
 export {
   IHouseInfo,
   IMinimumLease,
@@ -32,9 +32,9 @@ export {
   IPlaceSharing,
   IPlaceSharingUnit,
   IRent,
-} from "./types/place";
-export { IRoomPreference, IRoommatePreference } from "./types/preference";
-export { IUser, IUserInfo, IUserPreference } from "./types/user";
+} from './types/place';
+export { IRoomPreference, IRoommatePreference } from './types/preference';
+export { IRoommateUser, IUserInfo, IUserPreference } from './types/user';
 export {
   agreementStatusVal,
   buildingTypeVal,
@@ -53,4 +53,4 @@ export {
   smokeVal,
   timeUnitVal,
   workScheduleVal,
-} from "./validationEvalEnums";
+} from './validationEvalEnums';

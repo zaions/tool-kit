@@ -22,7 +22,8 @@ export interface IUserPreference extends IDefaultDBColumns {
   [FormFieldsEnum.roommatePreference]?: IRoommatePreference;
 }
 
-export interface IUser extends Omit<IDefaultDBColumns, FormFieldsEnum.userId> {
+export interface IRoommateUser
+  extends Omit<IDefaultDBColumns, FormFieldsEnum.userId> {
   [FormFieldsEnum.email]?: string;
   [FormFieldsEnum.phoneNumber]?: string;
   [FormFieldsEnum.firstName]?: string;
