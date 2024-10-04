@@ -112,8 +112,6 @@ export enum FormFieldsEnum {
   // when engager started the game this will store the time in which the game started and in this store time we will add the time (in minutes) that store in 'timerForPlayersToJoinActualGameInMinutes' to show the second timer, the timer for players to oin game room for last time after this timer got expire no player can join the game
   engagerStartedTheActualGameAt = 'engagerStartedTheActualGameAt',
 
-  engagerUpdatedGameRoomWinnerInfoAt = 'engagerUpdatedGameRoomWinnerInfoAt',
-
   gameRoomWinnerPlayerId = 'gameRoomWinnerPlayerId',
   gameRoomResultScreenShot = 'gameRoomResultScreenShot',
   timerForEngagerToStartActualGameInMinutes = 'timerForEngagerToStartActualGameInMinutes',
