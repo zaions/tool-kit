@@ -25,6 +25,7 @@ export enum ApiPathEnum {
   releaseGameRoom = 'release_game_room',
   declareGameRoomWinner = 'declare_game_room_winner',
   deleteGameRoom = 'delete_game_room',
+  getCompletedGameRoom = 'get_completed_game_rooms',
   getEngagerDashboardData = 'get_engager_dashboard_data',
   getAvailableGameRooms = 'get_available_game_rooms',
   listTopups = 'list_topups',
