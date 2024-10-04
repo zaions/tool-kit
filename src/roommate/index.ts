@@ -34,7 +34,7 @@ export {
   IRent,
 } from "./types/place";
 export { IRoomPreference, IRoommatePreference } from "./types/preference";
-export { IUserInfo, IUserPreference } from "./types/user";
+export { IUser, IUserInfo, IUserPreference } from "./types/user";
 export {
   agreementStatusVal,
   buildingTypeVal,
