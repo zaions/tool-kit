@@ -1,4 +1,4 @@
-export { appServiceFee, fieldsLength, timeLimits } from "./constants";
+export { appServiceFee, fieldsLength, timeLimits } from './constants';
 export {
   BalanceUpdateActionEnum,
   BalanceUpdateTypeEnum,
@@ -9,12 +9,13 @@ export {
   TopupStatusEnum,
   TransactionTypeEnum,
   WithdrawRequestStatusEnum,
-} from "./enums";
+} from './enums';
 
-export { ztkPlayWinMessages } from "./messages";
-export { IAppUserRole } from "./types/appUserRoleAndPermissions";
+export { ztkPlayWinMessages } from './messages';
+export { IAppUserRole } from './types/appUserRoleAndPermissions';
 export {
   IAppUserRoleFormData,
+  ICoinsUpdateFormData,
   IGameFormData,
   IGameRoomFormData,
   IInAppNotificationFormData,
@@ -25,12 +26,12 @@ export {
   ITransferCoinsRequestFormData,
   IUpdateUserFormData,
   IWithdrawRequestFormData,
-} from "./types/formInputDataTypes";
-export { IGame } from "./types/game";
-export { IInAppNotification } from "./types/notifications";
-export { IGameRoom, IGameRoomSearchReqInputData } from "./types/room";
-export { ITopUp, ITopupRequest } from "./types/topups";
-export { ITransaction } from "./types/transactionTypes";
-export { ITransferCoin } from "./types/transferCoin";
-export { IUser } from "./types/user";
-export { IWithdraw, IWithdrawRequest } from "./types/withdraw";
+} from './types/formInputDataTypes';
+export { IGame } from './types/game';
+export { IInAppNotification } from './types/notifications';
+export { IGameRoom, IGameRoomSearchReqInputData } from './types/room';
+export { ITopUp, ITopupRequest } from './types/topups';
+export { ITransaction } from './types/transactionTypes';
+export { ITransferCoin } from './types/transferCoin';
+export { IUser } from './types/user';
+export { IWithdraw, IWithdrawRequest } from './types/withdraw';

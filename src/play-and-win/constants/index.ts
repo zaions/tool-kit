@@ -1,4 +1,4 @@
-import { BalanceUpdateTypeEnum } from "../enums";
+import { BalanceUpdateTypeEnum } from '../enums';
 
 export const appServiceFee = (envs: any) => {
   return {

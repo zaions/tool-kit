@@ -1,8 +1,8 @@
-import { FormFieldsEnum } from "@enums/formFieldsEnum";
-import { BooleanEnum, TransferMethodEnum } from "@enums/generic";
-import { PermissionEnum } from "@enums/rolePermissionsEnum";
-import { InAppNotificationSendToEnum } from "src/play-and-win/enums";
-import { IUser } from "../user";
+import { FormFieldsEnum } from '@enums/formFieldsEnum';
+import { BooleanEnum, TransferMethodEnum } from '@enums/generic';
+import { PermissionEnum } from '@enums/rolePermissionsEnum';
+import { InAppNotificationSendToEnum } from 'src/play-and-win/enums';
+import { IUser } from '../user';
 
 export interface IPlayerIdFormData {
   [FormFieldsEnum.playerId]: string;
@@ -102,5 +102,12 @@ export interface IAppUserRoleFormData {
   [FormFieldsEnum.roleIdentifier]: string;
   [FormFieldsEnum.isDefault]: BooleanEnum;
   [FormFieldsEnum.permissions]: PermissionEnum[];
+  [FormFieldsEnum.extraData]?: unknown;
+}
+
+export interface ICoinsUpdateFormData {
+  [FormFieldsEnum.phoneNumber]: string;
+  [FormFieldsEnum.amount]: number;
+  [FormFieldsEnum.agentRemarks]?: string;
   [FormFieldsEnum.extraData]?: unknown;
 }
