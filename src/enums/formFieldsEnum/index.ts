@@ -21,6 +21,7 @@ export enum FormFieldsEnum {
   description = 'description',
   isBlocked = 'isBlocked',
   actions = 'actions',
+  action = 'action',
   imageFile = 'imageFile',
   searchText = 'searchText',
   iconFile = 'iconFile',

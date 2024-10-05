@@ -2,6 +2,7 @@ export { appServiceFee, fieldsLength, timeLimits } from './constants';
 export {
   BalanceUpdateActionEnum,
   BalanceUpdateTypeEnum,
+  CoinManagementActionEnum,
   GameRoomStatusEnum,
   InAppNotificationSendToEnum,
   InAppNotificationStatusEnum,
@@ -13,6 +14,7 @@ export {
 
 export { ztkPlayWinMessages } from './messages';
 export { IAppUserRole } from './types/appUserRoleAndPermissions';
+export { ICoinManagement } from './types/coinManagement';
 export {
   IAppUserRoleFormData,
   ICoinsUpdateFormData,
@@ -35,3 +37,4 @@ export { ITransaction } from './types/transactionTypes';
 export { ITransferCoin } from './types/transferCoin';
 export { IUser } from './types/user';
 export { IWithdraw, IWithdrawRequest } from './types/withdraw';
+export { coinManagementActionVal } from './validationEvalEnums';

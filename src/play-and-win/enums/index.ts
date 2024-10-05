@@ -69,3 +69,8 @@ export enum TransactionTypeEnum {
   coinsAddedByAdmin = 8,
   coinsRemovedByAdmin = 9,
 }
+
+export enum CoinManagementActionEnum {
+  add = 0,
+  remove = 1,
+}
