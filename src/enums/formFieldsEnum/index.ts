@@ -206,7 +206,7 @@ export enum FormFieldsEnum {
   longitude = 'longitude',
   placeId = 'placeId',
   streetAddress = 'streetAddress',
-  appartmentSuit = 'appartmentSuit',
+  apartmentSuit = 'apartmentSuit',
   province = 'province',
   postCode = 'postCode',
   bedroomImages = 'bedroomImages',
