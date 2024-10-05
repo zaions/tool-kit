@@ -21,6 +21,7 @@ export enum DBColumnKeysShortFormEnum {
   playerId = 'pid',
   otherPlayerId = 'opid', // this is mainly to use for transfer coins request, when it's between two players, i'm using userId, to identify main player (who created the request), and otherPlayerId to identify the receiver player, and if for any future collection we needed a request between current player and multiple other players then we will create and use "otherPlayerIds"
   extraData = 'ed',
+  playerData = 'pdt',
 
   // Keys used for "user"
   name = 'n',
@@ -172,7 +173,8 @@ export enum DBColumnKeysShortFormEnum {
   // For Coins AppLog Item
   totalServiceCharges = 'tsc', // coins system earned from service charges
 
-  //
+  // ----------- RoomMate Project Keys Starts Below -------------------------
+  // Mainly Added for RoomMate App
   period = 'ped',
   currency = 'cuy',
   place = 'pl',
@@ -185,7 +187,7 @@ export enum DBColumnKeysShortFormEnum {
   longitude = 'lng',
   placeId = 'pi',
   streetAddress = 'sa',
-  appartmentSuit = 'as',
+  apartmentSuit = 'as',
   province = 'province',
   postCode = 'postCode',
   bedroomImages = 'bedroomImages',
@@ -215,6 +217,7 @@ export enum DBColumnKeysShortFormEnum {
   furnished = 'furnished',
   benefits = 'benefits',
   otherBenefits = 'otherBenefits',
+  // ----------- RoomMate Project Keys Ends Above -------------------------
 }
 
 export enum FrbOrderbyDirectionEnum {
@@ -239,6 +242,11 @@ checkForDuplicateEnumValues(
   DBColumnKeysShortFormEnum,
   'Duplicate DBColumnKeysShortFormEnum value found:'
 );
+checkForDuplicateEnumValues(
+  FrbOrderbyDirectionEnum,
+  'Duplicate FrbOrderbyDirectionEnum value found:'
+);
+
 checkForDuplicateEnumValues(
   FrbWhereConditionEnum,
   'Duplicate FrbWhereConditionEnum value found:'

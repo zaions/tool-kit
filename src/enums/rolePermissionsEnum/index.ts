@@ -177,6 +177,8 @@ export enum PermissionEnum {
 
   addCoinsToUserAccount = 134,
   removeCoinsFromUserAccount = 135,
+  listAdminCoinsUpdateLogs = 136,
+  viewAdminCoinsUpdateLog = 137,
 }
 
 // only used for request input data validation in register request

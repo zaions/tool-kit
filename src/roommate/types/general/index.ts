@@ -1,4 +1,4 @@
-import { FormFieldsEnum } from "@enums/formFieldsEnum";
+import { FormFieldsEnum } from '@enums/formFieldsEnum';
 
 export interface IMinMax {
   [FormFieldsEnum.min]?: number;
@@ -12,7 +12,7 @@ export interface ILocation {
   [FormFieldsEnum.country]?: string;
   [FormFieldsEnum.city]?: string;
   [FormFieldsEnum.streetAddress]?: string;
-  [FormFieldsEnum.appartmentSuit]?: string;
+  [FormFieldsEnum.apartmentSuit]?: string;
   [FormFieldsEnum.province]?: string;
   [FormFieldsEnum.postCode]?: string;
 }
