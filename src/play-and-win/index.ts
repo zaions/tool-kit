@@ -1,4 +1,4 @@
-export { appServiceFee, fieldsLength, timeLimits } from './constants';
+export { appServiceFee, playAndWinFieldsLength, timeLimits } from './constants';
 export {
   BalanceUpdateActionEnum,
   BalanceUpdateTypeEnum,

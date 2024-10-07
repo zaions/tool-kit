@@ -20,22 +20,10 @@ export const appServiceFee = (envs: any) => {
   };
 };
 
-export const fieldsLength = {
-  textarea: 500,
-  input: 225,
-  verificationCode: 6,
-  user: {
-    phoneNumber: 13,
-  },
-  gameRoom: {
-    code: 8,
-  },
+export const playAndWinFieldsLength = {
   transfer: {
     maxPlayerPhoneNumber: 100,
     minPlayerPhoneNumber: 13,
-  },
-  notification: {
-    description: 100,
   },
 };
 
