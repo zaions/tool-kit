@@ -12,6 +12,7 @@ export enum ApiPathEnum {
   getAdminDashboardData = 'get_admin_dashboard_data',
   blockUser = 'block_user',
   unblockUser = 'unblock_user',
+  searchUserData = 'search_user_data',
   listGames = 'list_games',
   getGame = 'get_game',
   createGame = 'create_game',
