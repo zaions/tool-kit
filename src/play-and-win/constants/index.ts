@@ -20,7 +20,7 @@ export const appServiceFee = (envs: any) => {
   };
 };
 
-export const playAndWinFieldsLength = {
+export const playAndWinFieldsValidation = {
   transfer: {
     maxPlayerPhoneNumber: 100,
     minPlayerPhoneNumber: 13,

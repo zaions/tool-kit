@@ -60,4 +60,6 @@ export enum ApiPathEnum {
 
   addCoinsToUserAccount = 'add_coins_to_user_account',
   removeCoinsToUserAccount = 'remove_coins_from_user_account',
+  getAdminCoinsUpdateLog = 'get_admin_coins_update_log',
+  listAdminCoinsUpdateLog = 'list_admin_coins_update_logs',
 }

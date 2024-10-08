@@ -1,11 +1,11 @@
-import { fieldsLength } from '@utils/constants/generic';
+import { fieldsValidation } from '@utils/constants/generic';
 import { appServiceFee } from '../constants';
 
 export const ztkPlayWinMessages = (envs: any) => {
   return {
     validation: {
       selectMinimumOneOption: 'Select minimum one option.',
-      phoneNumberLengthError: `Phone number must be ${fieldsLength.generic.phoneNumber.max.val} digits.`,
+      phoneNumberLengthError: `Phone number must be ${fieldsValidation.generic.phoneNumber.max.val} digits.`,
       minReferralCodeError: 'Referral code must be at least 6 digits.',
       withdrawOptionsRequired: 'Withdraw options are required.',
       passwordNotMatchError: 'The password did not match.',
@@ -24,7 +24,7 @@ export const ztkPlayWinMessages = (envs: any) => {
         appServiceFee(envs)?.transfer?.minTransferAmountAllowed
       }`,
       phoneNumberMustStartWithCode: 'Phone number must start with +92',
-      notificationDescriptionLengthError: `Description must contain at most ${fieldsLength.generic.description.short.max} character(s).`,
+      notificationDescriptionLengthError: `Description must contain at most ${fieldsValidation.generic.description.short.max} character(s).`,
     },
 
     game: {

@@ -34,7 +34,7 @@ export const urlTarget = {
   blank: '_blank',
 } as const;
 
-export const fieldsLength = {
+export const fieldsValidation = {
   generic: {
     title: {
       min: {

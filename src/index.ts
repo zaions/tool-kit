@@ -38,7 +38,7 @@ export {
   apiConstants,
   dayjs,
   defaultValue,
-  fieldsLength,
+  fieldsValidation,
 } from './utils/constants/generic';
 export { permissionsData } from './utils/constants/permissions';
 export { rolePermissionsMap } from './utils/constants/rolePermissionsConstants';
