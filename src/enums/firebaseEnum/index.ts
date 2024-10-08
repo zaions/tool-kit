@@ -126,6 +126,7 @@ export enum DBColumnKeysShortFormEnum {
   // Transfer Coins
   userRemarks = 'urs',
   otherPlayerPhoneNumber = 'oppn',
+  otherPlayerName = 'opn',
 
   // AppUserLog
   totalTopupCoins = 'ttcs',

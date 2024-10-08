@@ -137,6 +137,7 @@ export enum FormFieldsEnum {
 
   // Transfer Coins
   otherPlayerPhoneNumber = 'otherPlayerPhoneNumber',
+  otherPlayerName = 'otherPlayerName',
   userRemarks = 'userRemarks',
 
   // generic
