@@ -169,6 +169,9 @@ export enum FormFieldsEnum {
   lastGameRoomReleasedForThisPlayerAt = 'lastGameRoomReleasedForThisPlayerAt',
   totalGameRoomReleasedByThisAdminUser = 'totalGameRoomReleasedByThisAdminUser',
   lastGameRoomReleasedByThisAdminUserAt = 'lastGameRoomReleasedByThisAdminUserAt',
+  totalCoinsEarnedAsGameRoomEngager = 'totalCoinsEarnedAsGameRoomEngager', // what this user gets as "earnedGameRoomEngagerFee"
+  totalGameRoomsCompletedAsEngager = 'totalGameRoomsCompletedAsEngager',
+  lastGameRoomsCompletedAsEngagerAt = 'lastGameRoomsCompletedAsEngagerAt',
 
   // InApp Notifications
   icon = 'icon',

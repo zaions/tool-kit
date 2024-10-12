@@ -149,6 +149,9 @@ export enum DBColumnKeysShortFormEnum {
   lastGameRoomReleasedForThisPlayerAt = 'tgrrftpat',
   totalGameRoomReleasedByThisAdminUser = 'tgrrbtau',
   lastGameRoomReleasedByThisAdminUserAt = 'tgrrbtauat',
+  totalCoinsEarnedAsGameRoomEngager = 'tcseagre', // what this user gets as "earnedGameRoomEngagerFee"
+  totalGameRoomsCompletedAsEngager = 'tgrcae',
+  lastGameRoomsCompletedAsEngagerAt = 'lgrcaeat',
 
   // InApp Notifications
   icon = 'ic',

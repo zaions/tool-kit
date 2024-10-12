@@ -17,6 +17,7 @@ export enum PlayerBalanceUpdateRequestTypeEnum {
   lostGameRoom = 7,
   coinsAddedByAdmin = 8,
   coinsRemovedByAdmin = 9,
+  earnedGameRoomEngagerFee = 10,
 }
 
 export enum InAppNotificationSendToEnum {
@@ -68,6 +69,7 @@ export enum TransactionTypeEnum {
   lostGameRoom = 7,
   coinsAddedByAdmin = 8,
   coinsRemovedByAdmin = 9,
+  earnedGameRoomEngagerFee = 10,
 }
 
 export enum CoinManagementActionEnum {
