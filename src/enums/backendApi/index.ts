@@ -55,9 +55,10 @@ export enum ApiPathEnum {
   getUserSpecificInInAppNotifications = 'get_user_specific_in_app_notifications',
   getUserRoleSpecificInAppNotifications = 'get_user_role_specific_in_app_notifications',
   listRoles = 'list_roles',
-  deleteRoles = 'delete_roles',
-  updateRoles = 'update_roles',
-  createRoles = 'create_roles',
+  getRole = 'get_role',
+  deleteRole = 'delete_role',
+  updateRole = 'update_role',
+  createRole = 'create_role',
 
   addCoinsToUserAccount = 'add_coins_to_user_account',
   removeCoinsToUserAccount = 'remove_coins_from_user_account',

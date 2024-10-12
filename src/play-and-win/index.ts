@@ -1,5 +1,6 @@
 export {
   appServiceFee,
+  playAndWinAppTerms,
   playAndWinFieldsValidation,
   timeLimits,
 } from './constants';
