@@ -1,3 +1,5 @@
+import { checkForDuplicateEnumValues } from '@utils/helpers/generic';
+
 export enum ApiPathEnum {
   register = 'register',
   login = 'login',
@@ -65,3 +67,5 @@ export enum ApiPathEnum {
   getAdminCoinsUpdateLog = 'get_admin_coins_update_log',
   listAdminCoinsUpdateLog = 'list_admin_coins_update_logs',
 }
+
+checkForDuplicateEnumValues(ApiPathEnum, 'duplicate values in ApiPathEnum');

@@ -1,5 +1,12 @@
 export { configureZTK } from './configure';
-export { ApiPathEnum } from './enums/backendApi/index';
+export { ApiPathEnum } from './enums/backendApi';
+export {
+  CapacitorPlatformEnum,
+  GeoLocationPermissionStateEnum,
+  GeoLocationResponseCodeEnum,
+} from './enums/capacitorApis';
+export { AlertTypeEnum } from './enums/components/alert';
+export { CharTypeEnum } from './enums/components/charts';
 export {
   DBColumnKeysShortFormEnum,
   FrbOrderbyDirectionEnum,
@@ -18,7 +25,9 @@ export {
   ResponseStatusEnum,
   SearchParamKeysEnum,
   TransferMethodEnum,
+  varTypesEnum,
 } from './enums/generic';
+export { AddressComponentTypeEnum } from './enums/googleApi';
 export {
   PermissionEnum,
   PermissionTypeEnum,
@@ -36,9 +45,13 @@ export { apiHeaderKeys } from './utils/constants/apiConstants';
 export { frbCollectionQueryDefaults } from './utils/constants/firebaseConstants';
 export {
   apiConstants,
+  dateFormat,
   dayjs,
   defaultValue,
   fieldsValidation,
+  timeUnitType,
+  urlParams,
+  urlTarget,
 } from './utils/constants/generic';
 export { permissionsData } from './utils/constants/permissions';
 export { rolePermissionsMap } from './utils/constants/rolePermissionsConstants';
@@ -93,5 +106,4 @@ export {
   transferMethodVal,
   userRoleEnumVal,
 } from './validationEvalEnums';
-
 export { numericEnum } from './validationSchema';
