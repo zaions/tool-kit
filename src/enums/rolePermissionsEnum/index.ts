@@ -202,10 +202,14 @@ export enum PermissionTypeEnum {
 // Check for duplicates
 checkForDuplicateEnumValues(RoleEnum, 'Duplicate RoleEnum value found:');
 checkForDuplicateEnumValues(
+  PermissionEnum,
+  'Duplicate PermissionEnum value found:'
+);
+checkForDuplicateEnumValues(
   _UserRoleEnum,
   'Duplicate _UserRoleEnum value found:'
 );
 checkForDuplicateEnumValues(
-  PermissionEnum,
-  'Duplicate PermissionEnum value found:'
+  PermissionTypeEnum,
+  'Duplicate PermissionTypeEnum value found:'
 );

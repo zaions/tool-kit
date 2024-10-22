@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "npm run unlink-packages && tsup --watch",
     "build": "npm run unlink-packages && tsup",
-    "test": "npm run unlink-packages && vitest",
+    "test:vitest": "npm run unlink-packages && vitest",
+    "test": "node ./tests/index.js",
     "update:linked-packages": "yarn install --force",
     "unlink-packages": "yarn install --force",
     "push:code": "git add . && git commit -m 'logic updated, taking code backup' && git push -u o main",
