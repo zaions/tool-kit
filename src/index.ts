@@ -1,6 +1,7 @@
 export { configureZTK } from './configure/index';
 
 export {
+  _UserRoleEnum,
   AddressComponentTypeEnum,
   AlertTypeEnum,
   ApiPathEnum,
@@ -26,7 +27,6 @@ export {
   RoleEnum,
   SearchParamKeysEnum,
   TransferMethodEnum,
-  _UserRoleEnum,
   varTypesEnum,
 } from './enums/index';
 
@@ -43,10 +43,8 @@ export {
 } from './types/index';
 
 export {
-  ZTotalPages,
   apiConstants,
   apiHeaderKeys,
-  checkForDuplicateEnumValues,
   convertToDateTimestampToStoreInDB,
   convertToTitleCase,
   dateFormat,
@@ -61,8 +59,8 @@ export {
   fieldsValidation,
   frbCollectionQueryDefaults,
   generateUniqueCode,
-  getDBTimeColumnValue,
   getDateFromFrbTimestamp,
+  getDBTimeColumnValue,
   getPermissions,
   getRemainingTimeForCountDown,
   getUserRoleEnumValueFromString,
@@ -91,6 +89,7 @@ export {
   zJsonParse,
   zStringify,
   ztkMessages,
+  ZTotalPages,
 } from './utils/index';
 
 export {
@@ -102,3 +101,7 @@ export {
   userRoleEnumVal,
 } from './validationEvalEnums/index';
 export { numericEnum } from './validationSchema/index';
+
+import { checkForDuplicateEnumValues } from './utils/index';
+
+export { checkForDuplicateEnumValues };

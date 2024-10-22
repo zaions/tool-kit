@@ -19,8 +19,6 @@ export {
 export { decryptData, encryptData } from './helpers/encryptDecrypt';
 export { reportCustomError } from './helpers/errorHandler';
 export {
-  ZTotalPages,
-  checkForDuplicateEnumValues,
   convertToTitleCase,
   dbItemIsBlocked,
   dumpValueNoLogNothing,
@@ -43,6 +41,7 @@ export {
   zConvertToBoolean,
   zJsonParse,
   zStringify,
+  ZTotalPages,
 } from './helpers/generic';
 export {
   getPermissions,
@@ -55,3 +54,7 @@ export {
   validateURL,
 } from './helpers/validators';
 export { ztkMessages } from './messages';
+
+import { checkForDuplicateEnumValues } from './helpers/generic/index';
+
+export { checkForDuplicateEnumValues };
