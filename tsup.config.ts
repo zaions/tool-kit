@@ -11,7 +11,7 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   ignoreWatch: ['node_modules', '.history', '*ignore*', '.vscode', '.git'],
-  minify: false,
+  minify: true,
   outDir: './dist',
   tsconfig: './tsconfig.json',
   treeshake: true,
