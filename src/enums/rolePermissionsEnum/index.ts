@@ -1,4 +1,4 @@
-import { checkForDuplicateEnumValues } from '@utils/helpers/generic';
+import { checkForDuplicateEnumValues } from '@utils/index';
 
 export enum RoleEnum {
   superAdmin = 1,

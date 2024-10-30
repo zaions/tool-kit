@@ -1,10 +1,10 @@
-export {
+export type {
   GetCapGeoLocationApiDataResponse,
   PlatformData,
 } from './capacitorApisTypes';
-export {
+export type {
   DBItemGenericDataType,
   FormItemGenericDataType,
   IFrbCollectionQueryItem,
 } from './firebaseTypes';
-export { IDefaultDBColumns, IGenericObject } from './genericTypes';
+export type { IDefaultDBColumns, IGenericObject } from './genericTypes';

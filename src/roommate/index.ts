@@ -17,10 +17,10 @@ export {
   TimeUnitEnum,
   WorkScheduleEnum,
 } from './enums';
-export { IRegisterFormData } from './types/formInputDataTypes';
-export { IHobby } from './types/hobbies';
-export { ILifeStyle } from './types/lifeStyle';
-export {
+export type { IRegisterFormData } from './types/formInputDataTypes';
+export type { IHobby } from './types/hobbies';
+export type { ILifeStyle } from './types/lifeStyle';
+export type {
   IHouseInfo,
   IMinimumLease,
   IOtherRequirements,
@@ -33,8 +33,8 @@ export {
   IPlaceSharingUnit,
   IRent,
 } from './types/place';
-export { IRoomPreference, IRoommatePreference } from './types/preference';
-export { IRoommateUser, IUserInfo, IUserPreference } from './types/user';
+export type { IRoomPreference, IRoommatePreference } from './types/preference';
+export type { IRoommateUser, IUserInfo, IUserPreference } from './types/user';
 export {
   agreementStatusVal,
   buildingTypeVal,

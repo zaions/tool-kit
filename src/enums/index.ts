@@ -17,7 +17,7 @@ export {
   LinkTargetEnum,
   ProcessStatusEnum,
   QueryKeyTypeEnum,
-  RequestContentType,
+  RequestContentTypeEnum,
   RequestStatusEnum,
   RequestTypeEnum,
   ResponseCodeEnum,

@@ -5,7 +5,7 @@
  * - for plural names, make sure to add "s" in the end and for singular names, it should not end with "s"
  * */
 
-import { checkForDuplicateEnumValues } from '@utils/helpers/generic';
+import { checkForDuplicateEnumValues } from '@utils/index';
 
 export enum DBColumnKeysShortFormEnum {
   // Keys defined in "Generic Form Fields Enum"

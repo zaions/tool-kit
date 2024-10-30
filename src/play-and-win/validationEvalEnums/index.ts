@@ -1,6 +1,6 @@
 import { CoinManagementActionEnum } from '../enums';
 
-export const coinManagementActionVal = [
+export const coinManagementActionVal: readonly [
   CoinManagementActionEnum.add,
-  CoinManagementActionEnum.remove,
-] as const;
+  CoinManagementActionEnum.remove
+] = [CoinManagementActionEnum.add, CoinManagementActionEnum.remove] as const;

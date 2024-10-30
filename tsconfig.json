@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "target": "ES2017",
+    "module": "ES2020",
+    "moduleResolution": "Bundler",
 
-    "baseUrl": "./",
+    "rootDir": ".",
+    "baseUrl": ".",
     "paths": {
       "@types/*": ["./src/types/*"],
       "@enums/*": ["./src/enums/*"],
@@ -21,11 +22,13 @@
 
     "esModuleInterop": true,
 
-    "forceConsistentCasingInFileNames": true,
-
+    "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "strict": true,
-
-    "skipLibCheck": true /* Skip type checking all .d.ts files. */
+    "isolatedDeclarations": true, // very useful, this will check if we have set the return type for our functions making them more type safe
+    "isolatedModules": true, // very useful, when this setting is enabled, we are forced to use "import type" or "export type" when working with types definitions
+    "experimentalDecorators": true,
+    "alwaysStrict": true,
+    "diagnostics": true
   },
   "compileOnSave": true,
   "exclude": ["node_modules", ".history", "*ignore*", ".vscode", ".git"],

@@ -1,6 +1,24 @@
 import { BalanceUpdateTypeEnum } from '../enums';
 
-export const appServiceFee = (envs: any) => {
+export const appServiceFee = (
+  envs: any
+): {
+  gameRoom: {
+    leaveFee: {
+      amount: number;
+      type: BalanceUpdateTypeEnum;
+    };
+  };
+  topup: {
+    minTopupAmountAllowed: number;
+  };
+  withdraw: {
+    minWithdrawAmountAllowed: number;
+  };
+  transfer: {
+    minTransferAmountAllowed: number;
+  };
+} => {
   return {
     gameRoom: {
       leaveFee: {

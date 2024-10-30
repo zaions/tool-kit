@@ -25,7 +25,7 @@ export enum ResponseStatusEnum {
   unAuthorized = 403,
   tooManyRequests = 429,
   invalidRequest = 410,
-  itemExists = 400,
+  itemExists = 10001,
 }
 export enum RequestTypeEnum {
   get = 'get',
@@ -39,7 +39,7 @@ export enum LinkTargetEnum {
 export enum SearchParamKeysEnum {
   encryptedDataSearchParam = 's',
 }
-export enum RequestContentType {
+export enum RequestContentTypeEnum {
   Json = 'application/json',
   FormData = 'multipart/form-data',
 }
@@ -95,8 +95,8 @@ checkForDuplicateEnumValues(
   'duplicate values in SearchParamKeysEnum'
 );
 checkForDuplicateEnumValues(
-  RequestContentType,
-  'duplicate values in RequestContentType'
+  RequestContentTypeEnum,
+  'duplicate values in RequestContentTypeEnum'
 );
 checkForDuplicateEnumValues(
   RequestStatusEnum,

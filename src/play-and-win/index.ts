@@ -18,9 +18,9 @@ export {
 } from './enums';
 
 export { ztkPlayWinMessages } from './messages';
-export { IAppUserRole } from './types/appUserRoleAndPermissions';
-export { ICoinManagement } from './types/coinManagement';
-export {
+export type { IAppUserRole } from './types/appUserRoleAndPermissions';
+export type { ICoinManagement } from './types/coinManagement';
+export type {
   IAppUserRoleFormData,
   ICoinsUpdateFormData,
   IGameFormData,
@@ -34,12 +34,12 @@ export {
   IUpdateUserFormData,
   IWithdrawRequestFormData,
 } from './types/formInputDataTypes';
-export { IGame } from './types/game';
-export { IInAppNotification } from './types/notifications';
-export { IGameRoom, IGameRoomSearchReqInputData } from './types/room';
-export { ITopUp, ITopupRequest } from './types/topups';
-export { ITransaction } from './types/transactionTypes';
-export { ITransferCoin } from './types/transferCoin';
-export { IUser } from './types/user';
-export { IWithdraw, IWithdrawRequest } from './types/withdraw';
+export type { IGame } from './types/game';
+export type { IInAppNotification } from './types/notifications';
+export type { IGameRoom, IGameRoomSearchReqInputData } from './types/room';
+export type { ITopUp, ITopupRequest } from './types/topups';
+export type { ITransaction } from './types/transactionTypes';
+export type { ITransferCoin } from './types/transferCoin';
+export type { IUser } from './types/user';
+export type { IWithdraw, IWithdrawRequest } from './types/withdraw';
 export { coinManagementActionVal } from './validationEvalEnums';

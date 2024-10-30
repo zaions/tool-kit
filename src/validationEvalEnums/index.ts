@@ -3,26 +3,33 @@ import {
   QueryKeyTypeEnum,
   RequestStatusEnum,
   TransferMethodEnum,
-} from "@enums/generic";
-import { _UserRoleEnum } from "@enums/rolePermissionsEnum";
-import { InAppNotificationSendToEnum } from "src/play-and-win";
+} from '@enums/generic';
+import { _UserRoleEnum } from '@enums/rolePermissionsEnum';
+import { InAppNotificationSendToEnum } from 'src/play-and-win';
 
-export const requestStatusVal = [
+export const requestStatusVal: readonly [
   RequestStatusEnum.approved,
-  RequestStatusEnum.rejected,
-] as const;
+  RequestStatusEnum.rejected
+] = [RequestStatusEnum.approved, RequestStatusEnum.rejected] as const;
 
-export const transferMethodVal = [
+export const transferMethodVal: readonly [
   TransferMethodEnum.easypaisa,
-  TransferMethodEnum.jazzcash,
-] as const;
+  TransferMethodEnum.jazzcash
+] = [TransferMethodEnum.easypaisa, TransferMethodEnum.jazzcash] as const;
 
-export const selectorEnumVal = [
+export const selectorEnumVal: readonly [
   QueryKeyTypeEnum.id,
-  QueryKeyTypeEnum.roomCode,
-] as const;
+  QueryKeyTypeEnum.roomCode
+] = [QueryKeyTypeEnum.id, QueryKeyTypeEnum.roomCode] as const;
 
-export const inAppNotificationsSendToEnumVal = [
+export const inAppNotificationsSendToEnumVal: readonly [
+  InAppNotificationSendToEnum.allUsers,
+  InAppNotificationSendToEnum.allAdmins,
+  InAppNotificationSendToEnum.allEngagers,
+  InAppNotificationSendToEnum.allPlayers,
+  InAppNotificationSendToEnum.allEngagersAndPlayers,
+  InAppNotificationSendToEnum.specificUsers
+] = [
   InAppNotificationSendToEnum.allUsers,
   InAppNotificationSendToEnum.allAdmins,
   InAppNotificationSendToEnum.allEngagers,
@@ -31,7 +38,16 @@ export const inAppNotificationsSendToEnumVal = [
   InAppNotificationSendToEnum.specificUsers,
 ] as const;
 
-export const userRoleEnumVal = [
+export const userRoleEnumVal: readonly [
+  _UserRoleEnum.superAdmin,
+  _UserRoleEnum.admin,
+  _UserRoleEnum.manager,
+  _UserRoleEnum.editor,
+  _UserRoleEnum.creator,
+  _UserRoleEnum.reviewer,
+  _UserRoleEnum.player,
+  _UserRoleEnum.engager
+] = [
   _UserRoleEnum.superAdmin,
   _UserRoleEnum.admin,
   _UserRoleEnum.manager,
@@ -42,4 +58,7 @@ export const userRoleEnumVal = [
   _UserRoleEnum.engager,
 ] as const;
 
-export const booleanEnumVal = [BooleanEnum.false, BooleanEnum.true];
+export const booleanEnumVal: BooleanEnum[] = [
+  BooleanEnum.false,
+  BooleanEnum.true,
+];
