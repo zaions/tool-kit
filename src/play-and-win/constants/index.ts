@@ -35,7 +35,7 @@ export const appServiceFee = (
     transfer: {
       minTransferAmountAllowed: envs.isDevelopment ? 1 : 100, // this affects the createWithdrawRequest api request validation
     },
-  };
+  } as const;
 };
 
 export const playAndWinFieldsValidation = {
@@ -43,12 +43,12 @@ export const playAndWinFieldsValidation = {
     maxPlayerPhoneNumber: 100,
     minPlayerPhoneNumber: 13,
   },
-};
+} as const;
 
 export const timeLimits = {
   engagerStartTime: 15, // default 15 Minutes
   playerJoinTime: 5, // default 5 Minutes
-};
+} as const;
 
 export const playAndWinAppTerms = {
   user: {
