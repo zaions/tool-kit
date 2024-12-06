@@ -19,28 +19,33 @@ export {
 } from './enums';
 
 export { ztkPlayWinMessages } from './messages';
-export type { IAppUserRole } from './types/appUserRoleAndPermissions';
-export type { ICoinManagement } from './types/coinManagement';
 export type {
+  IAppUserRole,
   IAppUserRoleFormData,
+  ICoinManagement,
   ICoinsUpdateFormData,
+  IGame,
   IGameFormData,
+  IGameRoom,
   IGameRoomFormData,
+  IGameRoomSearchReqInputData,
+  IInAppNotification,
   IInAppNotificationFormData,
   ILoginFormData,
   IPlayerIdFormData,
   IRegisterFormData,
+  IThirdPartyAppData,
+  IThirdPartyAppsData,
+  ITopUp,
+  ITopupRequest,
   ITopupRequestFormData,
+  ITransaction,
+  ITransferCoin,
   ITransferCoinsRequestFormData,
   IUpdateUserFormData,
+  IUser,
+  IWithdraw,
+  IWithdrawRequest,
   IWithdrawRequestFormData,
-} from './types/formInputDataTypes';
-export type { IGame } from './types/game';
-export type { IInAppNotification } from './types/notifications';
-export type { IGameRoom, IGameRoomSearchReqInputData } from './types/room';
-export type { ITopUp, ITopupRequest } from './types/topups';
-export type { ITransaction } from './types/transactionTypes';
-export type { ITransferCoin } from './types/transferCoin';
-export type { IUser } from './types/user';
-export type { IWithdraw, IWithdrawRequest } from './types/withdraw';
+} from './types';
 export { coinManagementActionVal } from './validationEvalEnums';

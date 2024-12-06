@@ -274,6 +274,9 @@ export enum FormFieldsEnum {
 
   // Ahsan - on 5-12-24
   gameType = 'gameType',
+  thirdPartyAppsData = 'thirdPartyAppsData',
+  thirdPartyAppData = 'thirdPartyAppData',
+  pubgAppId = 'pubgAppId',
 }
 
 checkForDuplicateEnumValues(

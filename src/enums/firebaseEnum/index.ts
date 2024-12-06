@@ -256,6 +256,9 @@ export enum DBColumnKeysShortFormEnum {
 
   // Ahsan - on 5-12-24
   gameType = 'gt',
+  thirdPartyAppsData = 'tpasd',
+  thirdPartyAppData = 'tpad',
+  pubgAppId = 'pgai',
 }
 
 export enum FrbOrderbyDirectionEnum {
