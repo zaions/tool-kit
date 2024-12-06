@@ -271,6 +271,9 @@ export enum FormFieldsEnum {
   furnished = 'furnished',
   benefits = 'benefits',
   otherBenefits = 'otherBenefits',
+
+  // Ahsan - on 5-12-24
+  gameType = 'gameType',
 }
 
 checkForDuplicateEnumValues(

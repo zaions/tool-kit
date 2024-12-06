@@ -52,19 +52,16 @@ export {
   dateFormat,
   dayjs,
   dbItemIsBlocked,
-  decryptData,
   defaultValue,
   dumpValueNoLogNothing,
   emptyVoidReturnFunction,
   emptyVoidReturnFunctionPromise,
-  encryptData,
   fieldsValidation,
   frbCollectionQueryDefaults,
   generateUniqueCode,
   getDBTimeColumnValue,
   getDateFromFrbTimestamp,
   getPermissions,
-  getRemainingTimeForCountDown,
   getUserRoleEnumValueFromString,
   getZUniqueKey,
   imageUrlToBase64,
@@ -101,7 +98,6 @@ export {
   transferMethodVal,
   userRoleEnumVal,
 } from './validationEvalEnums/index';
-export { numericEnum } from './validationSchema/index';
 
 export {
   arrayMoveImmutable,

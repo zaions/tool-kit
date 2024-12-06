@@ -70,6 +70,9 @@ export enum CoinManagementActionEnum {
   add = 0,
   remove = 1,
 }
+export enum GameTypeEnum {
+  pubg = 1,
+}
 checkForDuplicateEnumValues(
   BalanceUpdateActionEnum,
   'duplicate values in BalanceUpdateActionEnum'
@@ -110,3 +113,4 @@ checkForDuplicateEnumValues(
   CoinManagementActionEnum,
   'duplicate values in CoinManagementActionEnum'
 );
+checkForDuplicateEnumValues(GameTypeEnum, 'duplicate values in GameTypeEnum');

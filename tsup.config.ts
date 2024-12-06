@@ -5,6 +5,9 @@ export default defineConfig({
     'src/index.ts',
     './src/play-and-win/index.ts',
     './src/roommate/index.ts',
+    './src/require-package/crypto-js/index.ts',
+    './src/require-package/dayjs/index.ts',
+    './src/require-package/zod/index.ts',
   ],
   format: ['cjs', 'esm'], // Build for commonJS and ESmodules
   dts: true, // Generate declaration file (.d.ts)

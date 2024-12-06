@@ -1,4 +1,4 @@
-import { z as ZOD, ZodType } from "zod";
+import { z as ZOD, ZodType } from 'zod';
 
 export function numericEnum<TValues extends readonly number[]>(
   values: TValues

@@ -1,5 +1,9 @@
 export { checkForDuplicateEnumValues } from './helpers/helpersNeedToLoadBeforeTheyGetUsed/index';
 
+export {
+  convertToDateTimestampToStoreInDB,
+  getDateFromFrbTimestamp,
+} from '../require-package/dayjs';
 export { apiHeaderKeys } from './constants/apiConstants';
 export { frbCollectionQueryDefaults } from './constants/firebaseConstants';
 export {
@@ -14,11 +18,6 @@ export {
 } from './constants/generic';
 export { permissionsData } from './constants/permissions';
 export { rolePermissionsMap } from './constants/rolePermissionsConstants';
-export {
-  convertToDateTimestampToStoreInDB,
-  getDateFromFrbTimestamp,
-} from './helpers/dateTimeHelpers';
-export { decryptData, encryptData } from './helpers/encryptDecrypt';
 export { reportCustomError } from './helpers/errorHandler';
 export {
   ZTotalPages,
@@ -29,7 +28,6 @@ export {
   emptyVoidReturnFunctionPromise,
   generateUniqueCode,
   getDBTimeColumnValue,
-  getRemainingTimeForCountDown,
   getZUniqueKey,
   imageUrlToBase64,
   isArray,

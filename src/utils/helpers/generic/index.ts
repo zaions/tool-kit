@@ -1,11 +1,9 @@
 import { DBColumnKeysShortFormEnum } from '@enums/firebaseEnum';
 import { RequestContentTypeEnum } from '@enums/generic';
 import { apiConstants } from '@utils/constants/generic';
-import { default as dayjs } from 'dayjs';
+import { getDateFromFrbTimestamp } from '../../../require-package/dayjs';
 import { DBItemGenericDataType } from '../../../types/firebaseTypes'; // will need to study this, the absolute import was giving error
 import { IGenericObject } from '../../../types/genericTypes';
-import { getDateFromFrbTimestamp } from '../dateTimeHelpers';
-import { reportCustomError } from '../errorHandler';
 
 /**
  * Generates a unique random key.
@@ -152,38 +150,6 @@ export const ZTotalPages = (total: number, perPage: number): number => {
     return Math.ceil(total / perPage);
   }
   return 0;
-};
-
-/**
- * Calculates the remaining time in milliseconds for a countdown based on the provided end date.
- *
- * @param {string | undefined} countDownTimeFinishDate - The end date for the countdown in string format.
- *
- * @returns {number} The remaining time in milliseconds. If the date is invalid or not provided, returns 0.
- */
-export const getRemainingTimeForCountDown = (
-  countDownTimeFinishDate: string | undefined
-): number => {
-  try {
-    if (isZNonEmptyString(countDownTimeFinishDate)) {
-      const endDate = dayjs(countDownTimeFinishDate);
-      if (endDate.isValid()) {
-        const remainingTimeInMilliSeconds = endDate.diff(
-          dayjs(new Date()),
-          'milliseconds'
-        );
-
-        return Date.now() + remainingTimeInMilliSeconds;
-      } else {
-        return 0;
-      }
-    } else {
-      return 0; // time finished for countdown (as no date passed)
-    }
-  } catch (error) {
-    reportCustomError(error);
-    return 0;
-  }
 };
 
 /**

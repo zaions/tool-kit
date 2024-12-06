@@ -1,7 +1,10 @@
 import { FormFieldsEnum } from '@enums/formFieldsEnum';
 import { BooleanEnum, TransferMethodEnum } from '@enums/generic';
 import { PermissionEnum } from '@enums/rolePermissionsEnum';
-import { InAppNotificationSendToEnum } from 'src/play-and-win/enums';
+import {
+  GameTypeEnum,
+  InAppNotificationSendToEnum,
+} from 'src/play-and-win/enums';
 import { IUser } from '../user';
 
 export interface IPlayerIdFormData {
@@ -41,6 +44,7 @@ export interface IGameFormData {
   [FormFieldsEnum.image]: string;
   [FormFieldsEnum.minPlayersToStartGame]: number;
   [FormFieldsEnum.extraData]?: unknown;
+  [FormFieldsEnum.gameType]?: GameTypeEnum;
 }
 
 // Game Room Forms Data

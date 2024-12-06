@@ -9,6 +9,7 @@ export {
   BalanceUpdateTypeEnum,
   CoinManagementActionEnum,
   GameRoomStatusEnum,
+  GameTypeEnum,
   InAppNotificationSendToEnum,
   InAppNotificationStatusEnum,
   PlayerBalanceUpdateRequestTypeEnum,

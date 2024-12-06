@@ -253,6 +253,9 @@ export enum DBColumnKeysShortFormEnum {
   value = 'vle',
   actionId = 'aid',
   inputValue = 'ipv',
+
+  // Ahsan - on 5-12-24
+  gameType = 'gt',
 }
 
 export enum FrbOrderbyDirectionEnum {
