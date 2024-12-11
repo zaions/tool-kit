@@ -1,9 +1,10 @@
-import { FormFieldsEnum } from "@enums/formFieldsEnum";
+import { FormFieldsEnum } from '@enums/formFieldsEnum';
 
 export interface IGenericObject extends Record<string, any> {}
 
 export interface IDefaultDBColumns {
   [FormFieldsEnum.id]: string;
+  [FormFieldsEnum.uniqueId]?: string;
   [FormFieldsEnum.userId]?: string;
 
   [FormFieldsEnum.sortOrderNo]?: number;

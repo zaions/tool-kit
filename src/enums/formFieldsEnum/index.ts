@@ -277,6 +277,7 @@ export enum FormFieldsEnum {
   thirdPartyAppsData = 'thirdPartyAppsData',
   thirdPartyAppData = 'thirdPartyAppData',
   pubgAppId = 'pubgAppId',
+  uniqueId = 'uniqueId',
 }
 
 checkForDuplicateEnumValues(

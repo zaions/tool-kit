@@ -68,6 +68,7 @@ export enum ApiPathEnum {
   listAdminCoinsUpdateLog = 'list_admin_coins_update_logs',
 
   collectUserGameTypeRequiredData = 'collect_user_game_type_required_data',
+  runUniqueIdsSyncMigrationScriptV1 = 'run_unique_ids_sync_migration_script_v1',
 }
 
 checkForDuplicateEnumValues(ApiPathEnum, 'duplicate values in ApiPathEnum');

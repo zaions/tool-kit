@@ -259,6 +259,7 @@ export enum DBColumnKeysShortFormEnum {
   thirdPartyAppsData = 'tpasd',
   thirdPartyAppData = 'tpad',
   pubgAppId = 'pgai',
+  uniqueId = 'uqid',
 }
 
 export enum FrbOrderbyDirectionEnum {
