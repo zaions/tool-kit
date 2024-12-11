@@ -43,6 +43,7 @@ export type {
   ITransferCoinsRequestFormData,
   IUpdateUserFormData,
   IUser,
+  IUserDetail,
   IWithdraw,
   IWithdrawRequest,
   IWithdrawRequestFormData,

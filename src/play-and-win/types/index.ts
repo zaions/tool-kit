@@ -21,4 +21,5 @@ export type { ITopUp, ITopupRequest } from './topups';
 export type { ITransaction } from './transactionTypes';
 export type { ITransferCoin } from './transferCoin';
 export type { IThirdPartyAppsData, IUser } from './user';
+export type { IUserDetail } from './userDetails';
 export type { IWithdraw, IWithdrawRequest } from './withdraw';
