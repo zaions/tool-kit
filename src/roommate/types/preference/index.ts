@@ -1,4 +1,4 @@
-import { FormFieldsEnum } from "@enums/formFieldsEnum";
+import { FormFieldsEnum } from '@app-enums/formFieldsEnum';
 import {
   BuildingTypeEnum,
   CleanlinessEnum,
@@ -7,8 +7,8 @@ import {
   PetsEnum,
   PlacePreferenceEnum,
   SmokeEnum,
-} from "src/roommate/enums";
-import { IMinMax } from "../general";
+} from 'src/roommate/enums';
+import { IMinMax } from '../general';
 
 export interface IRoomPreference {
   [FormFieldsEnum.whereWantToLive]?: string;

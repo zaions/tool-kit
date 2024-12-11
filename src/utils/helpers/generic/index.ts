@@ -1,6 +1,6 @@
-import { DBColumnKeysShortFormEnum } from '@enums/firebaseEnum';
-import { RequestContentTypeEnum } from '@enums/generic';
-import { apiConstants } from '@utils/constants/generic';
+import { DBColumnKeysShortFormEnum } from '@app-enums/firebaseEnum';
+import { RequestContentTypeEnum } from '@app-enums/generic';
+import { apiConstants } from '@app-utils/constants/generic';
 import { getDateFromFrbTimestamp } from '../../../require-package/dayjs';
 import { DBItemGenericDataType } from '../../../types/firebaseTypes'; // will need to study this, the absolute import was giving error
 import { IGenericObject } from '../../../types/genericTypes';

@@ -2,7 +2,7 @@ import {
   PermissionEnum,
   RoleEnum,
   _UserRoleEnum,
-} from '@enums/rolePermissionsEnum';
+} from '@app-enums/rolePermissionsEnum';
 
 // we can not add toLowerCase here, otherwise we will not be able to get any permission afterworlds
 const permissionsStrings = Object.keys(PermissionEnum).filter((key) =>

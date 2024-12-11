@@ -1,9 +1,10 @@
-import { checkForDuplicateEnumValues } from '@utils/index';
+import { checkForDuplicateEnumValues } from '@app-utils/index';
 
 export enum FormFieldsEnum {
   // Generic/Common Form Fields
   id = 'id',
-  userId = 'userId',
+  userId = 'userId', // user db id autogenerate
+  userUniqueId = 'userUniqueId', // user uniqueId custom generated
   itemId = 'itemId',
   playerId = 'playerId',
   createdAt = 'createdAt',

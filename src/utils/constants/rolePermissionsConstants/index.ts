@@ -1,5 +1,5 @@
-import { RoleEnum } from '@enums/rolePermissionsEnum';
-import { getPermissions } from '@utils/helpers/rolePermissionsHelpers';
+import { RoleEnum } from '@app-enums/rolePermissionsEnum';
+import { getPermissions } from '@app-utils/helpers/rolePermissionsHelpers';
 
 const permissionsToExcludeForAdmin = [
   'role',

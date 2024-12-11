@@ -1,5 +1,5 @@
-import { FormFieldsEnum } from '@enums/formFieldsEnum';
-import { ProcessStatusEnum } from '@enums/generic';
+import { FormFieldsEnum } from '@app-enums/formFieldsEnum';
+import { ProcessStatusEnum } from '@app-enums/generic';
 import { IDefaultDBColumns } from 'src/types/genericTypes';
 import { ITransferCoinsRequestFormData } from '../formInputDataTypes';
 import { IUser } from '../user/index';

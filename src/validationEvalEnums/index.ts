@@ -3,8 +3,8 @@ import {
   QueryKeyTypeEnum,
   RequestStatusEnum,
   TransferMethodEnum,
-} from '@enums/generic';
-import { _UserRoleEnum } from '@enums/rolePermissionsEnum';
+} from '@app-enums/generic';
+import { _UserRoleEnum } from '@app-enums/rolePermissionsEnum';
 import { InAppNotificationSendToEnum } from 'src/play-and-win';
 
 export const requestStatusVal: readonly [

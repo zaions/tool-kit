@@ -1,4 +1,4 @@
-import { FormFieldsEnum } from '@enums/formFieldsEnum';
+import { FormFieldsEnum } from '@app-enums/formFieldsEnum';
 
 export interface IMinMax {
   [FormFieldsEnum.min]?: number;

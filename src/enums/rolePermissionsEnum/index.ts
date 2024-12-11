@@ -1,4 +1,4 @@
-import { checkForDuplicateEnumValues } from '@utils/index';
+import { checkForDuplicateEnumValues } from '@app-utils/index';
 
 export enum RoleEnum {
   superAdmin = 1,
@@ -179,6 +179,15 @@ export enum PermissionEnum {
   removeCoinsFromUserAccount = 135,
   listAdminCoinsUpdateLogs = 136,
   viewAdminCoinsUpdateLog = 137,
+
+  listUserDetails = 138,
+  viewUserDetail = 139,
+  createUserDetail = 140,
+  updateUserDetail = 141,
+  deleteUserDetail = 142,
+  forceDeleteUserDetail = 143,
+  viewTrashedUserDetails = 144,
+  viewTrashedUserDetail = 145,
 }
 
 // only used for request input data validation in register request

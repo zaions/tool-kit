@@ -1,4 +1,4 @@
-import { checkForDuplicateEnumValues } from '@utils/index';
+import { checkForDuplicateEnumValues } from '@app-utils/index';
 
 export enum CleanlinessEnum {
   superClean = 1,

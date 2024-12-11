@@ -1,4 +1,4 @@
-import { checkForDuplicateEnumValues } from '@utils/index';
+import { checkForDuplicateEnumValues } from '@app-utils/index';
 
 // Define the enum for address component types
 export enum AddressComponentTypeEnum {
