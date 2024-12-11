@@ -261,6 +261,8 @@ export enum DBColumnKeysShortFormEnum {
   pubgAppId = 'pgai',
   uniqueId = 'uqid',
   userUniqueId = 'uuqid',
+  photoURL = 'pul',
+  displayName = 'dn',
 }
 
 export enum FrbOrderbyDirectionEnum {

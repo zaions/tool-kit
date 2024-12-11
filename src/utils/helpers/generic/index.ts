@@ -301,11 +301,14 @@ export const dbItemIsBlocked = ({
   return typeof item[DBColumnKeysShortFormEnum.blockedAt] === 'number';
 };
 
-export const getDBTimeColumnValue = (
-  item: IGenericObject,
-  key: DBColumnKeysShortFormEnum
-): string | undefined => {
-  const value = item[key];
+export const getDBTimeColumnValue = ({
+  key,
+  item,
+}: {
+  item?: IGenericObject;
+  key: DBColumnKeysShortFormEnum;
+}): string | undefined => {
+  const value = item?.[key];
   if (value) {
     return getDateFromFrbTimestamp(value);
   } else {
