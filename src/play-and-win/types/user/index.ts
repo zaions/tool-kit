@@ -1,19 +1,13 @@
 import { FormFieldsEnum } from '@enums/formFieldsEnum';
 import { BooleanEnum, TransferMethodEnum } from '@enums/generic';
 import { PermissionEnum, RoleEnum } from '@enums/rolePermissionsEnum';
-import { GameTypeEnum } from 'src/play-and-win/enums';
 import { IDefaultDBColumns } from 'src/types/genericTypes';
 
-export interface IThirdPartyAppData {
-  [FormFieldsEnum.gameType]?: GameTypeEnum;
-  [FormFieldsEnum.thirdPartyAppData]?: {
+export interface IThirdPartyAppsData {
+  [FormFieldsEnum.thirdPartyAppsData]?: {
     [key: string]: string | number | boolean | undefined;
     [FormFieldsEnum.pubgAppId]?: string;
   };
-}
-
-export interface IThirdPartyAppsData {
-  [FormFieldsEnum.thirdPartyAppsData]?: IThirdPartyAppData[];
 }
 
 // Interfaces

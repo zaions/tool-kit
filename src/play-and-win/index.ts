@@ -34,7 +34,6 @@ export type {
   ILoginFormData,
   IPlayerIdFormData,
   IRegisterFormData,
-  IThirdPartyAppData,
   IThirdPartyAppsData,
   ITopUp,
   ITopupRequest,
