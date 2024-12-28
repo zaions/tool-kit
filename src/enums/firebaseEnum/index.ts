@@ -263,6 +263,20 @@ export enum DBColumnKeysShortFormEnum {
   userUniqueId = 'uuqid',
   photoURL = 'pul',
   displayName = 'dn',
+  ludoStarAppId = 'lsaid',
+  freeFireAppId = 'ffaid',
+  callOfDutyAppId = 'codaid',
+  robloxAppId = 'rxaid',
+  eightBallPoolAppId = 'ebpaid',
+  amongUsAppId = 'auaid',
+  unoAppId = 'uoaid',
+  miniMilitiaAppId = 'mmaid',
+  carromAppId = 'cmaid',
+  tennisClashAppId = 'tcaid',
+  chessAppId = 'chaid',
+  asphalt9AppId = 'a9aid',
+  golfBattleAppId = 'gbaid',
+  arenaBreakoutAppId = 'abaid',
 }
 
 export enum FrbOrderbyDirectionEnum {

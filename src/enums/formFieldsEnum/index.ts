@@ -279,6 +279,20 @@ export enum FormFieldsEnum {
   thirdPartyAppData = 'thirdPartyAppData',
   pubgAppId = 'pubgAppId',
   uniqueId = 'uniqueId',
+  ludoStarAppId = 'ludoStarAppId',
+  freeFireAppId = 'freeFireAppId',
+  callOfDutyAppId = 'callOfDutyAppId',
+  robloxAppId = 'robloxAppId',
+  eightBallPoolAppId = 'eightBallPoolAppId',
+  amongUsAppId = 'amongUsAppId',
+  unoAppId = 'unoAppId',
+  miniMilitiaAppId = 'miniMilitiaAppId',
+  carromAppId = 'carromAppId',
+  tennisClashAppId = 'tennisClashAppId',
+  chessAppId = 'chessAppId',
+  asphalt9AppId = 'asphalt9AppId',
+  golfBattleAppId = 'golfBattleAppId',
+  arenaBreakoutAppId = 'arenaBreakoutAppId',
 }
 
 checkForDuplicateEnumValues(

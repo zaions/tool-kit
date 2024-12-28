@@ -72,6 +72,20 @@ export enum CoinManagementActionEnum {
 }
 export enum GameTypeEnum {
   pubg = 1,
+  ludoStar = 2,
+  freeFire = 3,
+  callOfDuty = 4,
+  roblox = 5,
+  eightBallPool = 6,
+  amongUs = 7,
+  uno = 8,
+  miniMilitia = 9,
+  carrom = 10,
+  tennisClash = 11,
+  chess = 12,
+  asphalt9 = 13,
+  golfBattle = 14,
+  arenaBreakout = 15,
 }
 checkForDuplicateEnumValues(
   BalanceUpdateActionEnum,

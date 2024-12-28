@@ -7,6 +7,20 @@ export interface IThirdPartyAppsData {
   [FormFieldsEnum.thirdPartyAppsData]?: {
     [key: string]: string | number | boolean | undefined;
     [FormFieldsEnum.pubgAppId]?: string;
+    [FormFieldsEnum.ludoStarAppId]?: string;
+    [FormFieldsEnum.freeFireAppId]?: string;
+    [FormFieldsEnum.callOfDutyAppId]?: string;
+    [FormFieldsEnum.robloxAppId]?: string;
+    [FormFieldsEnum.eightBallPoolAppId]?: string;
+    [FormFieldsEnum.amongUsAppId]?: string;
+    [FormFieldsEnum.unoAppId]?: string;
+    [FormFieldsEnum.miniMilitiaAppId]?: string;
+    [FormFieldsEnum.carromAppId]?: string;
+    [FormFieldsEnum.tennisClashAppId]?: string;
+    [FormFieldsEnum.chessAppId]?: string;
+    [FormFieldsEnum.asphalt9AppId]?: string;
+    [FormFieldsEnum.golfBattleAppId]?: string;
+    [FormFieldsEnum.arenaBreakoutAppId]?: string;
   };
 }
 
