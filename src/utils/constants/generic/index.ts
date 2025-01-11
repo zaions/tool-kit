@@ -102,3 +102,7 @@ export const fieldsValidation = {
     },
   },
 } as const;
+
+export const svgIconTypes: string[] = ['image/svg', 'image/svg+xml'];
+
+export const allowedImageTypes = 'image/png, image/jpeg, image/gif';

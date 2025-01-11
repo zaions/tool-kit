@@ -1,6 +1,11 @@
 import { DBColumnKeysShortFormEnum } from '@enums/firebaseEnum';
 import { RequestContentTypeEnum } from '@enums/generic';
-import { apiConstants } from '@utils/constants/generic';
+import {
+  allowedImageTypes,
+  apiConstants,
+  svgIconTypes,
+} from '@utils/constants/generic';
+import { TRUNCATE_TEXT_LENGTH_SMALL } from 'src/perkforce/constants';
 import { getDateFromFrbTimestamp } from '../../../require-package/dayjs';
 import { DBItemGenericDataType } from '../../../types/firebaseTypes'; // will need to study this, the absolute import was giving error
 import { IGenericObject } from '../../../types/genericTypes';
@@ -139,6 +144,14 @@ export const convertToTitleCase = (s: string): string => {
     .toLowerCase(); // Convert the string to lowercase
 };
 
+export const convertToTitleCaseV1 = (s: string): string => {
+  return isStringVariable(s)
+    ? s.replace(/^_*(.)|_+(.)/g, (_, a, b) => {
+        return a ? a.toUpperCase() : ' ' + b.toUpperCase();
+      })
+    : s;
+};
+
 /**
  * Calculates the total number of pages based on the total number of items and items per page.
  * @param total The total number of items.
@@ -271,18 +284,10 @@ export const isNotNullOrUndefined = (value: any): boolean => {
 
 export const dumpValueNoLogNothing = (..._: any): void => {};
 
-export const isArray = ({
-  val,
-  checkLength = true,
-}: {
-  val: any;
-  checkLength?: boolean;
-}): boolean => {
-  if (typeof val === 'object' && Array.isArray(val)) {
-    return checkLength ? val.length > 0 : true;
-  } else {
-    return false;
-  }
+export const isArray = (arr: unknown, checkLength = false): boolean => {
+  const typeIsArray = isObject(arr, false) && Array.isArray(arr);
+  if (!checkLength) return typeIsArray;
+  else return typeIsArray && !!arr.length;
 };
 
 export const isSoftDeleted = ({
@@ -311,4 +316,364 @@ export const getDBTimeColumnValue = (
   } else {
     return undefined;
   }
+};
+
+export const addUrlProtocolHandler = (
+  url: string,
+  isLocalhost: boolean
+): string => {
+  if (url.search(/^http[s]?:\/\//) === -1) {
+    url = (isLocalhost ? 'http://' : 'https://') + url;
+    return url;
+  } else return url;
+};
+
+// check if given object contains key/value pairs or empty
+export const isObject = (obj: unknown, checkKeys = true): boolean => {
+  const typeIsObject =
+    typeof obj === 'object' && obj != null && typeof obj !== 'undefined';
+  if (!checkKeys) return typeIsObject;
+  else return typeIsObject && !!Object.keys(obj).length;
+};
+
+export const buildFilterObject = (
+  filter: Record<string, unknown>
+): Record<string, unknown> => {
+  if (!isObject(filter)) return {};
+
+  const result: Record<string, unknown> = {};
+
+  for (const key in filter) {
+    result.field = key;
+    result.values = filter[key];
+  }
+
+  return isArray(result.values) ? result : {};
+};
+
+export const getActiveFilters = <T = unknown>(
+  field: string,
+  filter: { field?: string; values?: T }
+): T | [] => {
+  if (filter?.field === field) {
+    return filter.values ?? [];
+  }
+
+  return [];
+};
+
+export const isValidUrl = (url: string): boolean => {
+  const re = new RegExp(
+    '^(https?:\\/\\/)?' + // protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+#]*)*' + // port and path
+      '(\\?[;&a-z\\d%_.~+#=-]*)?' + // query string
+      '(\\#[-a-z\\d_]*)?$',
+    'i'
+  ); // fragment locator
+  return re.test(url);
+};
+
+export const isValidVanityUrl = ({
+  domain,
+  url,
+}: {
+  url: string;
+  domain: string;
+}): boolean => {
+  const lowercaseUrl = url.trim().toLowerCase();
+  if (lowercaseUrl === 'www' || lowercaseUrl === domain) {
+    return false;
+  }
+
+  const re = /^((?!.*[-]{2})(?=.*[a-z0-9]$)[a-z0-9][a-z0-9-]*$)+/;
+  return re.test(url);
+};
+
+export const containSpecialCharacters = (text: string): boolean => {
+  const re = /[^A-Za-z0-9&,'"”“’‘\-(){} ]+/;
+  return re.test(text);
+};
+
+export const generateSlug = (text: String): string => {
+  const result =
+    text &&
+    text
+      .toLowerCase()
+      .replace(/&+/g, 'and')
+      .replace(/(){}/g, '')
+      .replace(/,/g, '')
+      .replace(/'/g, '')
+      .replace(/"/g, '')
+      .replace(/”/g, '')
+      .replace(/“/g, '')
+      .replace(/’/g, '')
+      .replace(/‘/g, '')
+      .replace(/[^\w ]+/g, ' ')
+      .replace(/\s{2,}/g, ' ')
+      .trim()
+      .replace(/ +/g, '-');
+  return result;
+};
+
+export const getImageBase64Url = (file: File): Promise<unknown> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+};
+
+export const containQueryParams = (url: string): boolean | '' => {
+  const queryParams = ['?', '&', '#'];
+  return url && queryParams.some((param) => url.includes(param));
+};
+
+export const getObjectKey = (
+  obj: any,
+  key: string,
+  defaultValue: any = null,
+  checkNull: boolean = true
+): any => {
+  if (checkIfKeyExists(obj, key, checkNull)) {
+    return obj[key];
+  } else {
+    return defaultValue;
+  }
+};
+
+export const checkIfKeyExists = (
+  obj: Record<string, unknown>,
+  key: string,
+  checkNull = false
+): boolean => {
+  if (
+    isObject(obj, true) &&
+    Object.hasOwnProperty.call(obj, key) &&
+    obj[key] !== undefined
+  ) {
+    return checkNull ? obj[key] !== null : true;
+  }
+  return false;
+};
+
+export const isEqual = (x: any, y: any): boolean => {
+  if (x === y) return true;
+  // if both x and y are null or undefined and exactly the same
+
+  if (!(x instanceof Object) || !(y instanceof Object)) return false;
+  // if they are not strictly equal, they both need to be Objects
+
+  if (x.constructor !== y.constructor) return false;
+  // they must have the exact same prototype chain, the closest we can do is
+  // test there constructor.
+
+  for (const p in x) {
+    if (!Object.hasOwnProperty.call(x, p)) continue;
+    // other properties were tested using x.constructor === y.constructor
+
+    if (!Object.hasOwnProperty.call(y, p)) return false;
+    // allows to compare x[p] and y[p] when set to undefined
+
+    if (x[p] === y[p]) continue;
+    // if they have the same strict value or identity then they are equal
+
+    if (typeof x[p] !== 'object') return false;
+    // Numbers, Strings, Functions, Booleans must be strictly equal
+
+    if (!isEqual(x[p], y[p])) return false;
+    // Objects and Arrays must be tested recursively
+  }
+
+  for (const p in y) {
+    if (Object.hasOwnProperty.call(y, p) && !Object.hasOwnProperty.call(x, p)) {
+      return false;
+    }
+  }
+  // allows x[p] to be set to undefined
+
+  return true;
+};
+
+export const toRad = (Value: number): number => {
+  return (Value * Math.PI) / 180;
+};
+
+// calculate distance
+export const calcCrow = (
+  lat1: number,
+  lng1: number,
+  lat2: number,
+  lng2: number
+): number => {
+  const R = 6371; // km
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lng2 - lng1);
+  lat1 = toRad(lat1);
+  lat2 = toRad(lat2);
+
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const d = R * c;
+  return d;
+};
+
+export const truncateString = (
+  text: string,
+  length: number = TRUNCATE_TEXT_LENGTH_SMALL
+): string => {
+  if (!text) return '';
+  return text && text.length > length
+    ? `${text.slice(0, length - 3)}...`
+    : text;
+};
+
+export const detectDeviceAndViewMode = (): {
+  webkitVer: number;
+  isGoogle: boolean | 0;
+  isAndroid: boolean | 0;
+  androidDesktopMode: boolean | 0;
+} => {
+  const match = /WebKit\/([0-9]+)|$/.exec(navigator.appVersion);
+  const webkitVer = match ? parseInt(match[1], 10) : 0; // also matches AppleWebKit
+  const isGoogle = webkitVer && navigator.vendor.indexOf('Google') === 0; // Also true for Opera Mobile and maybe others
+  const isAndroid = isGoogle && navigator.userAgent.indexOf('Android') > 0; // Careful - Firefox and Windows Mobile also have Android in user agent
+  const androidDesktopMode =
+    !isAndroid &&
+    isGoogle &&
+    navigator.platform.indexOf('Linux') === 0 &&
+    'ontouchstart' in document.documentElement;
+
+  return { webkitVer, isGoogle, isAndroid, androidDesktopMode };
+};
+
+export const checkEqualityOfTwoArray = (
+  arrOne: Array<unknown>,
+  arrTwo: Array<unknown>
+): boolean => {
+  const result = arrOne.every((element) => {
+    return arrTwo.includes(element);
+  });
+  return result;
+};
+
+export const isFileTypeAllowed = (file: File, type = 'svg'): boolean => {
+  if (type === 'svg') {
+    return svgIconTypes.includes(file.type.toLowerCase());
+  } else if (type === 'other') {
+    return allowedImageTypes.includes(file.type.toLowerCase());
+  }
+  return false;
+};
+
+export const getImageDimensions = async (
+  file: File
+): Promise<{ width: number; height: number } | null> => {
+  if (!file) return null;
+
+  return await new Promise((resolve) => {
+    const img = document.createElement('img');
+    const objectUrl = window.URL.createObjectURL(file);
+    let height: number, width: number;
+
+    img.onload = function (event: Event) {
+      const imageElement = event?.target as HTMLImageElement;
+      height = imageElement.naturalHeight;
+      width = imageElement.naturalWidth;
+      URL.revokeObjectURL(objectUrl);
+
+      resolve({ width, height });
+    };
+
+    img.src = objectUrl;
+  });
+};
+
+export const getImageAspectRatio = (
+  width: number,
+  height: number
+): number[] | null => {
+  // return type (aspect ratio with [width, height] [1,1])
+  if (width === height) {
+    return [1, 1];
+  } else if (width > height) {
+    return [Math.round(width / height), Math.round(height / height)];
+  } else if (width < height) {
+    return [Math.round(width / width), Math.round(height / width)];
+  } else {
+    return null;
+  }
+};
+
+export const checkVariableType = (val: unknown, type = 'string'): boolean => {
+  switch (type) {
+    case 'string':
+      return typeof val === 'string' && typeof val !== 'undefined';
+    case 'number':
+      return typeof val === 'number' && typeof val !== 'undefined';
+    case 'boolean':
+      return typeof val === 'boolean' && typeof val !== 'undefined';
+    case 'object':
+      return isObject(val, true);
+    case 'array':
+      return isArray(val, true);
+    case 'function':
+      return typeof val === 'function' && typeof val !== 'undefined';
+    case 'undefined':
+      return typeof val === 'undefined';
+    default:
+      return false;
+  }
+};
+
+export const isStringVariable = (val?: unknown): boolean => {
+  return checkVariableType(val, 'string');
+};
+
+export const isFunction = (val: unknown): boolean => {
+  return checkVariableType(val, 'function');
+};
+
+export const imageTypeAllowed = (file: any): boolean => {
+  return allowedImageTypes.includes(file?.type?.toLowerCase());
+};
+
+export const validateFileBeforeUpload = ({
+  file,
+  sizeLimit,
+}: {
+  file: File;
+  sizeLimit: number;
+}): { status: string; type: string } => {
+  // check file size
+  const fileSize = parseFloat(`${file.size / 1024 / 1024}`) > sizeLimit;
+
+  // show warning alert
+  if (fileSize) return { status: 'error', type: 'FILE_SIZE_LIMIT' } as const;
+
+  // check if selected file is valid
+  const allowed = imageTypeAllowed(file);
+
+  // show warning alert
+  if (!allowed) return { status: 'error', type: 'INVALID_FILE_TYPE' } as const;
+
+  return { status: 'success', type: 'SUCCESS' } as const;
+};
+
+export const isValidEmail = (email: string): boolean | '' => {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return email && re.test(String(email).toLowerCase());
+};
+
+export const generateUUID = (): string => {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
 };
