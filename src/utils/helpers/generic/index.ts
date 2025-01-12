@@ -677,3 +677,29 @@ export const generateUUID = (): string => {
     return v.toString(16);
   });
 };
+
+export const flattenArray = <T>(arr: any[]): T[] => {
+  return arr.reduce((flat: T[], item: any) => {
+    return flat.concat(Array.isArray(item) ? flattenArray<T>(item) : item);
+  }, []);
+};
+
+/**
+ * Normalizes a type string to match a given enum value.
+ * Handles case-insensitive matching.
+ *
+ * @template T Enum type
+ * @param {string} type - The type string to normalize
+ * @param {T} enumObject - The enum to match against
+ * @returns {T[keyof T] | null} The matched enum value or null if no match
+ */
+export const normalizeEnumValue = <T extends Record<string, string | number>>(
+  type: string,
+  enumObject: T
+): T[keyof T] | null => {
+  const normalizedType = type?.toLowerCase();
+  const matchedEntry = Object.entries(enumObject).find(
+    ([_, value]) => String(value).toLowerCase() === normalizedType
+  );
+  return matchedEntry ? (matchedEntry[1] as T[keyof T]) : null;
+};

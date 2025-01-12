@@ -7,7 +7,7 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "@types/*": ["./src/types/*"],
+      "@custom-types/*": ["./src/types/*"],
       "@enums/*": ["./src/enums/*"],
       "@utils/*": ["./src/utils/*"]
     },

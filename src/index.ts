@@ -1,6 +1,7 @@
 export { configureZTK } from './configure/index';
 
 export {
+  _UserRoleEnum,
   AddressComponentTypeEnum,
   AlertTypeEnum,
   ApiPathEnum,
@@ -14,6 +15,7 @@ export {
   GeoLocationPermissionStateEnum,
   GeoLocationResponseCodeEnum,
   LinkTargetEnum,
+  PermissionCheckModeEnum,
   PermissionEnum,
   PermissionTypeEnum,
   ProcessStatusEnum,
@@ -26,7 +28,6 @@ export {
   RoleEnum,
   SearchParamKeysEnum,
   TransferMethodEnum,
-  _UserRoleEnum,
   varTypesEnum,
 } from './enums/index';
 
@@ -39,11 +40,14 @@ export type {
   IDefaultDBColumns,
   IFrbCollectionQueryItem,
   IGenericObject,
+  IHasRequiredPermissions,
+  IUseHasRequiredPermissions,
+  IUseHasRequiredPermissionsReturn,
   PlatformData,
+  UseHasRequiredPermissionCheckPermissionType,
 } from './types/index';
 
 export {
-  ZTotalPages,
   apiConstants,
   apiHeaderKeys,
   checkForDuplicateEnumValues,
@@ -59,8 +63,8 @@ export {
   fieldsValidation,
   frbCollectionQueryDefaults,
   generateUniqueCode,
-  getDBTimeColumnValue,
   getDateFromFrbTimestamp,
+  getDBTimeColumnValue,
   getPermissions,
   getUserRoleEnumValueFromString,
   getZUniqueKey,
@@ -88,6 +92,7 @@ export {
   zJsonParse,
   zStringify,
   ztkMessages,
+  ZTotalPages,
 } from './utils/index';
 
 export {
