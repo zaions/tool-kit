@@ -1,4 +1,4 @@
-import { FormFieldsEnum } from "@enums/formFieldsEnum";
+import { FormFieldsEnum } from '@app-enums/formFieldsEnum';
 import {
   AgreementStatusEnum,
   BuildingTypeEnum,
@@ -8,9 +8,9 @@ import {
   PrivateShareEnum,
   RentInclusionsEnum,
   TimeUnitEnum,
-} from "src/roommate/enums";
-import { IDefaultDBColumns } from "src/types/genericTypes";
-import { ILocation } from "../general";
+} from 'src/roommate/enums';
+import { IDefaultDBColumns } from 'src/types/genericTypes';
+import { ILocation } from '../general';
 
 export interface IRent {
   [FormFieldsEnum.amount]?: number;

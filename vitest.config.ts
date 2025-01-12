@@ -12,9 +12,10 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@utils': path.resolve(__dirname, './src/utils'),
-      '@enums': path.resolve(__dirname, './src/enums'),
-      '@custom-types': path.resolve(__dirname, './src/types'),
+      '@app-utils': path.resolve(__dirname, './src/utils'),
+      '@app-enums': path.resolve(__dirname, './src/enums'),
+      '@app-types': path.resolve(__dirname, './src/types'),
+      '@app': path.resolve(__dirname, './src/'),
     },
   },
   define: {

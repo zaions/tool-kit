@@ -1,4 +1,4 @@
-import { PermissionEnum } from '@enums/rolePermissionsEnum';
+import { PermissionEnum } from '@app-enums/rolePermissionsEnum';
 
 export const permissionsData: {
   value: PermissionEnum;

@@ -1,10 +1,11 @@
-import { DBColumnKeysShortFormEnum } from '@enums/firebaseEnum';
-import { RequestContentTypeEnum } from '@enums/generic';
+
+import { DBColumnKeysShortFormEnum } from '@app-enums/firebaseEnum';
+import { RequestContentTypeEnum } from '@app-enums/generic';
 import {
   allowedImageTypes,
   apiConstants,
   svgIconTypes,
-} from '@utils/constants/generic';
+} from '@app-utils/constants/generic';
 import { TRUNCATE_TEXT_LENGTH_SMALL } from 'src/perkforce/constants';
 import { getDateFromFrbTimestamp } from '../../../require-package/dayjs';
 import { DBItemGenericDataType } from '../../../types/firebaseTypes'; // will need to study this, the absolute import was giving error
@@ -306,11 +307,14 @@ export const dbItemIsBlocked = ({
   return typeof item[DBColumnKeysShortFormEnum.blockedAt] === 'number';
 };
 
-export const getDBTimeColumnValue = (
-  item: IGenericObject,
-  key: DBColumnKeysShortFormEnum
-): string | undefined => {
-  const value = item[key];
+export const getDBTimeColumnValue = ({
+  key,
+  item,
+}: {
+  item?: IGenericObject;
+  key: DBColumnKeysShortFormEnum;
+}): string | undefined => {
+  const value = item?.[key];
   if (value) {
     return getDateFromFrbTimestamp(value);
   } else {

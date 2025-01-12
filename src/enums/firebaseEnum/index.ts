@@ -5,7 +5,7 @@
  * - for plural names, make sure to add "s" in the end and for singular names, it should not end with "s"
  * */
 
-import { checkForDuplicateEnumValues } from '@utils/index';
+import { checkForDuplicateEnumValues } from '@app-utils/index';
 
 export enum DBColumnKeysShortFormEnum {
   // Keys defined in "Generic Form Fields Enum"
@@ -260,6 +260,23 @@ export enum DBColumnKeysShortFormEnum {
   thirdPartyAppData = 'tpad',
   pubgAppId = 'pgai',
   uniqueId = 'uqid',
+  userUniqueId = 'uuqid',
+  photoURL = 'pul',
+  displayName = 'dn',
+  ludoStarAppId = 'lsaid',
+  freeFireAppId = 'ffaid',
+  callOfDutyAppId = 'codaid',
+  robloxAppId = 'rxaid',
+  eightBallPoolAppId = 'ebpaid',
+  amongUsAppId = 'auaid',
+  unoAppId = 'uoaid',
+  miniMilitiaAppId = 'mmaid',
+  carromAppId = 'cmaid',
+  tennisClashAppId = 'tcaid',
+  chessAppId = 'chaid',
+  asphalt9AppId = 'a9aid',
+  golfBattleAppId = 'gbaid',
+  arenaBreakoutAppId = 'abaid',
 }
 
 export enum FrbOrderbyDirectionEnum {

@@ -1,7 +1,7 @@
 import {
   DBColumnKeysShortFormEnum,
   FrbOrderbyDirectionEnum,
-} from '@enums/firebaseEnum';
+} from '@app-enums/firebaseEnum';
 
 export const frbCollectionQueryDefaults: {
   readonly limit: 100;

@@ -1,10 +1,10 @@
-import { IHasRequiredPermissions } from '@custom-types/permissions/index';
 import {
   PermissionCheckModeEnum,
   PermissionEnum,
   RoleEnum,
   _UserRoleEnum,
-} from '@enums/rolePermissionsEnum';
+} from '@app-enums/rolePermissionsEnum';
+import { IHasRequiredPermissions } from '@app-types/permissions/index';
 
 // we can not add toLowerCase here, otherwise we will not be able to get any permission afterworlds
 const permissionsStrings = Object.keys(PermissionEnum).filter((key) =>

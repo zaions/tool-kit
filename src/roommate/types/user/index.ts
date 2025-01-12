@@ -1,11 +1,11 @@
-import { FormFieldsEnum } from "@enums/formFieldsEnum";
-import { BooleanEnum } from "@enums/generic";
-import { PermissionEnum, RoleEnum } from "@enums/rolePermissionsEnum";
-import { ConstellationsEnum, GenderEnum } from "src/roommate/enums";
-import { IDefaultDBColumns } from "src/types/genericTypes";
-import { IHobby } from "../hobbies";
-import { ILifeStyle } from "../lifeStyle";
-import { IRoommatePreference, IRoomPreference } from "../preference";
+import { FormFieldsEnum } from '@app-enums/formFieldsEnum';
+import { BooleanEnum } from '@app-enums/generic';
+import { PermissionEnum, RoleEnum } from '@app-enums/rolePermissionsEnum';
+import { ConstellationsEnum, GenderEnum } from 'src/roommate/enums';
+import { IDefaultDBColumns } from 'src/types/genericTypes';
+import { IHobby } from '../hobbies';
+import { ILifeStyle } from '../lifeStyle';
+import { IRoommatePreference, IRoomPreference } from '../preference';
 
 export interface IUserInfo extends IDefaultDBColumns {
   [FormFieldsEnum.aboutMe]?: string;

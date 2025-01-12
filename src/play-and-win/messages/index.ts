@@ -1,4 +1,4 @@
-import { fieldsValidation } from '@utils/constants/generic';
+import { fieldsValidation } from '@app-utils/constants/generic';
 import { appServiceFee } from '../constants';
 
 export const ztkPlayWinMessages = (envs: any) => {

@@ -1,4 +1,4 @@
-import { PermissionCheckModeEnum } from '@enums/rolePermissionsEnum';
+import { PermissionCheckModeEnum } from '@app-enums/rolePermissionsEnum';
 
 export interface IUseHasRequiredPermissions<T> {
   requiredPermissions?: Array<T>;

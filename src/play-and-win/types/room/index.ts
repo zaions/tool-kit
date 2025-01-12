@@ -1,5 +1,5 @@
-import { FormFieldsEnum } from '@enums/formFieldsEnum';
-import { BooleanEnum, QueryKeyTypeEnum } from '@enums/generic';
+import { FormFieldsEnum } from '@app-enums/formFieldsEnum';
+import { BooleanEnum, QueryKeyTypeEnum } from '@app-enums/generic';
 import { GameRoomStatusEnum } from 'src/play-and-win/enums';
 import { IDefaultDBColumns } from 'src/types/genericTypes';
 import { IGameRoomFormData } from '../formInputDataTypes';

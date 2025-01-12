@@ -1,6 +1,6 @@
-import { FormFieldsEnum } from '@enums/formFieldsEnum';
-import { BooleanEnum, TransferMethodEnum } from '@enums/generic';
-import { PermissionEnum } from '@enums/rolePermissionsEnum';
+import { FormFieldsEnum } from '@app-enums/formFieldsEnum';
+import { BooleanEnum, TransferMethodEnum } from '@app-enums/generic';
+import { PermissionEnum } from '@app-enums/rolePermissionsEnum';
 import {
   GameTypeEnum,
   InAppNotificationSendToEnum,

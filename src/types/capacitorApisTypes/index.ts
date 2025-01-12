@@ -1,7 +1,7 @@
 import {
   CapacitorPlatformEnum,
   GeoLocationResponseCodeEnum,
-} from '@enums/capacitorApis';
+} from '@app-enums/capacitorApis';
 
 export type GetCapGeoLocationApiDataResponse = {
   coords: Partial<GeolocationCoordinates> | null;

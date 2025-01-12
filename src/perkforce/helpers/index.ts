@@ -1,5 +1,5 @@
-import { allowedImageTypes, svgIconTypes } from '@utils/constants/generic';
-import { getObjectKey, isArray, isObject } from '@utils/helpers/generic';
+import { allowedImageTypes, svgIconTypes } from '@app-utils/constants/generic';
+import { getObjectKey, isArray, isObject } from '@app-utils/helpers/generic';
 import { INTEGRATION_STATE, USER_TYPE } from '../enums';
 import { IInvite } from '../types/queryMutationTypes/invites';
 import { IUser } from '../types/queryMutationTypes/user';

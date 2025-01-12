@@ -1,5 +1,5 @@
-import { FormFieldsEnum } from "@enums/formFieldsEnum";
-import { ConstellationsEnum, GenderEnum } from "src/roommate/enums";
+import { FormFieldsEnum } from '@app-enums/formFieldsEnum';
+import { ConstellationsEnum, GenderEnum } from 'src/roommate/enums';
 
 export interface IRegisterFormData {
   [FormFieldsEnum.email]: string;

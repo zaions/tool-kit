@@ -7,9 +7,10 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "@custom-types/*": ["./src/types/*"],
-      "@enums/*": ["./src/enums/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@app-types/*": ["./src/types/*"],
+      "@app-enums/*": ["./src/enums/*"],
+      "@app-utils/*": ["./src/utils/*"],
+      "@app/*": ["./src/*"]
     },
 
     "types": ["vitest/globals", "vitest/importMeta"],
