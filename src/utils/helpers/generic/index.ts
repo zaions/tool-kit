@@ -1,4 +1,3 @@
-
 import { DBColumnKeysShortFormEnum } from '@app-enums/firebaseEnum';
 import { RequestContentTypeEnum } from '@app-enums/generic';
 import {
@@ -9,7 +8,10 @@ import {
 import { TRUNCATE_TEXT_LENGTH_SMALL } from 'src/perkforce/constants';
 import { getDateFromFrbTimestamp } from '../../../require-package/dayjs';
 import { DBItemGenericDataType } from '../../../types/firebaseTypes'; // will need to study this, the absolute import was giving error
-import { IGenericObject } from '../../../types/genericTypes';
+import {
+  IGenericObject,
+  IPaginationOptions,
+} from '../../../types/genericTypes';
 
 /**
  * Generates a unique random key.
@@ -532,8 +534,8 @@ export const truncateString = (
 ): string => {
   if (!text) return '';
   return text && text.length > length
-    ? `${text.slice(0, length - 3)}...`
-    : text;
+    ? `${text.slice(0, length)}...`
+    : text || '';
 };
 
 export const detectDeviceAndViewMode = (): {
@@ -706,4 +708,59 @@ export const normalizeEnumValue = <T extends Record<string, string | number>>(
     ([_, value]) => String(value).toLowerCase() === normalizedType
   );
   return matchedEntry ? (matchedEntry[1] as T[keyof T]) : null;
+};
+
+export const isFileTypeValid = (
+  filename: string,
+  filetype: string | RegExp
+): boolean => {
+  const pattern =
+    typeof filetype === 'string' ? new RegExp(filetype) : filetype;
+  return pattern.test(filename);
+};
+
+export const getTextOnly = (text: string): string => {
+  return (
+    text &&
+    text
+      .toLowerCase()
+      .replace(/[^\w ]+/g, '')
+      .trim()
+      .replace(/ +/g, '')
+  );
+};
+
+export const getPaginationParams = (
+  pagination: IPaginationOptions
+): {
+  offset: number;
+  limit: number;
+} => {
+  let offset = 0;
+  let limit = 10;
+
+  if (pagination) {
+    offset = pagination?.offset ?? offset;
+    limit = pagination?.limit ?? limit;
+  }
+
+  return { offset, limit };
+};
+
+export const createRegexMatch = (
+  searchQuery = ''
+): {
+  $regex: RegExp;
+} => {
+  return {
+    $regex: new RegExp(searchQuery.trim().toLowerCase(), 'i'),
+  };
+};
+
+export const formatUSD = (stripeAmount: number) => {
+  return `$${(stripeAmount / 100).toFixed(2)}`;
+};
+
+export const formatStripeAmount = (USDString: string): number => {
+  return parseFloat(USDString) * 100;
 };

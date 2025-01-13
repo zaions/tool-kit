@@ -76,6 +76,16 @@ export enum varTypesEnum {
   FUNCTION = 'function',
 }
 
+export enum PlatformTypeEnum {
+  web = 'web',
+  android = 'android',
+  ios = 'ios',
+}
+
+checkForDuplicateEnumValues(
+  PlatformTypeEnum,
+  'duplicate values in PlatformTypeEnum'
+);
 checkForDuplicateEnumValues(
   ResponseCodeEnum,
   'duplicate values in ResponseCodeEnum'
