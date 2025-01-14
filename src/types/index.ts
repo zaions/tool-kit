@@ -7,4 +7,14 @@ export type {
   FormItemGenericDataType,
   IFrbCollectionQueryItem,
 } from './firebaseTypes';
-export type { IDefaultDBColumns, IGenericObject } from './genericTypes';
+export type {
+  IDefaultDBColumns,
+  IGenericObject,
+  IPaginationOptions,
+} from './genericTypes';
+export type {
+  IHasRequiredPermissions,
+  IUseHasRequiredPermissions,
+  IUseHasRequiredPermissionsReturn,
+  UseHasRequiredPermissionCheckPermissionType,
+} from './permissions';

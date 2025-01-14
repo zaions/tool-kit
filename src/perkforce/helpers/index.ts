@@ -1,30 +1,8 @@
-import {
-  allowedImageTypes,
-  svgIconTypes,
-  TRUNCATE_TEXT_LENGTH_SMALL,
-} from '../constants';
+import { allowedImageTypes, svgIconTypes } from '@app-utils/constants/generic';
+import { getObjectKey, isArray, isObject } from '@app-utils/helpers/generic';
 import { INTEGRATION_STATE, USER_TYPE } from '../enums';
 import { IInvite } from '../types/queryMutationTypes/invites';
-import { Loc } from '../types/queryMutationTypes/profile';
 import { IUser } from '../types/queryMutationTypes/user';
-
-export const imageTypeAllowed = (file: any): boolean => {
-  return allowedImageTypes.includes(file?.type?.toLowerCase());
-};
-
-// check if given object contains key/value pairs or empty
-export const isObject = (obj: unknown, checkKeys = true): boolean => {
-  const typeIsObject =
-    typeof obj === 'object' && obj != null && typeof obj !== 'undefined';
-  if (!checkKeys) return typeIsObject;
-  else return typeIsObject && !!Object.keys(obj).length;
-};
-
-export const isArray = (arr: unknown, checkLength = false): boolean => {
-  const typeIsArray = isObject(arr, false) && Array.isArray(arr);
-  if (!checkLength) return typeIsArray;
-  else return typeIsArray && !!arr.length;
-};
 
 export const customRequest = ({
   file,
@@ -66,54 +44,6 @@ export const getActiveFilters = (
   }
 
   return [];
-};
-
-export const isValidUrl = (url: string): boolean => {
-  const re = new RegExp(
-    '^(https?:\\/\\/)?' + // protocol
-      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
-      '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
-      '(\\:\\d+)?(\\/[-a-z\\d%_.~+#]*)*' + // port and path
-      '(\\?[;&a-z\\d%_.~+#=-]*)?' + // query string
-      '(\\#[-a-z\\d_]*)?$',
-    'i'
-  ); // fragment locator
-  return re.test(url);
-};
-
-export const containSpecialCharacters = (text: string): boolean => {
-  const re = /[^A-Za-z0-9&,'"”“’‘\-(){} ]+/;
-  return re.test(text);
-};
-
-export const generateSlug = (text: String): string => {
-  const result =
-    text &&
-    text
-      .toLowerCase()
-      .replace(/&+/g, 'and')
-      .replace(/(){}/g, '')
-      .replace(/,/g, '')
-      .replace(/'/g, '')
-      .replace(/"/g, '')
-      .replace(/”/g, '')
-      .replace(/“/g, '')
-      .replace(/’/g, '')
-      .replace(/‘/g, '')
-      .replace(/[^\w ]+/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .trim()
-      .replace(/ +/g, '-');
-  return result;
-};
-
-export const getImageBase64Url = (file: any): Promise<unknown> => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
 };
 
 export const showPause = (
@@ -178,11 +108,6 @@ export const showResume = (
   return false;
 };
 
-export const containQueryParams = (url: string): boolean | '' => {
-  const queryParams = ['?', '&', '#'];
-  return url && queryParams.some((param) => url.includes(param));
-};
-
 export const getCompanyText = (
   userData: IUser
 ): 'Business' | 'College' | 'Company' | 'Member of staff' | 'Student' => {
@@ -207,163 +132,6 @@ export const getCompanyText = (
   }
 };
 
-export const isEqual = (x: any, y: any): boolean => {
-  if (x === y) return true;
-  // if both x and y are null or undefined and exactly the same
-
-  if (!(x instanceof Object) || !(y instanceof Object)) return false;
-  // if they are not strictly equal, they both need to be Objects
-
-  if (x.constructor !== y.constructor) return false;
-  // they must have the exact same prototype chain, the closest we can do is
-  // test there constructor.
-
-  for (const p in x) {
-    if (!Object.hasOwnProperty.call(x, p)) continue;
-    // other properties were tested using x.constructor === y.constructor
-
-    if (!Object.hasOwnProperty.call(y, p)) return false;
-    // allows to compare x[p] and y[p] when set to undefined
-
-    if (x[p] === y[p]) continue;
-    // if they have the same strict value or identity then they are equal
-
-    if (typeof x[p] !== 'object') return false;
-    // Numbers, Strings, Functions, Booleans must be strictly equal
-
-    if (!isEqual(x[p], y[p])) return false;
-    // Objects and Arrays must be tested recursively
-  }
-
-  for (const p in y) {
-    if (Object.hasOwnProperty.call(y, p) && !Object.hasOwnProperty.call(x, p)) {
-      return false;
-    }
-  }
-  // allows x[p] to be set to undefined
-
-  return true;
-};
-
-export const toRad = (Value: number): number => {
-  return (Value * Math.PI) / 180;
-};
-
-// calculate distance
-export const calcCrow = (
-  lat1: number,
-  lng1: number,
-  lat2: number,
-  lng2: number
-): number => {
-  const R = 6371; // km
-  const dLat = toRad(lat2 - lat1);
-  const dLon = toRad(lng2 - lng1);
-  lat1 = toRad(lat1);
-  lat2 = toRad(lat2);
-
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.sin(dLon / 2) * Math.sin(dLon / 2) * Math.cos(lat1) * Math.cos(lat2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  const d = R * c;
-  return d;
-};
-
-export const distanceBusiness = (
-  loc?: Array<Loc>,
-  curr?: Loc
-): number | false => {
-  const location: Array<number> = [];
-  isArray(loc) &&
-    loc?.forEach((_loc) => {
-      const distance = calcCrow(
-        curr?.lat ?? 0,
-        curr?.lng ?? 0,
-        _loc?.lat ? _loc?.lat : 0,
-        _loc?.lng ? _loc?.lng : 0
-      );
-      location.push(distance);
-    });
-  location.sort((a: number, b: number) => {
-    return a - b;
-  });
-  return isArray(location) && location[0];
-};
-
-export const truncateString = (
-  text: string,
-  length: number = TRUNCATE_TEXT_LENGTH_SMALL
-): string => {
-  if (!text) return '';
-  return text && text.length > length
-    ? `${text.slice(0, length - 3)}...`
-    : text;
-};
-
-export const detectDeviceAndViewMode = (): {
-  webkitVer: number;
-  isGoogle: boolean | 0;
-  isAndroid: boolean | 0;
-  androidDesktopMode: boolean | 0;
-} => {
-  const match = /WebKit\/([0-9]+)|$/.exec(navigator.appVersion);
-  const webkitVer = match ? parseInt(match[1], 10) : 0; // also matches AppleWebKit
-  const isGoogle = webkitVer && navigator.vendor.indexOf('Google') === 0; // Also true for Opera Mobile and maybe others
-  const isAndroid = isGoogle && navigator.userAgent.indexOf('Android') > 0; // Careful - Firefox and Windows Mobile also have Android in user agent
-  const androidDesktopMode =
-    !isAndroid &&
-    isGoogle &&
-    navigator.platform.indexOf('Linux') === 0 &&
-    'ontouchstart' in document.documentElement;
-
-  return { webkitVer, isGoogle, isAndroid, androidDesktopMode };
-};
-
-export const isMerchantEmployee = (user: IUser): boolean => {
-  return (
-    isObject(user?.employerId) && user?.employerId?.type === USER_TYPE.merchant
-  );
-};
-
-export const checkEqualityOfTwoArray = (
-  arrOne: Array<unknown>,
-  arrTwo: Array<unknown>
-): boolean => {
-  const result = arrOne.every((element) => {
-    return arrTwo.includes(element);
-  });
-  return result;
-};
-
-export const getObjectKey = (
-  obj: any,
-  key: string,
-  defaultValue: any = null,
-  checkNull: boolean = true
-): any => {
-  if (checkIfKeyExists(obj, key, checkNull)) {
-    return obj[key];
-  } else {
-    return defaultValue;
-  }
-};
-
-export const checkIfKeyExists = (
-  obj: Record<string, unknown>,
-  key: string,
-  checkNull = false
-): boolean => {
-  if (
-    isObject(obj, true) &&
-    Object.hasOwnProperty.call(obj, key) &&
-    obj[key] !== undefined
-  ) {
-    return checkNull ? obj[key] !== null : true;
-  }
-  return false;
-};
-
 export const benefitCategoryIconTypeAllowed = (
   file: any,
   type = 'svg'
@@ -374,65 +142,6 @@ export const benefitCategoryIconTypeAllowed = (
     return allowedImageTypes.includes(file.type.toLowerCase());
   }
   return false;
-};
-
-export const getImageAspectRatio = (
-  width: number,
-  height: number
-): number[] | null => {
-  // return type (aspect ratio with [width, height] [1,1])
-  if (width === height) {
-    return [1, 1];
-  } else if (width > height) {
-    return [Math.round(width / height), Math.round(height / height)];
-  } else if (width < height) {
-    return [Math.round(width / width), Math.round(height / width)];
-  } else {
-    return null;
-  }
-};
-
-export const checkVariableType = (val: unknown, type = 'string'): boolean => {
-  switch (type) {
-    case 'string':
-      return typeof val === 'string' && typeof val !== 'undefined';
-    case 'number':
-      return typeof val === 'number' && typeof val !== 'undefined';
-    case 'boolean':
-      return typeof val === 'boolean' && typeof val !== 'undefined';
-    case 'object':
-      return isObject(val, true);
-    case 'array':
-      return isArray(val, true);
-    case 'function':
-      return typeof val === 'function' && typeof val !== 'undefined';
-    case 'undefined':
-      return typeof val === 'undefined';
-    default:
-      return false;
-  }
-};
-
-export const isStringVariable = (val?: unknown): boolean => {
-  return checkVariableType(val, 'string');
-};
-
-export const isFunction = (val: unknown): boolean => {
-  return checkVariableType(val, 'function');
-};
-
-export const isValidEmail = (email: string): boolean | '' => {
-  const re =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return email && re.test(String(email).toLowerCase());
-};
-
-export const convertToTitleCase = (s: string): string => {
-  return isStringVariable(s)
-    ? s.replace(/^_*(.)|_+(.)/g, (_, a, b) => {
-        return a ? a.toUpperCase() : ' ' + b.toUpperCase();
-      })
-    : s;
 };
 
 export const generateUUID = (): string => {

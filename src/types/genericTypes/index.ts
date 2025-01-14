@@ -17,3 +17,8 @@ export interface IDefaultDBColumns {
 
   [FormFieldsEnum.extraData]?: unknown;
 }
+
+export interface IPaginationOptions {
+  offset?: number;
+  limit?: number;
+}

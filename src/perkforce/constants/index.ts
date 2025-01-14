@@ -3,10 +3,6 @@ export const smsCodeExpiryInSeconds = 600;
 export const imageSizeLimit = 4; // in MB
 export const phoneAttemptsLimit = 3;
 
-export const allowedImageTypes = 'image/png, image/jpeg, image/gif';
-
-export const svgIconTypes: string[] = ['image/svg', 'image/svg+xml'];
-
 export const CHART_TYPES: {
   value: string;
   label: string;

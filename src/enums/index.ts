@@ -28,8 +28,9 @@ export {
 } from './generic';
 export { AddressComponentTypeEnum } from './googleApi';
 export {
+  _UserRoleEnum,
+  PermissionCheckModeEnum,
   PermissionEnum,
   PermissionTypeEnum,
   RoleEnum,
-  _UserRoleEnum,
 } from './rolePermissionsEnum';

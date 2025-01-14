@@ -208,8 +208,17 @@ export enum PermissionTypeEnum {
   viewBlockedItem = 3,
 }
 
+export enum PermissionCheckModeEnum {
+  every = 1, // user must have every permissions that have passed.
+  any = 2, // user must have any permissions that have passed.
+}
+
 // Check for duplicates
 checkForDuplicateEnumValues(RoleEnum, 'Duplicate RoleEnum value found:');
+checkForDuplicateEnumValues(
+  PermissionCheckModeEnum,
+  'Duplicate PermissionCheckModeEnum value found:'
+);
 checkForDuplicateEnumValues(
   PermissionEnum,
   'Duplicate PermissionEnum value found:'
