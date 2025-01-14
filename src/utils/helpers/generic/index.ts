@@ -5,7 +5,6 @@ import {
   apiConstants,
   svgIconTypes,
 } from '@app-utils/constants/generic';
-import { TRUNCATE_TEXT_LENGTH_SMALL } from 'src/perkforce/constants';
 import { getDateFromFrbTimestamp } from '../../../require-package/dayjs';
 import { DBItemGenericDataType } from '../../../types/firebaseTypes'; // will need to study this, the absolute import was giving error
 import {
@@ -528,14 +527,11 @@ export const calcCrow = (
   return d;
 };
 
-export const truncateString = (
-  text: string,
-  length: number = TRUNCATE_TEXT_LENGTH_SMALL
-): string => {
+export const truncateString = (text: string, length: number = 10): string => {
   if (!text) return '';
-  return text && text.length > length
-    ? `${text.slice(0, length)}...`
-    : text || '';
+  return text?.length > length
+    ? `${text?.slice(0, length) ?? ''}...`
+    : text ?? '';
 };
 
 export const detectDeviceAndViewMode = (): {
