@@ -1,6 +1,13 @@
 export { checkForDuplicateEnumValues } from './helpers/helpersNeedToLoadBeforeTheyGetUsed/index';
 
 export {
+  aesDecrypt,
+  decryptData,
+  decryptWithSecretKey,
+  encryptData,
+  encryptWithSecretKey,
+} from '../require-package/crypto-js';
+export {
   convertToDateTimestampToStoreInDB,
   getDateFromFrbTimestamp,
   getRemainingTimeForCountDown,

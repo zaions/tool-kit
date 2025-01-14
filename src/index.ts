@@ -50,6 +50,7 @@ export type {
 
 export {
   addUrlProtocolHandler,
+  aesDecrypt,
   allowedImageTypes,
   apiConstants,
   apiHeaderKeys,
@@ -68,11 +69,15 @@ export {
   dateFormat,
   dayjs,
   dbItemIsBlocked,
+  decryptData,
+  decryptWithSecretKey,
   defaultValue,
   detectDeviceAndViewMode,
   dumpValueNoLogNothing,
   emptyVoidReturnFunction,
   emptyVoidReturnFunctionPromise,
+  encryptData,
+  encryptWithSecretKey,
   fieldsValidation,
   flattenArray,
   formatStripeAmount,
