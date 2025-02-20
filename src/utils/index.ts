@@ -61,6 +61,7 @@ export {
   getPaginationParams,
   getTextOnly,
   getZUniqueKey,
+  hasLeadingOrTrailingSlash,
   imageTypeAllowed,
   imageUrlToBase64,
   isArray,

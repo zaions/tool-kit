@@ -99,6 +99,7 @@ export {
   getTextOnly,
   getUserRoleEnumValueFromString,
   getZUniqueKey,
+  hasLeadingOrTrailingSlash,
   hasPermission,
   imageTypeAllowed,
   imageUrlToBase64,

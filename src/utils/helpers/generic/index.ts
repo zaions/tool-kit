@@ -770,3 +770,13 @@ export const formatStripeAmount = (USDString: string): number => {
 export const removeLeadingTrailingBackslash = (input: string): string => {
   return input.replace(/^\\|\\$/g, '');
 };
+
+/**
+ * Checks if a string starts or ends with a forward slash ('/').
+ *
+ * @param input - The input string to validate.
+ * @returns True if the string starts or ends with '/', otherwise false.
+ */
+export const hasLeadingOrTrailingSlash = (input: string): boolean => {
+  return /^\/|\/$/.test(input);
+};
