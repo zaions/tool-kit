@@ -78,6 +78,7 @@ export {
   emptyVoidReturnFunctionPromise,
   encryptData,
   encryptWithSecretKey,
+  escapeRegex,
   fieldsValidation,
   flattenArray,
   formatStripeAmount,

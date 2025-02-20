@@ -46,6 +46,7 @@ export {
   dumpValueNoLogNothing,
   emptyVoidReturnFunction,
   emptyVoidReturnFunctionPromise,
+  escapeRegex,
   flattenArray,
   formatStripeAmount,
   formatUSD,

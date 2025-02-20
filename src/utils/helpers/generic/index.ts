@@ -780,3 +780,15 @@ export const removeLeadingTrailingBackslash = (input: string): string => {
 export const hasLeadingOrTrailingSlash = (input: string): boolean => {
   return /^\/|\/$/.test(input);
 };
+
+/**
+ * Escapes all special regex characters in a given string.
+ * Also removes leading and trailing forward slashes ('/').
+ *
+ * @param input - The input string to escape.
+ * @returns A new string with special regex characters escaped and '/' removed from the start and end.
+ */
+export const escapeRegex = (input: string): string => {
+  const escaped = input.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return removeLeadingTrailingBackslash(escaped);
+};
