@@ -122,6 +122,7 @@ export {
   mapPermissionsToStrings,
   normalizeEnumValue,
   permissionsData,
+  removeLeadingTrailingBackslash,
   replaceUrlDynamicParts,
   reportCustomError,
   rolePermissionsMap,

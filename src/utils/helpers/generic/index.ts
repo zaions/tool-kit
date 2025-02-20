@@ -760,3 +760,13 @@ export const formatUSD = (stripeAmount: number) => {
 export const formatStripeAmount = (USDString: string): number => {
   return parseFloat(USDString) * 100;
 };
+
+/**
+ * Removes leading and trailing backslashes from a given string.
+ *
+ * @param input - The input string to process.
+ * @returns The modified string with leading and trailing backslashes removed.
+ */
+export const removeLeadingTrailingBackslash = (input: string): string => {
+  return input.replace(/^\\|\\$/g, '');
+};
