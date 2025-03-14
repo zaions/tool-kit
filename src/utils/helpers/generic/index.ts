@@ -726,14 +726,22 @@ export const getTextOnly = (text: string): string => {
   );
 };
 
-export const getPaginationParams = (
-  pagination: IPaginationOptions
-): {
-  offset: number;
-  limit: number;
+export const getPaginationParams = ({
+  pagination,
+  returnDefaultValues = true,
+  defaultOffset = 0,
+  defaultLimit = 10,
+}: {
+  pagination?: IPaginationOptions;
+  returnDefaultValues?: boolean;
+  defaultOffset?: number;
+  defaultLimit?: number;
+}): {
+  offset: number | null;
+  limit: number | null;
 } => {
-  let offset = 0;
-  let limit = 10;
+  let offset: number | null = returnDefaultValues ? defaultOffset : null;
+  let limit: number | null = returnDefaultValues ? defaultLimit : null;
 
   if (pagination) {
     offset = pagination?.offset ?? offset;
