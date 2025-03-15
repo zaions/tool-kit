@@ -7,7 +7,7 @@ import {
 import { IHasRequiredPermissions } from '@app-types/permissions/index';
 
 // we can not add toLowerCase here, otherwise we will not be able to get any permission afterworlds
-const permissionsStrings = Object.keys(PermissionEnum).filter((key) =>
+const permissionsStrings = Object.keys(PermissionEnum)?.filter((key) =>
   isNaN(Number(key))
 );
 
@@ -15,22 +15,22 @@ export const getPermissions = (
   excludes: string[] = [],
   include: string[] = []
 ): PermissionEnum[] => {
-  const _excludes = excludes.map((el) => el.toLowerCase());
-  const _include = include.map((el) => el.toLowerCase());
+  const _excludes = excludes?.map((el) => el?.toLowerCase());
+  const _include = include?.map((el) => el?.toLowerCase());
 
   return permissionsStrings
-    .filter((key) => {
-      const _key = key.toLowerCase();
+    ?.filter((key) => {
+      const _key = key?.toLowerCase();
 
-      if (_include.length > 0 && _include.includes(_key)) {
+      if (_include?.length > 0 && _include?.includes(_key)) {
         return true;
       }
 
-      return !_excludes.some((exclude) => {
-        return _key.includes(exclude);
+      return !_excludes?.some((exclude) => {
+        return _key?.includes(exclude);
       });
     })
-    .map((key) => PermissionEnum[key as keyof typeof PermissionEnum]);
+    ?.map((key) => PermissionEnum[key as keyof typeof PermissionEnum]);
 };
 
 export const getUserRoleEnumValueFromString = (_userRole: string): RoleEnum => {
@@ -56,12 +56,12 @@ export const getUserRoleEnumValueFromString = (_userRole: string): RoleEnum => {
 
 export const mapPermissionsToStrings = (permissions: number[]): string[] => {
   // Use a Set to filter out non-unique values and ensure all values are greater than 0
-  const uniquePermissions = Array.from(new Set(permissions)).filter(
+  const uniquePermissions = Array.from(new Set(permissions))?.filter(
     (permission) => permission > 0
   );
 
   // Map the filtered permissions to their string values
-  return uniquePermissions.map((permission) => PermissionEnum[permission]);
+  return uniquePermissions?.map((permission) => PermissionEnum[permission]);
 };
 
 // Check if the user has a specific permission
@@ -99,10 +99,10 @@ export const validateRequiredPermissions = <T>({
     return true;
   }
   return checkModeForRequiredPermissions === PermissionCheckModeEnum.every
-    ? requiredPermissions.every((permission) =>
+    ? requiredPermissions?.every((permission) =>
         hasPermission({ userPermissions, permission })
       )
-    : requiredPermissions.some((permission) =>
+    : requiredPermissions?.some((permission) =>
         hasPermission({ userPermissions, permission })
       );
 };
@@ -133,10 +133,10 @@ export const validateExcludedPermissions = <T>({
     return true;
   }
   return !(checkModeForExcludedPermissions === PermissionCheckModeEnum.every
-    ? excludedPermissions.every((permission) =>
+    ? excludedPermissions?.every((permission) =>
         hasPermission({ userPermissions, permission })
       )
-    : excludedPermissions.some((permission) =>
+    : excludedPermissions?.some((permission) =>
         hasPermission({ userPermissions, permission })
       ));
 };

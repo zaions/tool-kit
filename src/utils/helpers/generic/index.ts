@@ -19,10 +19,10 @@ import {
  */
 export const getZUniqueKey = (): string => {
   // Get the current timestamp and convert it to a base-36 string
-  const head = Date.now().toString(36);
+  const head = Date.now()?.toString(36);
 
   // Generate a random number, convert it to a base-36 string, and remove the leading "0."
-  const tail = Math.random().toString(36).substr(2);
+  const tail = Math.random()?.toString(36)?.substr(2);
 
   // Concatenate the timestamp string and the random string, and return it
   return head + tail;
@@ -91,7 +91,7 @@ export const isZNonEmptyString = (
 export const isZNonEmptyStrings = (
   values: Array<string | undefined | null>
 ): boolean => {
-  const _result = values.every((_value) => isZNonEmptyString(_value));
+  const _result = values?.every((_value) => isZNonEmptyString(_value));
 
   return _result;
 };
@@ -128,7 +128,7 @@ export const isZValidNumbers = (
   values: Array<number | string | undefined | null>,
   checkPositive: boolean = false
 ): boolean => {
-  return values.every((value) => isZValidNumber(value, checkPositive));
+  return values?.every((value) => isZValidNumber(value, checkPositive));
 };
 
 /**
@@ -138,18 +138,15 @@ export const isZValidNumbers = (
  * @returns The title case string.
  */
 export const convertToTitleCase = (s: string): string => {
-  // return s.replace(/^_*(.)|_+(.)/g, (s, c, d) =>
-  //   c ? (c as string).toUpperCase() : ' ' + (d as string).toUpperCase()
-  // );
   return s
-    .replace(/([a-z])([A-Z])/g, '$1 $2') // Add space between lowercase and uppercase letters
-    .toLowerCase(); // Convert the string to lowercase
+    ?.replace(/([a-z])([A-Z])/g, '$1 $2') // Add space between lowercase and uppercase letters
+    ?.toLowerCase(); // Convert the string to lowercase
 };
 
 export const convertToTitleCaseV1 = (s: string): string => {
   return isStringVariable(s)
-    ? s.replace(/^_*(.)|_+(.)/g, (_, a, b) => {
-        return a ? a.toUpperCase() : ' ' + b.toUpperCase();
+    ? s?.replace(/^_*(.)|_+(.)/g, (_, a, b) => {
+        return a ? a?.toUpperCase() : ' ' + b?.toUpperCase();
       })
     : s;
 };
@@ -240,9 +237,9 @@ export const replaceUrlDynamicParts = ({
 
   for (let i = 0; i < urlDynamicParts?.length; i++) {
     const dynamicPart = String(urlDynamicParts[i]);
-    if (String(resultUrl).includes(dynamicPart)) {
+    if (String(resultUrl)?.includes(dynamicPart)) {
       const itemId = String(itemsId[i]);
-      resultUrl = String(resultUrl).replace(dynamicPart, itemId);
+      resultUrl = String(resultUrl)?.replace(dynamicPart, itemId);
     }
   }
 
@@ -270,10 +267,10 @@ export const generateUniqueCode = (length: number = 6): string => {
   const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
   let code = '';
   for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    code += characters[randomIndex];
+    const randomIndex = Math.floor(Math.random() * characters?.length);
+    code += characters?.[randomIndex];
   }
-  return code.toLowerCase();
+  return code?.toLowerCase();
 };
 
 export const isNullOrUndefined = (value: any): boolean => {
@@ -289,7 +286,7 @@ export const dumpValueNoLogNothing = (..._: any): void => {};
 export const isArray = (arr: unknown, checkLength = false): boolean => {
   const typeIsArray = isObject(arr, false) && Array.isArray(arr);
   if (!checkLength) return typeIsArray;
-  else return typeIsArray && !!arr.length;
+  else return typeIsArray && !!arr?.length;
 };
 
 export const isSoftDeleted = ({
@@ -338,7 +335,7 @@ export const isObject = (obj: unknown, checkKeys = true): boolean => {
   const typeIsObject =
     typeof obj === 'object' && obj != null && typeof obj !== 'undefined';
   if (!checkKeys) return typeIsObject;
-  else return typeIsObject && !!Object.keys(obj).length;
+  else return typeIsObject && !!Object.keys(obj)?.length;
 };
 
 export const buildFilterObject = (
@@ -387,7 +384,7 @@ export const isValidVanityUrl = ({
   url: string;
   domain: string;
 }): boolean => {
-  const lowercaseUrl = url.trim().toLowerCase();
+  const lowercaseUrl = url?.trim()?.toLowerCase();
   if (lowercaseUrl === 'www' || lowercaseUrl === domain) {
     return false;
   }
@@ -405,20 +402,20 @@ export const generateSlug = (text: String): string => {
   const result =
     text &&
     text
-      .toLowerCase()
-      .replace(/&+/g, 'and')
-      .replace(/(){}/g, '')
-      .replace(/,/g, '')
-      .replace(/'/g, '')
-      .replace(/"/g, '')
-      .replace(/”/g, '')
-      .replace(/“/g, '')
-      .replace(/’/g, '')
-      .replace(/‘/g, '')
-      .replace(/[^\w ]+/g, ' ')
-      .replace(/\s{2,}/g, ' ')
-      .trim()
-      .replace(/ +/g, '-');
+      ?.toLowerCase()
+      ?.replace(/&+/g, 'and')
+      ?.replace(/(){}/g, '')
+      ?.replace(/,/g, '')
+      ?.replace(/'/g, '')
+      ?.replace(/"/g, '')
+      ?.replace(/”/g, '')
+      ?.replace(/“/g, '')
+      ?.replace(/’/g, '')
+      ?.replace(/‘/g, '')
+      ?.replace(/[^\w ]+/g, ' ')
+      ?.replace(/\s{2,}/g, ' ')
+      ?.trim()
+      ?.replace(/ +/g, '-');
   return result;
 };
 
@@ -433,7 +430,7 @@ export const getImageBase64Url = (file: File): Promise<unknown> => {
 
 export const containQueryParams = (url: string): boolean | '' => {
   const queryParams = ['?', '&', '#'];
-  return url && queryParams.some((param) => url.includes(param));
+  return url && queryParams?.some((param) => url?.includes(param));
 };
 
 export const getObjectKey = (
@@ -557,17 +554,17 @@ export const checkEqualityOfTwoArray = (
   arrOne: Array<unknown>,
   arrTwo: Array<unknown>
 ): boolean => {
-  const result = arrOne.every((element) => {
-    return arrTwo.includes(element);
+  const result = arrOne?.every((element) => {
+    return arrTwo?.includes(element);
   });
   return result;
 };
 
 export const isFileTypeAllowed = (file: File, type = 'svg'): boolean => {
   if (type === 'svg') {
-    return svgIconTypes.includes(file.type.toLowerCase());
+    return svgIconTypes?.includes(file?.type?.toLowerCase());
   } else if (type === 'other') {
-    return allowedImageTypes.includes(file.type.toLowerCase());
+    return allowedImageTypes?.includes(file?.type?.toLowerCase());
   }
   return false;
 };
@@ -641,7 +638,7 @@ export const isFunction = (val: unknown): boolean => {
 };
 
 export const imageTypeAllowed = (file: any): boolean => {
-  return allowedImageTypes.includes(file?.type?.toLowerCase());
+  return allowedImageTypes?.includes(file?.type?.toLowerCase());
 };
 
 export const validateFileBeforeUpload = ({
@@ -669,14 +666,14 @@ export const validateFileBeforeUpload = ({
 export const isValidEmail = (email: string): boolean | '' => {
   const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return email && re.test(String(email).toLowerCase());
+  return email && re?.test(String(email)?.toLowerCase());
 };
 
 export const generateUUID = (): string => {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'?.replace(/[xy]/g, function (c) {
     var r = (Math.random() * 16) | 0,
       v = c === 'x' ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
+    return v?.toString(16);
   });
 };
 
@@ -701,7 +698,7 @@ export const normalizeEnumValue = <T extends Record<string, string | number>>(
 ): T[keyof T] | null => {
   const normalizedType = type?.toLowerCase();
   const matchedEntry = Object.entries(enumObject).find(
-    ([_, value]) => String(value).toLowerCase() === normalizedType
+    ([_, value]) => String(value)?.toLowerCase() === normalizedType
   );
   return matchedEntry ? (matchedEntry[1] as T[keyof T]) : null;
 };
@@ -719,10 +716,10 @@ export const getTextOnly = (text: string): string => {
   return (
     text &&
     text
-      .toLowerCase()
-      .replace(/[^\w ]+/g, '')
-      .trim()
-      .replace(/ +/g, '')
+      ?.toLowerCase()
+      ?.replace(/[^\w ]+/g, '')
+      ?.trim()
+      ?.replace(/ +/g, '')
   );
 };
 
@@ -757,7 +754,7 @@ export const createRegexMatch = (
   $regex: RegExp;
 } => {
   return {
-    $regex: new RegExp(searchQuery.trim().toLowerCase(), 'i'),
+    $regex: new RegExp(searchQuery?.trim()?.toLowerCase(), 'i'),
   };
 };
 
@@ -776,7 +773,7 @@ export const formatStripeAmount = (USDString: string): number => {
  * @returns The modified string with leading and trailing backslashes removed.
  */
 export const removeLeadingTrailingBackslash = (input: string): string => {
-  return input.replace(/^\\|\\$/g, '');
+  return input?.replace(/^\\|\\$/g, '');
 };
 
 /**
@@ -786,7 +783,7 @@ export const removeLeadingTrailingBackslash = (input: string): string => {
  * @returns True if the string starts or ends with '/', otherwise false.
  */
 export const hasLeadingOrTrailingSlash = (input: string): boolean => {
-  return /^\/|\/$/.test(input);
+  return /^\/|\/$/?.test(input);
 };
 
 /**
@@ -797,6 +794,6 @@ export const hasLeadingOrTrailingSlash = (input: string): boolean => {
  * @returns A new string with special regex characters escaped and '/' removed from the start and end.
  */
 export const escapeRegex = (input: string): string => {
-  const escaped = input.replace(/[.*+?^${}()|[\]\\]/g, '');
+  const escaped = input?.replace(/[.*+?^${}()|[\]\\]/g, '');
   return removeLeadingTrailingBackslash(escaped);
 };

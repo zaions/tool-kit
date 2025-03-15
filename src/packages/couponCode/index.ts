@@ -23,17 +23,17 @@ const badWordsList: string[] = (
   'SHPX PHAG JNAX JNAT CVFF PBPX FUVG GJNG GVGF SNEG URYY ZHSS QVPX XABO ' +
   'NEFR FUNT GBFF FYHG GHEQ FYNT PENC CBBC OHGG SRPX OBBO WVFZ WVMM CUNG'
 )
-  .replace(/[a-zA-Z]/g, function (c: string): string {
-    const charCode: number = c.charCodeAt(0);
+  ?.replace(/[a-zA-Z]/g, function (c: string): string {
+    const charCode: number = c?.charCodeAt(0);
     const baseCode: number = c <= 'Z' ? 90 : 122;
     const rotated: number = charCode + 13;
     return String.fromCharCode(baseCode >= rotated ? rotated : rotated - 26);
   })
-  .split(' ');
+  ?.split(' ');
 
 const symbolsStr: string = '0123456789ABCDEFGHJKLMNPQRTUVWXY';
-const symbolsArr: string[] = symbolsStr.split('');
-const symbolsObj: SymbolsObject = symbolsArr.reduce(
+const symbolsArr: string[] = symbolsStr?.split('');
+const symbolsObj: SymbolsObject = symbolsArr?.reduce(
   (acc: SymbolsObject, c: string, i: number) => {
     acc[c] = i;
     return acc;
@@ -48,12 +48,12 @@ const defaults: CouponOptions = {
 
 // Helper Functions
 function randomSymbol(): string {
-  return symbolsArr[Math.floor(Math.random() * symbolsArr.length)];
+  return symbolsArr[Math.floor(Math.random() * symbolsArr?.length)];
 }
 
 function checkDigitAlg1(data: string, check: number): string {
   // check's initial value is the part number
-  data.split('').forEach((v: string) => {
+  data?.split('')?.forEach((v: string) => {
     const k: number = symbolsObj[v];
     check = check * 19 + k;
   });
@@ -62,8 +62,8 @@ function checkDigitAlg1(data: string, check: number): string {
 }
 
 export function checkIfCouponCodeHasBadWord(code: string): boolean {
-  code = code.toUpperCase();
-  return badWordsList.some((word: string) => code.includes(word));
+  code = code?.toUpperCase();
+  return badWordsList?.some((word: string) => code?.includes(word));
 }
 
 // Main Functions
@@ -96,9 +96,9 @@ export function generateCouponCode(opts?: Partial<CouponOptions>): string {
       part = part + checkDigitAlg1(part, i + 1);
       parts.push(part);
     }
-  } while (checkIfCouponCodeHasBadWord(parts.join('')));
+  } while (checkIfCouponCodeHasBadWord(parts?.join('')));
 
-  return parts.join('-');
+  return parts?.join('-');
 }
 
 export function validateCouponCode(
@@ -120,32 +120,32 @@ export function validateCouponCode(
 
   // uppercase the code, take out any random chars and replace OIZS with 0125
   code = code
-    .toUpperCase()
-    .replace(/[^0-9A-Z]+/g, '')
-    .replace(/O/g, '0')
-    .replace(/I/g, '1')
-    .replace(/Z/g, '2')
-    .replace(/S/g, '5');
+    ?.toUpperCase()
+    ?.replace(/[^0-9A-Z]+/g, '')
+    ?.replace(/O/g, '0')
+    ?.replace(/I/g, '1')
+    ?.replace(/Z/g, '2')
+    ?.replace(/S/g, '5');
 
   // split in the different parts
   const parts: string[] = [];
   let tmp: string = code;
-  while (tmp.length > 0) {
+  while (tmp?.length > 0) {
     parts.push(tmp.slice(0, options.partLen));
     tmp = tmp.slice(options.partLen);
   }
 
   // make sure we have been given the same number of parts as we are expecting
-  if (parts.length !== options.parts) {
+  if (parts?.length !== options.parts) {
     return '';
   }
 
   // validate each part
-  for (let i = 0; i < parts.length; i++) {
+  for (let i = 0; i < parts?.length; i++) {
     const part: string = parts[i];
 
     // check this part has correct length
-    if (part.length !== options.partLen) {
+    if (part?.length !== options.partLen) {
       return '';
     }
 
@@ -159,5 +159,5 @@ export function validateCouponCode(
   }
 
   // everything looked ok with this code
-  return parts.join('-');
+  return parts?.join('-');
 }
