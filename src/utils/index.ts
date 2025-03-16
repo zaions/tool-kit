@@ -48,6 +48,7 @@ export {
   emptyVoidReturnFunctionPromise,
   escapeRegex,
   flattenArray,
+  formatCamelCaseToTitle,
   formatStripeAmount,
   formatUSD,
   generateSlug,

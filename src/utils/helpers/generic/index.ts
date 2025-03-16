@@ -788,7 +788,25 @@ export const hasLeadingOrTrailingSlash = (input: string): boolean => {
  * @param input - The input string to escape.
  * @returns A new string with special regex characters escaped and '/' removed from the start and end.
  */
-export const escapeRegex = (input: string): string => {
-  const escaped = input.replace(/[.*+?^${}()|[\]\\]/g, '');
-  return removeLeadingTrailingBackslash(escaped);
+export const escapeRegex = (input?: string): string => {
+  const escaped = input?.replace(/[.*+?^${}()|[\]\\]/g, '');
+  return removeLeadingTrailingBackslash(escaped ?? '');
+};
+
+/**
+ * Formats a camelCase string to title case.
+ * Adds spaces before capital letters and capitalizes the first letter of each word.
+ * @param str - The camelCase string to format.
+ * @returns The title case string.
+ */
+export const formatCamelCaseToTitle = (str: string): string => {
+  // First, add space before capital letters and convert to lowercase
+  const withSpaces = str.replace(/([A-Z])/g, ' $1').toLowerCase();
+
+  // Capitalize first letter of each word
+  return withSpaces
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+    .trim();
 };

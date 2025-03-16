@@ -81,6 +81,7 @@ export {
   escapeRegex,
   fieldsValidation,
   flattenArray,
+  formatCamelCaseToTitle,
   formatStripeAmount,
   formatUSD,
   frbCollectionQueryDefaults,
