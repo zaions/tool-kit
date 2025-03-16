@@ -33,7 +33,7 @@ const permissionsToExcludeForCreator = [
   'review',
 ];
 const permissionsToExcludeForReviewer = [
-  ...permissionsToExcludeForCreator.filter((el) => el !== 'review'),
+  ...permissionsToExcludeForCreator?.filter((el) => el !== 'review'),
   'create',
   'add',
   'hide',

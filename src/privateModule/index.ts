@@ -1,7 +1,7 @@
 let _cryptoSecret: string | null = null;
 
 export const getCryptoSecret = (): string => {
-  if (!_cryptoSecret || _cryptoSecret.trim().length <= 0) {
+  if (!_cryptoSecret || _cryptoSecret?.trim()?.length <= 0) {
     throw new Error(
       '@zaions/tool-kit needs "cryptoSecret" value, call "configureZTK" to set that'
     );

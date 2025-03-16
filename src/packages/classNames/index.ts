@@ -38,7 +38,7 @@ function appendClassBase(value: string, newClass: string): string {
 // Standard implementation
 function parseValueStandard(arg: ClassValue): string {
   if (typeof arg === 'string' || typeof arg === 'number') {
-    return arg.toString();
+    return arg?.toString();
   }
 
   if (!arg || typeof arg !== 'object') {
@@ -50,10 +50,10 @@ function parseValueStandard(arg: ClassValue): string {
   }
 
   if (
-    arg.toString !== Object.prototype.toString &&
-    !arg.toString.toString().includes('[native code]')
+    arg?.toString !== Object.prototype?.toString &&
+    !arg?.toString?.toString()?.includes('[native code]')
   ) {
-    return arg.toString();
+    return arg?.toString();
   }
 
   let classes = '';
@@ -69,7 +69,7 @@ function parseValueStandard(arg: ClassValue): string {
 export function classNames(...args: ClassValue[]): string {
   let classes = '';
 
-  for (let i = 0; i < args.length; i++) {
+  for (let i = 0; i < args?.length; i++) {
     const arg = args[i];
     if (arg) {
       classes = appendClassBase(classes, parseValueStandard(arg));
@@ -92,7 +92,7 @@ const SPACE = /\s+/;
 
 function appendStringDedupe(classSet: StorageObject, str: string): void {
   const array = str.split(SPACE);
-  const length = array.length;
+  const length = array?.length;
 
   for (let i = 0; i < length; i++) {
     classSet[array[i]] = true;
@@ -100,7 +100,7 @@ function appendStringDedupe(classSet: StorageObject, str: string): void {
 }
 
 function appendArrayDedupe(classSet: StorageObject, array: ClassValue[]): void {
-  const length = array.length;
+  const length = array?.length;
   for (let i = 0; i < length; i++) {
     appendValueDedupe(classSet, array[i]);
   }
@@ -111,10 +111,10 @@ function appendObjectDedupe(
   object: ClassDictionary | ClassNameGeneratorFunction
 ): void {
   if (
-    object.toString !== Object.prototype.toString &&
-    !object.toString.toString().includes('[native code]')
+    object?.toString !== Object.prototype?.toString &&
+    !object?.toString?.toString()?.includes('[native code]')
   ) {
-    classSet[object.toString()] = true;
+    classSet[object?.toString()] = true;
     return;
   }
 
@@ -131,7 +131,7 @@ function appendValueDedupe(classSet: StorageObject, arg: ClassValue): void {
   if (typeof arg === 'string') {
     appendStringDedupe(classSet, arg);
   } else if (typeof arg === 'number') {
-    appendStringDedupe(classSet, arg.toString());
+    appendStringDedupe(classSet, arg?.toString());
   } else if (Array.isArray(arg)) {
     appendArrayDedupe(classSet, arg);
   } else if (isObject(arg)) {
@@ -168,10 +168,10 @@ function parseValueBind(this: any, arg: ClassValue): string {
   }
 
   if (
-    arg.toString !== Object.prototype.toString &&
-    !arg.toString.toString().includes('[native code]')
+    arg?.toString !== Object.prototype?.toString &&
+    !arg?.toString?.toString()?.includes('[native code]')
   ) {
-    return arg.toString();
+    return arg?.toString();
   }
 
   let classes = '';
@@ -187,7 +187,7 @@ function parseValueBind(this: any, arg: ClassValue): string {
 export function classNamesBind(this: any, ...args: ClassValue[]): string {
   let classes = '';
 
-  for (let i = 0; i < args.length; i++) {
+  for (let i = 0; i < args?.length; i++) {
     const arg = args[i];
     if (arg) {
       classes = appendClassBase(classes, parseValueBind.call(this, arg));

@@ -4,7 +4,7 @@ import { isZNonEmptyString } from '../../utils/helpers/generic';
 
 export const getDateFromFrbTimestamp = (frbTimestamp: any): string => {
   // unless the above code is updated this one should remain same
-  return new Date(frbTimestamp).toISOString();
+  return new Date(frbTimestamp)?.toISOString();
 };
 
 export const convertToDateTimestampToStoreInDB = ({
@@ -13,8 +13,8 @@ export const convertToDateTimestampToStoreInDB = ({
   val?: string | number | Date;
 }): number | null => {
   const _date = dayjs(val);
-  if (val && _date.isValid()) {
-    return _date.toDate().getTime();
+  if (val && _date?.isValid()) {
+    return _date?.toDate()?.getTime();
   } else {
     return null;
   }
@@ -33,8 +33,8 @@ export const getRemainingTimeForCountDown = (
   try {
     if (isZNonEmptyString(countDownTimeFinishDate)) {
       const endDate = dayjs(countDownTimeFinishDate);
-      if (endDate.isValid()) {
-        const remainingTimeInMilliSeconds = endDate.diff(
+      if (endDate?.isValid()) {
+        const remainingTimeInMilliSeconds = endDate?.diff(
           dayjs(new Date()),
           'milliseconds'
         );
