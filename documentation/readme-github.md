@@ -1,6 +1,3 @@
-I understand the issue. Let me provide the complete content for the `readme-github.md` file that will properly update the entire file from start to finish:
-
-````language:documentation/readme-github.md
 # ZTK - Zaions Tool Kit
 
 [![npm version](https://img.shields.io/npm/v/@zaions/tool-kit.svg)](https://www.npmjs.com/package/@zaions/tool-kit)
@@ -29,7 +26,7 @@ yarn add @zaions/tool-kit
 
 # Using pnpm
 pnpm add @zaions/tool-kit
-````
+```
 
 ## Quick Start
 
