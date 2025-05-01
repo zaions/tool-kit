@@ -7,7 +7,7 @@ import {
   PlaceStatusEnum,
   PrivateShareEnum,
   RentInclusionsEnum,
-  TimeUnitEnum,
+  RMTimeUnitEnum,
 } from 'src/roommate/enums';
 import { IDefaultDBColumns } from 'src/types/genericTypes';
 import { ILocation } from '../general';
@@ -34,7 +34,7 @@ export interface IPlaceImages {
 
 export interface IMinimumLease {
   [FormFieldsEnum.leaseTime]?: number;
-  [FormFieldsEnum.leaseTimeUnit]?: TimeUnitEnum;
+  [FormFieldsEnum.leaseTimeUnit]?: RMTimeUnitEnum;
 }
 
 export interface IHouseInfo {

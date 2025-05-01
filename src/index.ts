@@ -18,6 +18,7 @@ export {
   PermissionCheckModeEnum,
   PermissionEnum,
   PermissionTypeEnum,
+  PlatformTypeEnum,
   ProcessStatusEnum,
   QueryKeyTypeEnum,
   RequestContentTypeEnum,
@@ -27,6 +28,7 @@ export {
   ResponseStatusEnum,
   RoleEnum,
   SearchParamKeysEnum,
+  TimeUnitEnum,
   TransferMethodEnum,
   varTypesEnum,
 } from './enums/index';
@@ -98,6 +100,7 @@ export {
   getPermissions,
   getRemainingTimeForCountDown,
   getTextOnly,
+  getTimeInUnit,
   getUserRoleEnumValueFromString,
   getZUniqueKey,
   hasLeadingOrTrailingSlash,

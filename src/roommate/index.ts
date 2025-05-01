@@ -13,8 +13,8 @@ export {
   PlaceStatusEnum,
   PrivateShareEnum,
   RentInclusionsEnum,
+  RMTimeUnitEnum,
   SmokeEnum,
-  TimeUnitEnum,
   WorkScheduleEnum,
 } from './enums';
 export type { IRegisterFormData } from './types/formInputDataTypes';
@@ -33,7 +33,7 @@ export type {
   IPlaceSharingUnit,
   IRent,
 } from './types/place';
-export type { IRoomPreference, IRoommatePreference } from './types/preference';
+export type { IRoommatePreference, IRoomPreference } from './types/preference';
 export type { IRoommateUser, IUserInfo, IUserPreference } from './types/user';
 export {
   agreementStatusVal,

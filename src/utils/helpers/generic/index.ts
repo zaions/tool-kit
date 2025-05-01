@@ -1,5 +1,5 @@
 import { DBColumnKeysShortFormEnum } from '@app-enums/firebaseEnum';
-import { RequestContentTypeEnum } from '@app-enums/generic';
+import { RequestContentTypeEnum, TimeUnitEnum } from '@app-enums/generic';
 import {
   allowedImageTypes,
   apiConstants,
@@ -796,4 +796,61 @@ export const hasLeadingOrTrailingSlash = (input: string): boolean => {
 export const escapeRegex = (input: string): string => {
   const escaped = input?.replace(/[.*+?^${}()|[\]\\]/g, '');
   return removeLeadingTrailingBackslash(escaped);
+};
+
+export const getTimeInUnit = ({
+  valueUnit,
+  value,
+  outputUnit,
+}: {
+  valueUnit: TimeUnitEnum;
+  value: number;
+  outputUnit: TimeUnitEnum;
+}): number => {
+  // Convert input value to seconds as base unit
+  let valueInSeconds = value;
+
+  switch (valueUnit) {
+    case TimeUnitEnum.Years:
+      valueInSeconds = value * 365 * 24 * 60 * 60;
+      break;
+    case TimeUnitEnum.Months:
+      valueInSeconds = value * 30 * 24 * 60 * 60;
+      break;
+    case TimeUnitEnum.Days:
+      valueInSeconds = value * 24 * 60 * 60;
+      break;
+    case TimeUnitEnum.Hours:
+      valueInSeconds = value * 60 * 60;
+      break;
+    case TimeUnitEnum.Minutes:
+      valueInSeconds = value * 60;
+      break;
+    case TimeUnitEnum.Seconds:
+      valueInSeconds = value;
+      break;
+    case TimeUnitEnum.Milliseconds:
+      valueInSeconds = value / 1000;
+      break;
+  }
+
+  // Convert from seconds to output unit
+  switch (outputUnit) {
+    case TimeUnitEnum.Years:
+      return valueInSeconds / (365 * 24 * 60 * 60);
+    case TimeUnitEnum.Months:
+      return valueInSeconds / (30 * 24 * 60 * 60);
+    case TimeUnitEnum.Days:
+      return valueInSeconds / (24 * 60 * 60);
+    case TimeUnitEnum.Hours:
+      return valueInSeconds / (60 * 60);
+    case TimeUnitEnum.Minutes:
+      return valueInSeconds / 60;
+    case TimeUnitEnum.Seconds:
+      return valueInSeconds;
+    case TimeUnitEnum.Milliseconds:
+      return valueInSeconds * 1000;
+    default:
+      return valueInSeconds;
+  }
 };

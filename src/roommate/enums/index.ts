@@ -72,7 +72,7 @@ export enum PlaceAvailabilityTermEnum {
   shortTerm = 1,
   longTerm = 2,
 }
-export enum TimeUnitEnum {
+export enum RMTimeUnitEnum {
   month = 1,
   year = 2,
 }
@@ -139,7 +139,10 @@ checkForDuplicateEnumValues(
   PlaceAvailabilityTermEnum,
   'duplicate values in PlaceAvailabilityTermEnum'
 );
-checkForDuplicateEnumValues(TimeUnitEnum, 'duplicate values in TimeUnitEnum');
+checkForDuplicateEnumValues(
+  RMTimeUnitEnum,
+  'duplicate values in RMTimeUnitEnum'
+);
 checkForDuplicateEnumValues(
   PrivateShareEnum,
   'duplicate values in PrivateShareEnum'

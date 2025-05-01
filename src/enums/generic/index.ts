@@ -82,6 +82,16 @@ export enum PlatformTypeEnum {
   ios = 'ios',
 }
 
+export enum TimeUnitEnum {
+  Years = 'years',
+  Months = 'months',
+  Days = 'days',
+  Hours = 'hours',
+  Minutes = 'minutes',
+  Seconds = 'seconds',
+  Milliseconds = 'milliseconds',
+}
+
 checkForDuplicateEnumValues(
   PlatformTypeEnum,
   'duplicate values in PlatformTypeEnum'
@@ -128,3 +138,4 @@ checkForDuplicateEnumValues(
 );
 checkForDuplicateEnumValues(BooleanEnum, 'duplicate values in BooleanEnum');
 checkForDuplicateEnumValues(varTypesEnum, 'duplicate values in varTypesEnum');
+checkForDuplicateEnumValues(TimeUnitEnum, 'duplicate values in TimeUnitEnum');

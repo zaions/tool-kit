@@ -61,6 +61,7 @@ export {
   getObjectKey,
   getPaginationParams,
   getTextOnly,
+  getTimeInUnit,
   getZUniqueKey,
   hasLeadingOrTrailingSlash,
   imageTypeAllowed,

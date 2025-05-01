@@ -12,8 +12,8 @@ import {
   PlacePreferenceEnum,
   PlaceStatusEnum,
   RentInclusionsEnum,
+  RMTimeUnitEnum,
   SmokeEnum,
-  TimeUnitEnum,
   WorkScheduleEnum,
 } from '../enums';
 import { PrivateShareEnum } from './../enums/index';
@@ -144,10 +144,8 @@ export const placeAvailabilityTermVal: readonly [
   PlaceAvailabilityTermEnum.longTerm,
 ] as const;
 
-export const timeUnitVal: readonly [TimeUnitEnum.month, TimeUnitEnum.year] = [
-  TimeUnitEnum.month,
-  TimeUnitEnum.year,
-] as const;
+export const timeUnitVal: readonly [RMTimeUnitEnum.month, RMTimeUnitEnum.year] =
+  [RMTimeUnitEnum.month, RMTimeUnitEnum.year] as const;
 
 export const privateShareVal: readonly [
   PrivateShareEnum.private,
