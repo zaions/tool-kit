@@ -140,6 +140,7 @@ export {
   validateEmail,
   validateExcludedPermissions,
   validateFileBeforeUpload,
+  validateInputCharacters,
   validatePhoneNumber,
   validateRequiredPermissions,
   validateURL,

@@ -398,25 +398,147 @@ export const containSpecialCharacters = (text: string): boolean => {
   return re.test(text);
 };
 
-export const generateSlug = (text: String): string => {
-  const result =
-    text &&
-    text
-      ?.toLowerCase()
-      ?.replace(/&+/g, 'and')
-      ?.replace(/(){}/g, '')
-      ?.replace(/,/g, '')
-      ?.replace(/'/g, '')
-      ?.replace(/"/g, '')
-      ?.replace(/”/g, '')
-      ?.replace(/“/g, '')
-      ?.replace(/’/g, '')
-      ?.replace(/‘/g, '')
-      ?.replace(/[^\w ]+/g, ' ')
-      ?.replace(/\s{2,}/g, ' ')
-      ?.trim()
-      ?.replace(/ +/g, '-');
+/**
+ * Generates a URL-friendly slug from the provided text.
+ *
+ * This function:
+ * 1. Converts text to lowercase
+ * 2. Removes special characters and replaces them with hyphens
+ * 3. Removes leading/trailing hyphens
+ * 4. Replaces multiple consecutive hyphens with a single hyphen
+ * 5. Handles non-Latin characters by transliterating them when possible
+ *
+ * @param {string} text - The text to convert into a slug
+ * @param {Object} options - Optional configuration
+ * @param {boolean} options.lowercase - Whether to convert to lowercase (default: true)
+ * @param {string} options.separator - Character to use as separator (default: '-')
+ * @param {boolean} options.trim - Whether to trim leading/trailing separators (default: true)
+ * @returns {string | undefined} The generated slug or undefined if input is falsy
+ */
+export const generateSlug = ({
+  options = {},
+  text,
+}: {
+  text: string;
+  options?: {
+    lowercase?: boolean;
+    separator?: string;
+    trim?: boolean;
+  };
+}): string | undefined => {
+  if (!text) return undefined;
+
+  const { lowercase = true, separator = '-', trim = true } = options;
+
+  // Handle common accented characters and transliterate them
+  const charMap: Record<string, string> = {
+    à: 'a',
+    á: 'a',
+    â: 'a',
+    ã: 'a',
+    ä: 'a',
+    å: 'a',
+    è: 'e',
+    é: 'e',
+    ê: 'e',
+    ë: 'e',
+    ì: 'i',
+    í: 'i',
+    î: 'i',
+    ï: 'i',
+    ò: 'o',
+    ó: 'o',
+    ô: 'o',
+    õ: 'o',
+    ö: 'o',
+    ø: 'o',
+    ù: 'u',
+    ú: 'u',
+    û: 'u',
+    ü: 'u',
+    ñ: 'n',
+    ç: 'c',
+    ß: 'ss',
+    æ: 'ae',
+    œ: 'oe',
+  };
+
+  let result = text.trim();
+
+  // Convert accented characters
+  result = result.replace(/[àáâãäåèéêëìíîïòóôõöøùúûüñçßæœ]/gi, (match) => {
+    const char = match.toLowerCase();
+    return charMap[char] || match;
+  });
+
+  // Replace non-alphanumeric characters with separator
+  result = result.replace(/[^a-z0-9]/gi, separator);
+
+  // Replace multiple consecutive separators with a single one
+  const escapedSeparator = separator.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const multiSeparatorRegex = new RegExp(`${escapedSeparator}+`, 'g');
+  result = result.replace(multiSeparatorRegex, separator);
+
+  // Apply lowercase if needed
+  if (lowercase) {
+    result = result.toLowerCase();
+  }
+
+  // Trim separators from start and end if needed
+  if (trim) {
+    const trimRegex = new RegExp(
+      `^${escapedSeparator}|${escapedSeparator}$`,
+      'g'
+    );
+    result = result.replace(trimRegex, '');
+  }
+
   return result;
+};
+
+/**
+ * Checks if a string contains invalid characters for email or company name
+ *
+ * @param {string} input - The string to check for invalid characters
+ * @param {'email' | 'companyName'} type - The type of validation to perform
+ * @returns {{ isValid: boolean; invalidChars: string[] }} - Object containing validation result and list of invalid characters
+ */
+export const validateInputCharacters = ({
+  input,
+  type,
+}: {
+  input: string;
+  type: 'email' | 'name';
+}): { isValid: boolean; invalidChars: string[]; validatedValue: string } => {
+  if (!input) {
+    return { isValid: true, invalidChars: [], validatedValue: '' };
+  }
+
+  let invalidRegex: RegExp;
+
+  if (type === 'email') {
+    // RFC 5322 compliant email validation, but we're checking for invalid characters only
+    // Disallowed: spaces, quotes, backslashes, commas, etc. that aren't valid in email addresses
+    invalidRegex = /[^\w.!#$%&'*+/=?^`{|}~@-]/g;
+  } else if (type === 'name') {
+    // For company names, we want to be more permissive but still restrict certain characters
+    // Disallowed: special characters that could cause issues in URLs, databases, or display
+    invalidRegex = /[<>\\^`{|}~]/g;
+  } else {
+    return { isValid: true, invalidChars: [], validatedValue: input };
+  }
+
+  const matches = input.match(invalidRegex);
+  const invalidChars = matches ? [...new Set(matches)] : [];
+
+  // Remove invalid characters to create the validated value
+  const validatedValue = input.replace(invalidRegex, '');
+
+  return {
+    isValid: invalidChars.length === 0,
+    invalidChars,
+    validatedValue,
+  };
 };
 
 export const getImageBase64Url = (file: File): Promise<unknown> => {

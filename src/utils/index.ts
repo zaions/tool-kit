@@ -89,6 +89,7 @@ export {
   toRad,
   truncateString,
   validateFileBeforeUpload,
+  validateInputCharacters,
   zConvertToBoolean,
   zJsonParse,
   zStringify,
