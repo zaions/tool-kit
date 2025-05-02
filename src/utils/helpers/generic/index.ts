@@ -895,7 +895,11 @@ export const formatStripeAmount = (USDString: string): number => {
  * @returns The modified string with leading and trailing backslashes removed.
  */
 export const removeLeadingTrailingBackslash = (input: string): string => {
-  return input?.replace(/^\\|\\$/g, '');
+  // Handle null/undefined input to avoid potential errors
+  if (!input) return '';
+
+  // Remove leading and trailing backslashes
+  return input.replace(/^\\|\\$/g, '');
 };
 
 /**
@@ -916,7 +920,16 @@ export const hasLeadingOrTrailingSlash = (input: string): boolean => {
  * @returns A new string with special regex characters escaped and '/' removed from the start and end.
  */
 export const escapeRegex = (input: string): string => {
-  const escaped = input?.replace(/[.*+?^${}()|[\]\\]/g, '');
+  // Properly escape special regex characters by adding a backslash before them
+  // The $& in the replacement string refers to the matched substring
+  // Handle null/undefined input
+  if (!input) return '';
+
+  // Escape special regex characters with a single backslash
+  // This ensures characters like '.', '+', etc. are treated as literals in regex
+  const escaped = input?.replace(/[*+?^${}()|[\]\\]/g, '');
+
+  // Remove leading and trailing backslashes
   return removeLeadingTrailingBackslash(escaped);
 };
 
