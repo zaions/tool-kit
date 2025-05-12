@@ -107,6 +107,7 @@ export {
   hasPermission,
   imageTypeAllowed,
   imageUrlToBase64,
+  isApplePrivateEmail,
   isArray,
   isEqual,
   isFileTypeAllowed,

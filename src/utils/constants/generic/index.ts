@@ -1,5 +1,5 @@
 /**
- * Constant object defining configurations related to API requests.
+ * Constants for API requests.
  */
 export const apiConstants = {
   authorizationTokenType: {
@@ -7,14 +7,23 @@ export const apiConstants = {
   },
 } as const;
 
+/**
+ * Constants for default values.
+ */
 export const defaultValue = {
   fallbackValue: '---',
 };
 
+/**
+ * Constants for dayjs.
+ */
 export const dayjs = {
   formate: 'DD-MM-YYYY HH:mm A',
 };
 
+/**
+ * Constants for date formats.
+ */
 export const dateFormat = {
   ISODateTimeFormate: 'YYYY-MM-DDTHH:mm',
   fullDateWithTime12Hour: 'MMMM D, h:mm a',
@@ -22,18 +31,30 @@ export const dateFormat = {
   compactDateWithMonthAbbr: 'DD-MMM-YYYY',
 };
 
+/**
+ * Constants for URL parameters.
+ */
 export const urlParams = {
   googleMapsApiKey: '{{googleMapsApiKey}}',
 } as const;
 
+/**
+ * Constants for time units.
+ */
 export const timeUnitType = {
   MINUTES: 'minutes',
 } as const;
 
+/**
+ * Constants for URL targets.
+ */
 export const urlTarget = {
   blank: '_blank',
 } as const;
 
+/**
+ * Constants for fields validation.
+ */
 export const fieldsValidation = {
   generic: {
     title: {
@@ -103,6 +124,12 @@ export const fieldsValidation = {
   },
 } as const;
 
+/**
+ * Constants for SVG icon types.
+ */
 export const svgIconTypes: string[] = ['image/svg', 'image/svg+xml'];
 
+/**
+ * Constants for allowed image types.
+ */
 export const allowedImageTypes = 'image/png, image/jpeg, image/gif';

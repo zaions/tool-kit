@@ -1,3 +1,9 @@
+/**
+ * Check for duplicate enum values.
+ *
+ * @param {object} enumObject - The enum object to check.
+ * @param {string} message - The message to display if a duplicate value is found.
+ */
 const checkForDuplicateEnumValues = (
   enumObject: object,
   message: string = 'Duplicate enumObject value found:'

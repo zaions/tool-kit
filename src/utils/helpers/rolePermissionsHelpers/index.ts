@@ -11,6 +11,13 @@ const permissionsStrings = Object.keys(PermissionEnum)?.filter((key) =>
   isNaN(Number(key))
 );
 
+/**
+ * Get permissions based on the specified excludes and includes.
+ *
+ * @param {string[]} excludes - The permissions to exclude.
+ * @param {string[]} include - The permissions to include.
+ * @returns {PermissionEnum[]} The permissions.
+ */
 export const getPermissions = (
   excludes: string[] = [],
   include: string[] = []
@@ -33,6 +40,12 @@ export const getPermissions = (
     ?.map((key) => PermissionEnum[key as keyof typeof PermissionEnum]);
 };
 
+/**
+ * Get the RoleEnum value from a string.
+ *
+ * @param {string} _userRole - The user role.
+ * @returns {RoleEnum} The role enum value.
+ */
 export const getUserRoleEnumValueFromString = (_userRole: string): RoleEnum => {
   switch (_userRole) {
     case _UserRoleEnum.superAdmin:
@@ -54,6 +67,12 @@ export const getUserRoleEnumValueFromString = (_userRole: string): RoleEnum => {
   }
 };
 
+/**
+ * Map permissions to their string values.
+ *
+ * @param {number[]} permissions - The permissions to map.
+ * @returns {string[]} The permissions as strings.
+ */
 export const mapPermissionsToStrings = (permissions: number[]): string[] => {
   // Use a Set to filter out non-unique values and ensure all values are greater than 0
   const uniquePermissions = Array.from(new Set(permissions))?.filter(
@@ -64,7 +83,15 @@ export const mapPermissionsToStrings = (permissions: number[]): string[] => {
   return uniquePermissions?.map((permission) => PermissionEnum[permission]);
 };
 
-// Check if the user has a specific permission
+/**
+ * Check if the user has a specific permission.
+ *
+ * @template T - The type of the permission (enum).
+ * @param {Object} params - The parameters for the permission check.
+ * @param {Array<T>} params.userPermissions - The list of permissions the user has.
+ * @param {T} params.permission - The permission to check.
+ * @returns {boolean} - Returns `true` if the user has the permission; otherwise, `false`.
+ */
 export const hasPermission = <T>({
   permission,
   userPermissions,

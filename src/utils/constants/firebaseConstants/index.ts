@@ -3,6 +3,9 @@ import {
   FrbOrderbyDirectionEnum,
 } from '@app-enums/firebaseEnum';
 
+/**
+ * Constants for the default values for a collection query.
+ */
 export const frbCollectionQueryDefaults: {
   readonly limit: 100;
   readonly offset: 0;

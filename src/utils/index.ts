@@ -66,6 +66,7 @@ export {
   hasLeadingOrTrailingSlash,
   imageTypeAllowed,
   imageUrlToBase64,
+  isApplePrivateEmail,
   isArray,
   isEqual,
   isFileTypeAllowed,

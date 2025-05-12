@@ -22,9 +22,8 @@ export const ztkPlayWinMessages = (envs: any) => {
       invalidAmount: 'Invalid amount.',
       amountRequired: 'The amount is required.',
       amountMustBeGreaterThanOrEqualTo:
-        `Amount must be greater than or equal to ${
-          appServiceFee(envs)?.transfer?.minTransferAmountAllowed
-        }` satisfies `Amount must be greater than or equal to ${number}` as `Amount must be greater than or equal to ${number}`,
+        `Amount must be greater than or equal to ${appServiceFee(envs)?.transfer
+          ?.minTransferAmountAllowed}` satisfies `Amount must be greater than or equal to ${number}` as `Amount must be greater than or equal to ${number}`,
       phoneNumberMustStartWithCode: 'Phone number must start with +92',
       notificationDescriptionLengthError:
         `Description must contain at most ${fieldsValidation.generic.description.short.max} character(s).` satisfies `Description must contain at most ${string} character(s).` as `Description must contain at most ${string} character(s).`,

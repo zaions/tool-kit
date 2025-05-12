@@ -1,3 +1,6 @@
+/**
+ * Type representing different class values.
+ */
 export type ClassValue =
   | string
   | number
@@ -8,17 +11,28 @@ export type ClassValue =
   | ClassArray
   | ClassNameGeneratorFunction;
 
+/**
+ * Type representing a dictionary of class values.
+ */
 export interface ClassDictionary {
   [id: string]: unknown;
 }
 
+/**
+ * Type representing an array of class values.
+ */
 export interface ClassArray extends Array<ClassValue> {}
 
+/**
+ * Type representing a function that generates a class name.
+ */
 export interface ClassNameGeneratorFunction {
   toString(): string;
 }
 
-// Type guards
+/**
+ * Type guard to check if a value is an object.
+ */
 function isObject(
   value: ClassValue
 ): value is ClassDictionary | ClassNameGeneratorFunction {
@@ -27,7 +41,9 @@ function isObject(
 
 const hasOwnProperty = {}.hasOwnProperty;
 
-// Base implementation
+/**
+ * Base implementation to append a class to a string.
+ */
 function appendClassBase(value: string, newClass: string): string {
   if (!newClass) {
     return value;
@@ -35,7 +51,9 @@ function appendClassBase(value: string, newClass: string): string {
   return value ? value + ' ' + newClass : newClass;
 }
 
-// Standard implementation
+/**
+ * Standard implementation to parse a class value.
+ */
 function parseValueStandard(arg: ClassValue): string {
   if (typeof arg === 'string' || typeof arg === 'number') {
     return arg?.toString();
@@ -66,6 +84,9 @@ function parseValueStandard(arg: ClassValue): string {
   return classes;
 }
 
+/**
+ * Standard implementation to parse a class value.
+ */
 export function classNames(...args: ClassValue[]): string {
   let classes = '';
 
@@ -79,7 +100,9 @@ export function classNames(...args: ClassValue[]): string {
   return classes;
 }
 
-// Dedupe implementation
+/**
+ * Dedupe implementation to parse a class value.
+ */
 class StorageObject {
   [key: string]: boolean;
 
@@ -90,6 +113,9 @@ class StorageObject {
 
 const SPACE = /\s+/;
 
+/**
+ * Append a string to the class set.
+ */
 function appendStringDedupe(classSet: StorageObject, str: string): void {
   const array = str.split(SPACE);
   const length = array?.length;
@@ -99,6 +125,9 @@ function appendStringDedupe(classSet: StorageObject, str: string): void {
   }
 }
 
+/**
+ * Append an array to the class set.
+ */
 function appendArrayDedupe(classSet: StorageObject, array: ClassValue[]): void {
   const length = array?.length;
   for (let i = 0; i < length; i++) {
@@ -106,6 +135,9 @@ function appendArrayDedupe(classSet: StorageObject, array: ClassValue[]): void {
   }
 }
 
+/**
+ * Append an object to the class set.
+ */
 function appendObjectDedupe(
   classSet: StorageObject,
   object: ClassDictionary | ClassNameGeneratorFunction
@@ -125,6 +157,9 @@ function appendObjectDedupe(
   }
 }
 
+/**
+ * Append a value to the class set.
+ */
 function appendValueDedupe(classSet: StorageObject, arg: ClassValue): void {
   if (!arg) return;
 
@@ -139,6 +174,9 @@ function appendValueDedupe(classSet: StorageObject, arg: ClassValue): void {
   }
 }
 
+/**
+ * Dedupe implementation to parse a class value.
+ */
 export function classNamesDedupe(...args: ClassValue[]): string {
   const classSet = new StorageObject();
   appendArrayDedupe(classSet, args);
@@ -153,7 +191,9 @@ export function classNamesDedupe(...args: ClassValue[]): string {
   return classes;
 }
 
-// Bind implementation
+/**
+ * Bind implementation to parse a class value.
+ */
 function parseValueBind(this: any, arg: ClassValue): string {
   if (typeof arg === 'string') {
     return (this && this[arg]) || arg;
@@ -184,6 +224,9 @@ function parseValueBind(this: any, arg: ClassValue): string {
   return classes;
 }
 
+/**
+ * Bind implementation to parse a class value.
+ */
 export function classNamesBind(this: any, ...args: ClassValue[]): string {
   let classes = '';
 
