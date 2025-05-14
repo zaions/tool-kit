@@ -38,6 +38,7 @@ export { getCryptoSecret, setCryptoSecret } from './privateModule/index';
 export type {
   DBItemGenericDataType,
   FormItemGenericDataType,
+  GeolocationCoordinates,
   GetCapGeoLocationApiDataResponse,
   IDefaultDBColumns,
   IFrbCollectionQueryItem,
