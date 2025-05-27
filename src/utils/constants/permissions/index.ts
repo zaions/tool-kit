@@ -1,5 +1,8 @@
 import { PermissionEnum } from '@app-enums/rolePermissionsEnum';
 
+/**
+ * Constants for permissions.
+ */
 export const permissionsData: {
   value: PermissionEnum;
   label: string;

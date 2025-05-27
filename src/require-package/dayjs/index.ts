@@ -2,11 +2,23 @@ import dayjs from 'dayjs';
 import { reportCustomError } from '../../utils/helpers/errorHandler';
 import { isZNonEmptyString } from '../../utils/helpers/generic';
 
+/**
+ * Get a date from a Firebase timestamp.
+ *
+ * @param {any} frbTimestamp - The Firebase timestamp.
+ * @returns {string} The date in ISO format.
+ */
 export const getDateFromFrbTimestamp = (frbTimestamp: any): string => {
   // unless the above code is updated this one should remain same
   return new Date(frbTimestamp)?.toISOString();
 };
 
+/**
+ * Convert a date to a timestamp.
+ *
+ * @param {string | number | Date} val - The date to convert.
+ * @returns {number | null} The timestamp.
+ */
 export const convertToDateTimestampToStoreInDB = ({
   val,
 }: {

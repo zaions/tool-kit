@@ -15,6 +15,7 @@ export { FormFieldsEnum } from './formFieldsEnum';
 export {
   BooleanEnum,
   LinkTargetEnum,
+  PlatformTypeEnum,
   ProcessStatusEnum,
   QueryKeyTypeEnum,
   RequestContentTypeEnum,
@@ -23,6 +24,7 @@ export {
   ResponseCodeEnum,
   ResponseStatusEnum,
   SearchParamKeysEnum,
+  TimeUnitEnum,
   TransferMethodEnum,
   varTypesEnum,
 } from './generic';

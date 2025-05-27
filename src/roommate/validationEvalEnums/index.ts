@@ -12,8 +12,8 @@ import {
   PlacePreferenceEnum,
   PlaceStatusEnum,
   RentInclusionsEnum,
+  RMTimeUnitEnum,
   SmokeEnum,
-  TimeUnitEnum,
   WorkScheduleEnum,
 } from '../enums';
 import { PrivateShareEnum } from './../enums/index';
@@ -22,7 +22,7 @@ export const cleanlinessVal: readonly [
   CleanlinessEnum.clean,
   CleanlinessEnum.lessClean,
   CleanlinessEnum.normalClean,
-  CleanlinessEnum.superClean
+  CleanlinessEnum.superClean,
 ] = [
   CleanlinessEnum.clean,
   CleanlinessEnum.lessClean,
@@ -36,19 +36,19 @@ export const smokeVal: readonly [SmokeEnum.no, SmokeEnum.yes, SmokeEnum.other] =
 export const petsVal: readonly [
   PetsEnum.no,
   PetsEnum.yes,
-  PetsEnum.dependsOnThePet
+  PetsEnum.dependsOnThePet,
 ] = [PetsEnum.no, PetsEnum.yes, PetsEnum.dependsOnThePet] as const;
 
 export const guestsVal: readonly [
   GuestsEnum.no,
   GuestsEnum.yes,
-  GuestsEnum.occasionally
+  GuestsEnum.occasionally,
 ] = [GuestsEnum.no, GuestsEnum.yes, GuestsEnum.occasionally] as const;
 
 export const occupationVal: readonly [
   OccupationEnum.student,
   OccupationEnum.haveWork,
-  OccupationEnum.other
+  OccupationEnum.other,
 ] = [
   OccupationEnum.student,
   OccupationEnum.haveWork,
@@ -58,7 +58,7 @@ export const occupationVal: readonly [
 export const foodPreferenceVal: readonly [
   FoodPreferenceEnum.vegan,
   FoodPreferenceEnum.vegetarian,
-  FoodPreferenceEnum.other
+  FoodPreferenceEnum.other,
 ] = [
   FoodPreferenceEnum.vegan,
   FoodPreferenceEnum.vegetarian,
@@ -68,7 +68,7 @@ export const foodPreferenceVal: readonly [
 export const workScheduleVal: readonly [
   WorkScheduleEnum.dayTime,
   WorkScheduleEnum.nightTime,
-  WorkScheduleEnum.other
+  WorkScheduleEnum.other,
 ] = [
   WorkScheduleEnum.dayTime,
   WorkScheduleEnum.nightTime,
@@ -79,7 +79,7 @@ export const genderVal: readonly [
   GenderEnum.male,
   GenderEnum.female,
   GenderEnum.nonBinary,
-  GenderEnum.all
+  GenderEnum.all,
 ] = [
   GenderEnum.male,
   GenderEnum.female,
@@ -99,7 +99,7 @@ export const constellationsVal: readonly [
   ConstellationsEnum.saggitarius,
   ConstellationsEnum.scorpion,
   ConstellationsEnum.taurus,
-  ConstellationsEnum.virgo
+  ConstellationsEnum.virgo,
 ] = [
   ConstellationsEnum.aquarius,
   ConstellationsEnum.aries,
@@ -117,7 +117,7 @@ export const constellationsVal: readonly [
 
 export const placePreferenceVal: readonly [
   PlacePreferenceEnum.entirePlace,
-  PlacePreferenceEnum.sharedPlace
+  PlacePreferenceEnum.sharedPlace,
 ] = [PlacePreferenceEnum.entirePlace, PlacePreferenceEnum.sharedPlace] as const;
 
 export const buildingTypeVal: readonly [
@@ -126,7 +126,7 @@ export const buildingTypeVal: readonly [
   BuildingTypeEnum.condo,
   BuildingTypeEnum.house,
   BuildingTypeEnum.noPreference,
-  BuildingTypeEnum.twonHouse
+  BuildingTypeEnum.twonHouse,
 ] = [
   BuildingTypeEnum.apartment,
   BuildingTypeEnum.basement,
@@ -138,26 +138,24 @@ export const buildingTypeVal: readonly [
 
 export const placeAvailabilityTermVal: readonly [
   PlaceAvailabilityTermEnum.shortTerm,
-  PlaceAvailabilityTermEnum.longTerm
+  PlaceAvailabilityTermEnum.longTerm,
 ] = [
   PlaceAvailabilityTermEnum.shortTerm,
   PlaceAvailabilityTermEnum.longTerm,
 ] as const;
 
-export const timeUnitVal: readonly [TimeUnitEnum.month, TimeUnitEnum.year] = [
-  TimeUnitEnum.month,
-  TimeUnitEnum.year,
-] as const;
+export const timeUnitVal: readonly [RMTimeUnitEnum.month, RMTimeUnitEnum.year] =
+  [RMTimeUnitEnum.month, RMTimeUnitEnum.year] as const;
 
 export const privateShareVal: readonly [
   PrivateShareEnum.private,
-  PrivateShareEnum.share
+  PrivateShareEnum.share,
 ] = [PrivateShareEnum.private, PrivateShareEnum.share] as const;
 
 export const agreementStatusVal: readonly [
   AgreementStatusEnum.yes,
   AgreementStatusEnum.no,
-  AgreementStatusEnum.negotiated
+  AgreementStatusEnum.negotiated,
 ] = [
   AgreementStatusEnum.yes,
   AgreementStatusEnum.no,
@@ -176,7 +174,7 @@ export const rentInclusionsVal: readonly [
   RentInclusionsEnum.electric,
   RentInclusionsEnum.laundry,
   RentInclusionsEnum.security,
-  RentInclusionsEnum.parking
+  RentInclusionsEnum.parking,
 ] = [
   RentInclusionsEnum.wifi,
   RentInclusionsEnum.dishWash,
@@ -194,5 +192,5 @@ export const rentInclusionsVal: readonly [
 
 export const placeStatusVal: readonly [
   PlaceStatusEnum.completed,
-  PlaceStatusEnum.inProgress
+  PlaceStatusEnum.inProgress,
 ] = [PlaceStatusEnum.completed, PlaceStatusEnum.inProgress] as const;

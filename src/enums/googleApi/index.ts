@@ -1,6 +1,8 @@
 import { checkForDuplicateEnumValues } from '@app-utils/index';
 
-// Define the enum for address component types
+/**
+ * Enum representing different address component types.
+ */
 export enum AddressComponentTypeEnum {
   COUNTRY = 'country',
   STREET_ADDRESS = 'street_address',
@@ -14,6 +16,9 @@ export enum AddressComponentTypeEnum {
   PREMISE = 'premise',
 }
 
+/**
+ * Check for duplicate values in the AddressComponentTypeEnum.
+ */
 checkForDuplicateEnumValues(
   AddressComponentTypeEnum,
   'duplicate values in AddressComponentTypeEnum'

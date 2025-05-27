@@ -1,5 +1,8 @@
 import { checkForDuplicateEnumValues } from '@app-utils/index';
 
+/**
+ * Enum representing different API paths.
+ */
 export enum ApiPathEnum {
   register = 'register',
   login = 'login',
@@ -71,4 +74,7 @@ export enum ApiPathEnum {
   runUniqueIdsSyncMigrationScriptV1 = 'run_unique_ids_sync_migration_script_v1',
 }
 
+/**
+ * Check for duplicate values in the ApiPathEnum.
+ */
 checkForDuplicateEnumValues(ApiPathEnum, 'duplicate values in ApiPathEnum');

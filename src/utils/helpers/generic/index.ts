@@ -1,5 +1,5 @@
 import { DBColumnKeysShortFormEnum } from '@app-enums/firebaseEnum';
-import { RequestContentTypeEnum } from '@app-enums/generic';
+import { RequestContentTypeEnum, TimeUnitEnum } from '@app-enums/generic';
 import {
   allowedImageTypes,
   apiConstants,
@@ -143,6 +143,12 @@ export const convertToTitleCase = (s: string): string => {
     ?.toLowerCase(); // Convert the string to lowercase
 };
 
+/**
+ * Converts a string to title case by adding spaces between lowercase and uppercase letters and converting to lowercase.
+ *
+ * @param s - The input string.
+ * @returns The title case string.
+ */
 export const convertToTitleCaseV1 = (s: string): string => {
   return isStringVariable(s)
     ? s?.replace(/^_*(.)|_+(.)/g, (_, a, b) => {
@@ -262,7 +268,11 @@ export const zConvertToBoolean = (value?: string | boolean): boolean => {
   }
 };
 
-/** used for referral code right now */
+/**
+ * Generates a unique code of a specified length.
+ * @param {number} [length=6] - The length of the code to generate.
+ * @returns {string} The generated unique code.
+ */
 export const generateUniqueCode = (length: number = 6): string => {
   const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
   let code = '';
@@ -273,22 +283,47 @@ export const generateUniqueCode = (length: number = 6): string => {
   return code?.toLowerCase();
 };
 
+/**
+ * Checks if a value is null or undefined.
+ * @param {any} value - The value to check.
+ * @returns {boolean} - Returns `true` if the value is null or undefined; otherwise, `false`.
+ */
 export const isNullOrUndefined = (value: any): boolean => {
   return value === null || value === undefined;
 };
 
+/**
+ * Checks if a value is not null or undefined.
+ * @param {any} value - The value to check.
+ * @returns {boolean} - Returns `true` if the value is not null or undefined; otherwise, `false`.
+ */
 export const isNotNullOrUndefined = (value: any): boolean => {
   return !isNullOrUndefined(value);
 };
 
+/**
+ * Dumps a value without logging anything.
+ * @param {...any} _ - The values to dump.
+ */
 export const dumpValueNoLogNothing = (..._: any): void => {};
 
+/**
+ * Checks if a value is an array.
+ * @param {unknown} arr - The value to check.
+ * @param {boolean} [checkLength=false] - Whether to check the length of the array.
+ * @returns {boolean} - Returns `true` if the value is an array; otherwise, `false`.
+ */
 export const isArray = (arr: unknown, checkLength = false): boolean => {
   const typeIsArray = isObject(arr, false) && Array.isArray(arr);
   if (!checkLength) return typeIsArray;
   else return typeIsArray && !!arr?.length;
 };
 
+/**
+ * Checks if an item is soft deleted.
+ * @param {DBItemGenericDataType} item - The item to check.
+ * @returns {boolean} - Returns `true` if the item is soft deleted; otherwise, `false`.
+ */
 export const isSoftDeleted = ({
   item,
 }: {
@@ -297,6 +332,11 @@ export const isSoftDeleted = ({
   return typeof item[DBColumnKeysShortFormEnum.deletedAt] === 'number';
 };
 
+/**
+ * Checks if an item is blocked.
+ * @param {DBItemGenericDataType} item - The item to check.
+ * @returns {boolean} - Returns `true` if the item is blocked; otherwise, `false`.
+ */
 export const dbItemIsBlocked = ({
   item,
 }: {
@@ -305,6 +345,12 @@ export const dbItemIsBlocked = ({
   return typeof item[DBColumnKeysShortFormEnum.blockedAt] === 'number';
 };
 
+/**
+ * Gets the value of a database time column.
+ * @param {IGenericObject} item - The item to check.
+ * @param {DBColumnKeysShortFormEnum} key - The key of the column to get the value from.
+ * @returns {string | undefined} - Returns the value of the column; otherwise, `undefined`.
+ */
 export const getDBTimeColumnValue = ({
   key,
   item,
@@ -320,6 +366,12 @@ export const getDBTimeColumnValue = ({
   }
 };
 
+/**
+ * Adds a URL protocol handler to the given URL if it doesn't already have one.
+ * @param {string} url - The URL to add the protocol handler to.
+ * @param {boolean} isLocalhost - Whether the URL is on localhost.
+ * @returns {string} The URL with the protocol handler added.
+ */
 export const addUrlProtocolHandler = (
   url: string,
   isLocalhost: boolean
@@ -330,7 +382,12 @@ export const addUrlProtocolHandler = (
   } else return url;
 };
 
-// check if given object contains key/value pairs or empty
+/**
+ * Checks if an object contains key/value pairs.
+ * @param {unknown} obj - The object to check.
+ * @param {boolean} [checkKeys=true] - Whether to check the keys of the object.
+ * @returns {boolean} - Returns `true` if the object contains key/value pairs; otherwise, `false`.
+ */
 export const isObject = (obj: unknown, checkKeys = true): boolean => {
   const typeIsObject =
     typeof obj === 'object' && obj != null && typeof obj !== 'undefined';
@@ -338,6 +395,11 @@ export const isObject = (obj: unknown, checkKeys = true): boolean => {
   else return typeIsObject && !!Object.keys(obj)?.length;
 };
 
+/**
+ * Builds a filter object from a given filter object.
+ * @param {Record<string, unknown>} filter - The filter object to build from.
+ * @returns {Record<string, unknown>} The built filter object.
+ */
 export const buildFilterObject = (
   filter: Record<string, unknown>
 ): Record<string, unknown> => {
@@ -353,6 +415,12 @@ export const buildFilterObject = (
   return isArray(result.values) ? result : {};
 };
 
+/**
+ * Gets the active filters from a given filter object.
+ * @param {string} field - The field to get the active filters from.
+ * @param {Record<string, unknown>} filter - The filter object to get the active filters from.
+ * @returns {T | []} The active filters; otherwise, an empty array.
+ */
 export const getActiveFilters = <T = unknown>(
   field: string,
   filter: { field?: string; values?: T }
@@ -364,6 +432,11 @@ export const getActiveFilters = <T = unknown>(
   return [];
 };
 
+/**
+ * Checks if a URL is valid.
+ * @param {string} url - The URL to check.
+ * @returns {boolean} - Returns `true` if the URL is valid; otherwise, `false`.
+ */
 export const isValidUrl = (url: string): boolean => {
   const re = new RegExp(
     '^(https?:\\/\\/)?' + // protocol
@@ -377,6 +450,12 @@ export const isValidUrl = (url: string): boolean => {
   return re.test(url);
 };
 
+/**
+ * Checks if a vanity URL is valid.
+ * @param {string} domain - The domain to check.
+ * @param {string} url - The URL to check.
+ * @returns {boolean} - Returns `true` if the vanity URL is valid; otherwise, `false`.
+ */
 export const isValidVanityUrl = ({
   domain,
   url,
@@ -393,32 +472,164 @@ export const isValidVanityUrl = ({
   return re.test(url);
 };
 
+/**
+ * Checks if a text contains special characters.
+ * @param {string} text - The text to check.
+ * @returns {boolean} - Returns `true` if the text contains special characters; otherwise, `false`.
+ */
 export const containSpecialCharacters = (text: string): boolean => {
   const re = /[^A-Za-z0-9&,'"”“’‘\-(){} ]+/;
   return re.test(text);
 };
 
-export const generateSlug = (text: String): string => {
-  const result =
-    text &&
-    text
-      ?.toLowerCase()
-      ?.replace(/&+/g, 'and')
-      ?.replace(/(){}/g, '')
-      ?.replace(/,/g, '')
-      ?.replace(/'/g, '')
-      ?.replace(/"/g, '')
-      ?.replace(/”/g, '')
-      ?.replace(/“/g, '')
-      ?.replace(/’/g, '')
-      ?.replace(/‘/g, '')
-      ?.replace(/[^\w ]+/g, ' ')
-      ?.replace(/\s{2,}/g, ' ')
-      ?.trim()
-      ?.replace(/ +/g, '-');
+/**
+ * Generates a URL-friendly slug from the provided text.
+ *
+ * This function:
+ * 1. Converts text to lowercase
+ * 2. Removes special characters and replaces them with hyphens
+ * 3. Removes leading/trailing hyphens
+ * 4. Replaces multiple consecutive hyphens with a single hyphen
+ * 5. Handles non-Latin characters by transliterating them when possible
+ *
+ * @param {string} text - The text to convert into a slug
+ * @param {Object} options - Optional configuration
+ * @param {boolean} options.lowercase - Whether to convert to lowercase (default: true)
+ * @param {string} options.separator - Character to use as separator (default: '-')
+ * @param {boolean} options.trim - Whether to trim leading/trailing separators (default: true)
+ * @returns {string | undefined} The generated slug or undefined if input is falsy
+ */
+export const generateSlug = ({
+  options = {},
+  text,
+}: {
+  text: string;
+  options?: {
+    lowercase?: boolean;
+    separator?: string;
+    trim?: boolean;
+  };
+}): string | undefined => {
+  if (!text) return undefined;
+
+  const { lowercase = true, separator = '-', trim = true } = options;
+
+  // Handle common accented characters and transliterate them
+  const charMap: Record<string, string> = {
+    à: 'a',
+    á: 'a',
+    â: 'a',
+    ã: 'a',
+    ä: 'a',
+    å: 'a',
+    è: 'e',
+    é: 'e',
+    ê: 'e',
+    ë: 'e',
+    ì: 'i',
+    í: 'i',
+    î: 'i',
+    ï: 'i',
+    ò: 'o',
+    ó: 'o',
+    ô: 'o',
+    õ: 'o',
+    ö: 'o',
+    ø: 'o',
+    ù: 'u',
+    ú: 'u',
+    û: 'u',
+    ü: 'u',
+    ñ: 'n',
+    ç: 'c',
+    ß: 'ss',
+    æ: 'ae',
+    œ: 'oe',
+  };
+
+  let result = text.trim();
+
+  // Convert accented characters
+  result = result.replace(/[àáâãäåèéêëìíîïòóôõöøùúûüñçßæœ]/gi, (match) => {
+    const char = match.toLowerCase();
+    return charMap[char] || match;
+  });
+
+  // Replace non-alphanumeric characters with separator
+  result = result.replace(/[^a-z0-9]/gi, separator);
+
+  // Replace multiple consecutive separators with a single one
+  const escapedSeparator = separator.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const multiSeparatorRegex = new RegExp(`${escapedSeparator}+`, 'g');
+  result = result.replace(multiSeparatorRegex, separator);
+
+  // Apply lowercase if needed
+  if (lowercase) {
+    result = result.toLowerCase();
+  }
+
+  // Trim separators from start and end if needed
+  if (trim) {
+    const trimRegex = new RegExp(
+      `^${escapedSeparator}|${escapedSeparator}$`,
+      'g'
+    );
+    result = result.replace(trimRegex, '');
+  }
+
   return result;
 };
 
+/**
+ * Checks if a string contains invalid characters for email or company name
+ *
+ * @param {string} input - The string to check for invalid characters
+ * @param {'email' | 'companyName'} type - The type of validation to perform
+ * @returns {{ isValid: boolean; invalidChars: string[] }} - Object containing validation result and list of invalid characters
+ */
+export const validateInputCharacters = ({
+  input,
+  type,
+}: {
+  input: string;
+  type: 'email' | 'name';
+}): { isValid: boolean; invalidChars: string[]; validatedValue: string } => {
+  if (!input) {
+    return { isValid: true, invalidChars: [], validatedValue: '' };
+  }
+
+  let invalidRegex: RegExp;
+
+  if (type === 'email') {
+    // RFC 5322 compliant email validation, but we're checking for invalid characters only
+    // Disallowed: spaces, quotes, backslashes, commas, etc. that aren't valid in email addresses
+    invalidRegex = /[^\w.!#$%&'*+/=?^`{|}~@-]/g;
+  } else if (type === 'name') {
+    // For company names, we want to be more permissive but still restrict certain characters
+    // Disallowed: special characters that could cause issues in URLs, databases, or display
+    invalidRegex = /[<>\\^`{|}~]/g;
+  } else {
+    return { isValid: true, invalidChars: [], validatedValue: input };
+  }
+
+  const matches = input.match(invalidRegex);
+  const invalidChars = matches ? [...new Set(matches)] : [];
+
+  // Remove invalid characters to create the validated value
+  const validatedValue = input.replace(invalidRegex, '');
+
+  return {
+    isValid: invalidChars.length === 0,
+    invalidChars,
+    validatedValue,
+  };
+};
+
+/**
+ * Gets the base64 URL of an image file.
+ * @param {File} file - The image file to get the base64 URL of.
+ * @returns {Promise<unknown>} The base64 URL of the image file.
+ */
 export const getImageBase64Url = (file: File): Promise<unknown> => {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -428,11 +639,24 @@ export const getImageBase64Url = (file: File): Promise<unknown> => {
   });
 };
 
+/**
+ * Checks if a URL contains query parameters.
+ * @param {string} url - The URL to check.
+ * @returns {boolean | ''} - Returns `true` if the URL contains query parameters; otherwise, `false`.
+ */
 export const containQueryParams = (url: string): boolean | '' => {
   const queryParams = ['?', '&', '#'];
   return url && queryParams?.some((param) => url?.includes(param));
 };
 
+/**
+ * Gets the value of a key from an object.
+ * @param {any} obj - The object to get the value from.
+ * @param {string} key - The key to get the value from.
+ * @param {any} [defaultValue=null] - The default value to return if the key does not exist.
+ * @param {boolean} [checkNull=true] - Whether to check if the key is null.
+ * @returns {any} The value of the key; otherwise, the default value.
+ */
 export const getObjectKey = (
   obj: any,
   key: string,
@@ -446,6 +670,13 @@ export const getObjectKey = (
   }
 };
 
+/**
+ * Checks if a key exists in an object.
+ * @param {Record<string, unknown>} obj - The object to check.
+ * @param {string} key - The key to check.
+ * @param {boolean} [checkNull=false] - Whether to check if the key is null.
+ * @returns {boolean} - Returns `true` if the key exists; otherwise, `false`.
+ */
 export const checkIfKeyExists = (
   obj: Record<string, unknown>,
   key: string,
@@ -461,6 +692,12 @@ export const checkIfKeyExists = (
   return false;
 };
 
+/**
+ * Checks if two values are equal.
+ * @param {any} x - The first value to check.
+ * @param {any} y - The second value to check.
+ * @returns {boolean} - Returns `true` if the values are equal; otherwise, `false`.
+ */
 export const isEqual = (x: any, y: any): boolean => {
   if (x === y) return true;
   // if both x and y are null or undefined and exactly the same
@@ -499,11 +736,23 @@ export const isEqual = (x: any, y: any): boolean => {
   return true;
 };
 
+/**
+ * Converts a value to radians.
+ * @param {number} Value - The value to convert to radians.
+ * @returns {number} The value in radians.
+ */
 export const toRad = (Value: number): number => {
   return (Value * Math.PI) / 180;
 };
 
-// calculate distance
+/**
+ * Calculates the distance between two points on the Earth.
+ * @param {number} lat1 - The latitude of the first point.
+ * @param {number} lng1 - The longitude of the first point.
+ * @param {number} lat2 - The latitude of the second point.
+ * @param {number} lng2 - The longitude of the second point.
+ * @returns {number} The distance between the two points in kilometers.
+ */
 export const calcCrow = (
   lat1: number,
   lng1: number,
@@ -524,6 +773,12 @@ export const calcCrow = (
   return d;
 };
 
+/**
+ * Truncates a string to a specified length.
+ * @param {string} text - The text to truncate.
+ * @param {number} [length=10] - The length to truncate the text to.
+ * @returns {string} The truncated text.
+ */
 export const truncateString = (text: string, length: number = 10): string => {
   if (!text) return '';
   return text?.length > length
@@ -531,6 +786,10 @@ export const truncateString = (text: string, length: number = 10): string => {
     : text ?? '';
 };
 
+/**
+ * Detects the device and view mode.
+ * @returns {Object} The device and view mode.
+ */
 export const detectDeviceAndViewMode = (): {
   webkitVer: number;
   isGoogle: boolean | 0;
@@ -550,6 +809,12 @@ export const detectDeviceAndViewMode = (): {
   return { webkitVer, isGoogle, isAndroid, androidDesktopMode };
 };
 
+/**
+ * Checks if two arrays are equal.
+ * @param {Array<unknown>} arrOne - The first array to check.
+ * @param {Array<unknown>} arrTwo - The second array to check.
+ * @returns {boolean} - Returns `true` if the arrays are equal; otherwise, `false`.
+ */
 export const checkEqualityOfTwoArray = (
   arrOne: Array<unknown>,
   arrTwo: Array<unknown>
@@ -560,6 +825,12 @@ export const checkEqualityOfTwoArray = (
   return result;
 };
 
+/**
+ * Checks if a file type is allowed.
+ * @param {File} file - The file to check.
+ * @param {string} type - The type of file to check.
+ * @returns {boolean} - Returns `true` if the file type is allowed; otherwise, `false`.
+ */
 export const isFileTypeAllowed = (file: File, type = 'svg'): boolean => {
   if (type === 'svg') {
     return svgIconTypes?.includes(file?.type?.toLowerCase());
@@ -569,6 +840,11 @@ export const isFileTypeAllowed = (file: File, type = 'svg'): boolean => {
   return false;
 };
 
+/**
+ * Gets the dimensions of an image file.
+ * @param {File} file - The image file to get the dimensions of.
+ * @returns {Promise<{ width: number; height: number } | null>} The dimensions of the image file; otherwise, `null`.
+ */
 export const getImageDimensions = async (
   file: File
 ): Promise<{ width: number; height: number } | null> => {
@@ -592,6 +868,12 @@ export const getImageDimensions = async (
   });
 };
 
+/**
+ * Gets the aspect ratio of an image.
+ * @param {number} width - The width of the image.
+ * @param {number} height - The height of the image.
+ * @returns {number[] | null} The aspect ratio of the image; otherwise, `null`.
+ */
 export const getImageAspectRatio = (
   width: number,
   height: number
@@ -608,6 +890,12 @@ export const getImageAspectRatio = (
   }
 };
 
+/**
+ * Checks the type of a variable.
+ * @param {unknown} val - The variable to check.
+ * @param {string} type - The type to check.
+ * @returns {boolean} - Returns `true` if the variable is of the specified type; otherwise, `false`.
+ */
 export const checkVariableType = (val: unknown, type = 'string'): boolean => {
   switch (type) {
     case 'string':
@@ -629,18 +917,39 @@ export const checkVariableType = (val: unknown, type = 'string'): boolean => {
   }
 };
 
+/**
+ * Checks if a value is a string.
+ * @param {unknown} val - The value to check.
+ * @returns {boolean} - Returns `true` if the value is a string; otherwise, `false`.
+ */
 export const isStringVariable = (val?: unknown): boolean => {
   return checkVariableType(val, 'string');
 };
 
+/**
+ * Checks if a value is a function.
+ * @param {unknown} val - The value to check.
+ * @returns {boolean} - Returns `true` if the value is a function; otherwise, `false`.
+ */
 export const isFunction = (val: unknown): boolean => {
   return checkVariableType(val, 'function');
 };
 
+/**
+ * Checks if an image type is allowed.
+ * @param {File} file - The file to check.
+ * @returns {boolean} - Returns `true` if the image type is allowed; otherwise, `false`.
+ */
 export const imageTypeAllowed = (file: any): boolean => {
   return allowedImageTypes?.includes(file?.type?.toLowerCase());
 };
 
+/**
+ * Validates a file before upload.
+ * @param {File} file - The file to validate.
+ * @param {number} sizeLimit - The size limit of the file.
+ * @returns {Object} The status and type of the file.
+ */
 export const validateFileBeforeUpload = ({
   file,
   sizeLimit,
@@ -663,12 +972,21 @@ export const validateFileBeforeUpload = ({
   return { status: 'success', type: 'SUCCESS' } as const;
 };
 
+/**
+ * Checks if an email is valid.
+ * @param {string} email - The email to check.
+ * @returns {boolean | ''} - Returns `true` if the email is valid; otherwise, `false`.
+ */
 export const isValidEmail = (email: string): boolean | '' => {
   const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return email && re?.test(String(email)?.toLowerCase());
 };
 
+/**
+ * Generates a UUID.
+ * @returns {string} The generated UUID.
+ */
 export const generateUUID = (): string => {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'?.replace(/[xy]/g, function (c) {
     var r = (Math.random() * 16) | 0,
@@ -677,6 +995,11 @@ export const generateUUID = (): string => {
   });
 };
 
+/**
+ * Flattens an array.
+ * @param {any[]} arr - The array to flatten.
+ * @returns {T[]} The flattened array.
+ */
 export const flattenArray = <T>(arr: any[]): T[] => {
   return arr.reduce((flat: T[], item: any) => {
     return flat.concat(Array.isArray(item) ? flattenArray<T>(item) : item);
@@ -703,6 +1026,12 @@ export const normalizeEnumValue = <T extends Record<string, string | number>>(
   return matchedEntry ? (matchedEntry[1] as T[keyof T]) : null;
 };
 
+/**
+ * Checks if a file type is valid.
+ * @param {string} filename - The filename to check.
+ * @param {string | RegExp} filetype - The filetype to check.
+ * @returns {boolean} - Returns `true` if the file type is valid; otherwise, `false`.
+ */
 export const isFileTypeValid = (
   filename: string,
   filetype: string | RegExp
@@ -712,6 +1041,11 @@ export const isFileTypeValid = (
   return pattern.test(filename);
 };
 
+/**
+ * Gets the text only from a string.
+ * @param {string} text - The text to get the text only from.
+ * @returns {string} The text only from the string.
+ */
 export const getTextOnly = (text: string): string => {
   return (
     text &&
@@ -723,6 +1057,14 @@ export const getTextOnly = (text: string): string => {
   );
 };
 
+/**
+ * Gets the pagination parameters.
+ * @param {IPaginationOptions} pagination - The pagination options.
+ * @param {boolean} [returnDefaultValues=true] - Whether to return the default values.
+ * @param {number} [defaultOffset=0] - The default offset.
+ * @param {number} [defaultLimit=10] - The default limit.
+ * @returns {Object} The pagination parameters.
+ */
 export const getPaginationParams = ({
   pagination,
   returnDefaultValues = true,
@@ -748,6 +1090,11 @@ export const getPaginationParams = ({
   return { offset, limit };
 };
 
+/**
+ * Creates a regex match for a given search query.
+ * @param {string} searchQuery - The search query to create a regex match for.
+ * @returns {Object} The regex match.
+ */
 export const createRegexMatch = (
   searchQuery = ''
 ): {
@@ -758,10 +1105,20 @@ export const createRegexMatch = (
   };
 };
 
+/**
+ * Formats a stripe amount to a USD string.
+ * @param {number} stripeAmount - The stripe amount to format.
+ * @returns {string} The formatted USD string.
+ */
 export const formatUSD = (stripeAmount: number) => {
   return `$${(stripeAmount / 100).toFixed(2)}`;
 };
 
+/**
+ * Formats a stripe amount to a USD string.
+ * @param {string} USDString - The USD string to format.
+ * @returns {number} The formatted stripe amount.
+ */
 export const formatStripeAmount = (USDString: string): number => {
   return parseFloat(USDString) * 100;
 };
@@ -773,7 +1130,11 @@ export const formatStripeAmount = (USDString: string): number => {
  * @returns The modified string with leading and trailing backslashes removed.
  */
 export const removeLeadingTrailingBackslash = (input: string): string => {
-  return input?.replace(/^\\|\\$/g, '');
+  // Handle null/undefined input to avoid potential errors
+  if (!input) return '';
+
+  // Remove leading and trailing backslashes
+  return input.replace(/^\\|\\$/g, '');
 };
 
 /**
@@ -787,15 +1148,22 @@ export const hasLeadingOrTrailingSlash = (input: string): boolean => {
 };
 
 /**
- * Escapes all special regex characters in a given string.
- * Also removes leading and trailing forward slashes ('/').
- *
- * @param input - The input string to escape.
- * @returns A new string with special regex characters escaped and '/' removed from the start and end.
+ * Escapes special regex characters in a string while preserving them for literal matching
+ * @param str - The string to escape special regex characters in
+ * @returns The string with special regex characters properly escaped
  */
-export const escapeRegex = (input?: string): string => {
-  const escaped = input?.replace(/[.*+?^${}()|[\]\\]/g, '');
-  return removeLeadingTrailingBackslash(escaped ?? '');
+export const escapeRegex = (input: string): string => {
+  // Properly escape special regex characters by adding a backslash before them
+  // The $& in the replacement string refers to the matched substring
+  // Handle null/undefined input
+  if (!input) return '';
+
+  // Escape special regex characters with a single backslash
+  // This ensures characters like '.', '+', etc. are treated as literals in regex
+  const escaped = input?.replace(/[*+?^${}()|[\]\\]/g, '');
+
+  // Remove leading and trailing backslashes
+  return removeLeadingTrailingBackslash(escaped);
 };
 
 /**
@@ -814,4 +1182,84 @@ export const formatCamelCaseToTitle = (str: string): string => {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
     .trim();
+};
+
+/**
+ * Converts a value from one time unit to another.
+ * @param {TimeUnitEnum} valueUnit - The unit of the input value.
+ * @param {number} value - The value to convert.
+ * @param {TimeUnitEnum} outputUnit - The unit of the output value.
+ * @returns {number} The converted value.
+ */
+export const getTimeInUnit = ({
+  valueUnit,
+  value,
+  outputUnit,
+}: {
+  valueUnit: TimeUnitEnum;
+  value: number;
+  outputUnit: TimeUnitEnum;
+}): number => {
+  // Convert input value to seconds as base unit
+  let valueInSeconds = value;
+
+  switch (valueUnit) {
+    case TimeUnitEnum.Years:
+      valueInSeconds = value * 365 * 24 * 60 * 60;
+      break;
+    case TimeUnitEnum.Months:
+      valueInSeconds = value * 30 * 24 * 60 * 60;
+      break;
+    case TimeUnitEnum.Days:
+      valueInSeconds = value * 24 * 60 * 60;
+      break;
+    case TimeUnitEnum.Hours:
+      valueInSeconds = value * 60 * 60;
+      break;
+    case TimeUnitEnum.Minutes:
+      valueInSeconds = value * 60;
+      break;
+    case TimeUnitEnum.Seconds:
+      valueInSeconds = value;
+      break;
+    case TimeUnitEnum.Milliseconds:
+      valueInSeconds = value / 1000;
+      break;
+  }
+
+  // Convert from seconds to output unit
+  switch (outputUnit) {
+    case TimeUnitEnum.Years:
+      return valueInSeconds / (365 * 24 * 60 * 60);
+    case TimeUnitEnum.Months:
+      return valueInSeconds / (30 * 24 * 60 * 60);
+    case TimeUnitEnum.Days:
+      return valueInSeconds / (24 * 60 * 60);
+    case TimeUnitEnum.Hours:
+      return valueInSeconds / (60 * 60);
+    case TimeUnitEnum.Minutes:
+      return valueInSeconds / 60;
+    case TimeUnitEnum.Seconds:
+      return valueInSeconds;
+    case TimeUnitEnum.Milliseconds:
+      return valueInSeconds * 1000;
+    default:
+      return valueInSeconds;
+  }
+};
+
+/**
+ * Checks if an email is a private relay email for Apple ID.
+ *
+ * @param {string} email - The email address to check.
+ * @returns {boolean} True if the email is a private relay email, false otherwise.
+ */
+export const isApplePrivateEmail = ({
+  email = '',
+  pattern = /^[a-zA-Z0-9._%+-]+@privaterelay\.appleid\.com$/,
+}: {
+  email: string;
+  pattern?: RegExp;
+}): boolean => {
+  return pattern.test(email);
 };

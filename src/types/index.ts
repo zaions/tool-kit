@@ -1,4 +1,5 @@
 export type {
+  GeolocationCoordinates,
   GetCapGeoLocationApiDataResponse,
   PlatformData,
 } from './capacitorApisTypes';

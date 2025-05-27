@@ -1,5 +1,8 @@
 import { checkForDuplicateEnumValues } from '@app-utils/index';
 
+/**
+ * Enum representing different roles.
+ */
 export enum RoleEnum {
   superAdmin = 1,
   admin = 2,
@@ -11,6 +14,9 @@ export enum RoleEnum {
   engager = 8,
 }
 
+/**
+ * Enum representing different permissions.
+ */
 export enum PermissionEnum {
   viewDashboard = 1,
 
@@ -190,7 +196,9 @@ export enum PermissionEnum {
   viewTrashedUserDetail = 145,
 }
 
-// only used for request input data validation in register request
+/**
+ * Enum representing different user roles.
+ */
 export enum _UserRoleEnum {
   superAdmin = '197g24g-28h3v2g9g972g3f',
   admin = '28h3v2g9g9--72g3f',
@@ -202,31 +210,55 @@ export enum _UserRoleEnum {
   engager = '8hfrfr----8h3v2g9-g972g3f',
 }
 
+/**
+ * Enum representing different permission types.
+ */
 export enum PermissionTypeEnum {
   viewTrashedItem = 1,
   viewTrashedItems = 2,
   viewBlockedItem = 3,
 }
 
+/**
+ * Enum representing different permission check modes.
+ */
 export enum PermissionCheckModeEnum {
   every = 1, // user must have every permissions that have passed.
   any = 2, // user must have any permissions that have passed.
 }
 
-// Check for duplicates
+/**
+ * Check for duplicate values in the RoleEnum.
+ */
 checkForDuplicateEnumValues(RoleEnum, 'Duplicate RoleEnum value found:');
+
+/**
+ * Check for duplicate values in the PermissionCheckModeEnum.
+ */
 checkForDuplicateEnumValues(
   PermissionCheckModeEnum,
   'Duplicate PermissionCheckModeEnum value found:'
 );
+
+/**
+ * Check for duplicate values in the PermissionEnum.
+ */
 checkForDuplicateEnumValues(
   PermissionEnum,
   'Duplicate PermissionEnum value found:'
 );
+
+/**
+ * Check for duplicate values in the _UserRoleEnum.
+ */
 checkForDuplicateEnumValues(
   _UserRoleEnum,
   'Duplicate _UserRoleEnum value found:'
 );
+
+/**
+ * Check for duplicate values in the PermissionTypeEnum.
+ */
 checkForDuplicateEnumValues(
   PermissionTypeEnum,
   'Duplicate PermissionTypeEnum value found:'

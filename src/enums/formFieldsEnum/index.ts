@@ -1,5 +1,8 @@
 import { checkForDuplicateEnumValues } from '@app-utils/index';
 
+/**
+ * Enum representing different form fields.
+ */
 export enum FormFieldsEnum {
   // Generic/Common Form Fields
   id = 'id',
@@ -295,6 +298,9 @@ export enum FormFieldsEnum {
   arenaBreakoutAppId = 'arenaBreakoutAppId',
 }
 
+/**
+ * Check for duplicate values in the FormFieldsEnum.
+ */
 checkForDuplicateEnumValues(
   FormFieldsEnum,
   'Duplicate FormFieldsEnum value found:'

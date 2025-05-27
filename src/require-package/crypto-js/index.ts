@@ -1,6 +1,12 @@
 import cryptoJs from 'crypto-js';
 import { getCryptoSecret } from 'src/privateModule';
 
+/**
+ * Encrypt data using the crypto secret.
+ *
+ * @param {unknown} val - The data to encrypt.
+ * @returns {string | null} The encrypted data.
+ */
 export const encryptData = (val: unknown): string | null => {
   const _cryptoSecret = getCryptoSecret();
   try {
@@ -9,6 +15,13 @@ export const encryptData = (val: unknown): string | null => {
     return null;
   }
 };
+
+/**
+ * Decrypt data using the crypto secret.
+ *
+ * @param {string} val - The data to decrypt.
+ * @returns {T | null} The decrypted data.
+ */
 export const decryptData = <T>(val: string): T | null => {
   const _cryptoSecret = getCryptoSecret();
   try {
@@ -20,6 +33,13 @@ export const decryptData = <T>(val: string): T | null => {
   }
 };
 
+/**
+ * Encrypt data using a secret key.
+ *
+ * @param {unknown} data - The data to encrypt.
+ * @param {string} secretKey - The secret key.
+ * @returns {string} The encrypted data.
+ */
 export const encryptWithSecretKey = (
   data: unknown,
   secretKey: string
@@ -35,6 +55,13 @@ export const encryptWithSecretKey = (
   return encData;
 };
 
+/**
+ * Decrypt data using a secret key.
+ *
+ * @param {string} encryptedData - The data to decrypt.
+ * @param {string} secretKey - The secret key.
+ * @returns {T} The decrypted data.
+ */
 export const decryptWithSecretKey = <T = any>(
   encryptedData: string,
   secretKey: string
@@ -49,6 +76,13 @@ export const decryptWithSecretKey = <T = any>(
   return JSON.parse(bytes) as T;
 };
 
+/**
+ * Decrypt data using a secret key.
+ *
+ * @param {string} data - The data to decrypt.
+ * @param {string} secretKey - The secret key.
+ * @returns {T | null} The decrypted data.
+ */
 export const aesDecrypt = <T = any>(
   data: string,
   secretKey: string

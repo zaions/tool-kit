@@ -1,24 +1,24 @@
-// --------------------------------------------------------------------------------------------------------------------
-//
-// coupon-code.ts : A TypeScript implementation of Perl's Algorithm::CouponCode
-//
-// Based on original work by Andrew Chilton
-// Converted to TypeScript with full type safety
-//
-// --------------------------------------------------------------------------------------------------------------------
-
 // Types
+/**
+ * Type representing the options for a coupon code.
+ */
 export interface CouponOptions {
   parts: number;
   partLen: number;
   plaintext?: string;
 }
 
+/**
+ * Type representing an object of symbols.
+ */
 type SymbolsObject = {
   [key: string]: number;
 };
 
 // Constants
+/**
+ * List of bad words.
+ */
 const badWordsList: string[] = (
   'SHPX PHAG JNAX JNAT CVFF PBPX FUVG GJNG GVGF SNEG URYY ZHSS QVPX XABO ' +
   'NEFR FUNT GBFF FYHG GHEQ FYNT PENC CBBC OHGG SRPX OBBO WVFZ WVMM CUNG'
@@ -61,12 +61,18 @@ function checkDigitAlg1(data: string, check: number): string {
   return symbolsArr[check % 31];
 }
 
+/**
+ * Check if a coupon code has a bad word.
+ */
 export function checkIfCouponCodeHasBadWord(code: string): boolean {
   code = code?.toUpperCase();
   return badWordsList?.some((word: string) => code?.includes(word));
 }
 
 // Main Functions
+/**
+ * Generate a coupon code.
+ */
 export function generateCouponCode(opts?: Partial<CouponOptions>): string {
   const options: CouponOptions = { ...defaults, ...opts };
 
@@ -101,6 +107,9 @@ export function generateCouponCode(opts?: Partial<CouponOptions>): string {
   return parts?.join('-');
 }
 
+/**
+ * Validate a coupon code.
+ */
 export function validateCouponCode(
   code: string,
   opts?: Partial<CouponOptions>

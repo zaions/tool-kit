@@ -7,6 +7,9 @@
 
 import { checkForDuplicateEnumValues } from '@app-utils/index';
 
+/**
+ * Enum representing short form of DB column keys in firestore and realtime database
+ */
 export enum DBColumnKeysShortFormEnum {
   // Keys defined in "Generic Form Fields Enum"
   id = 'id',
@@ -279,11 +282,17 @@ export enum DBColumnKeysShortFormEnum {
   arenaBreakoutAppId = 'abaid',
 }
 
+/**
+ * Enum representing different order by directions in firestore and realtime database
+ */
 export enum FrbOrderbyDirectionEnum {
   asc = 'asc',
   desc = 'desc',
 }
 
+/**
+ * Enum representing different where conditions in firestore and realtime database
+ */
 export enum FrbWhereConditionEnum {
   lessThan = '<',
   lessThanOrEqualTo = '<=',
@@ -297,6 +306,9 @@ export enum FrbWhereConditionEnum {
   arrayContainsAny = 'array-contains-any',
 }
 
+/**
+ * Check for duplicate values in the DBColumnKeysShortFormEnum.
+ */
 checkForDuplicateEnumValues(
   DBColumnKeysShortFormEnum,
   'Duplicate DBColumnKeysShortFormEnum value found:'
@@ -306,6 +318,9 @@ checkForDuplicateEnumValues(
   'Duplicate FrbOrderbyDirectionEnum value found:'
 );
 
+/**
+ * Check for duplicate values in the FrbWhereConditionEnum.
+ */
 checkForDuplicateEnumValues(
   FrbWhereConditionEnum,
   'Duplicate FrbWhereConditionEnum value found:'
