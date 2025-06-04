@@ -131,6 +131,7 @@ export {
   normalizeEnumValue,
   permissionsData,
   removeLeadingTrailingBackslash,
+  removeLeadingTrailingChars,
   replaceUrlDynamicParts,
   reportCustomError,
   rolePermissionsMap,

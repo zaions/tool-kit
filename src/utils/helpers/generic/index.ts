@@ -478,7 +478,7 @@ export const isValidVanityUrl = ({
  * @returns {boolean} - Returns `true` if the text contains special characters; otherwise, `false`.
  */
 export const containSpecialCharacters = (text: string): boolean => {
-  const re = /[^A-Za-z0-9&,'"”“’‘\-(){} ]+/;
+  const re = /[^A-Za-z0-9&,'"""'\'-(){} ]+/;
   return re.test(text);
 };
 
@@ -1124,17 +1124,92 @@ export const formatStripeAmount = (USDString: string): number => {
 };
 
 /**
+ * Removes leading and trailing characters from a string.
+ * By default removes backslashes, but can be configured to remove any character(s).
+ *
+ * @param {Object} params - The parameters object
+ * @param {string} params.input - The input string to process
+ * @param {string | string[]} [params.characters='\\'] - Character(s) to remove from start/end
+ * @param {boolean} [params.onlyLeading=false] - If true, only removes from the beginning
+ * @param {boolean} [params.onlyTrailing=false] - If true, only removes from the end
+ * @param {boolean} [params.trimWhitespace=false] - If true, also trims whitespace
+ * @returns {string} The processed string with specified characters removed from start/end
+ *
+ * @example
+ * // Remove backslashes (default behavior)
+ * removeLeadingTrailingChars({ input: '\\test\\' }) // 'test'
+ *
+ * // Remove specific characters
+ * removeLeadingTrailingChars({ input: '/path/', characters: '/' }) // 'path'
+ *
+ * // Remove multiple characters
+ * removeLeadingTrailingChars({ input: '///test///', characters: ['/'] }) // 'test'
+ *
+ * // Only remove from start
+ * removeLeadingTrailingChars({ input: '\\test\\', onlyLeading: true }) // 'test\\'
+ */
+export const removeLeadingTrailingChars = ({
+  input,
+  characters = '\\',
+  onlyLeading = false,
+  onlyTrailing = false,
+  trimWhitespace = false,
+}: {
+  input: string;
+  characters?: string | string[];
+  onlyLeading?: boolean;
+  onlyTrailing?: boolean;
+  trimWhitespace?: boolean;
+}): string => {
+  // Handle null/undefined input
+  if (!input || typeof input !== 'string') return '';
+
+  // Trim whitespace first if requested
+  let result = trimWhitespace ? input.trim() : input;
+
+  // Handle empty result after trimming
+  if (!result) return '';
+
+  // Normalize characters to array and escape for regex
+  const charArray = Array.isArray(characters) ? characters : [characters];
+  const escapedChars = charArray
+    .filter((char) => char && typeof char === 'string')
+    .map((char) => char.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+    .join('');
+
+  // Early return if no valid characters to remove
+  if (!escapedChars) return result;
+
+  // Build regex pattern based on options
+  let pattern = '';
+  if (!onlyTrailing) {
+    pattern += `^[${escapedChars}]+`; // Leading characters
+  }
+  if (!onlyLeading && !onlyTrailing) {
+    pattern += '|'; // OR operator between leading and trailing
+  }
+  if (!onlyLeading) {
+    pattern += `[${escapedChars}]+$`; // Trailing characters
+  }
+
+  // Apply the regex replacement
+  if (pattern) {
+    const regex = new RegExp(pattern, 'g');
+    result = result.replace(regex, '');
+  }
+
+  return result;
+};
+
+/**
+ * @deprecated Use removeLeadingTrailingChars instead for better flexibility
  * Removes leading and trailing backslashes from a given string.
  *
- * @param input - The input string to process.
- * @returns The modified string with leading and trailing backslashes removed.
+ * @param input - The input string to process
+ * @returns The modified string with leading and trailing backslashes removed
  */
 export const removeLeadingTrailingBackslash = (input: string): string => {
-  // Handle null/undefined input to avoid potential errors
-  if (!input) return '';
-
-  // Remove leading and trailing backslashes
-  return input.replace(/^\\|\\$/g, '');
+  return removeLeadingTrailingChars({ input });
 };
 
 /**
@@ -1148,22 +1223,37 @@ export const hasLeadingOrTrailingSlash = (input: string): boolean => {
 };
 
 /**
- * Escapes special regex characters in a string while preserving them for literal matching
- * @param str - The string to escape special regex characters in
- * @returns The string with special regex characters properly escaped
+ * Escapes special regex characters in a string by adding backslashes before them.
+ * Preserves all safe characters that can be used in emails, usernames, product titles, etc.
+ * Only escapes characters that would cause issues when passed to new RegExp().
+ *
+ * @param {Object} params - The parameters object
+ * @param {string} params.input - The string to escape special regex characters in
+ * @param {boolean} [params.removeLeadingTrailing=false] - Whether to remove leading and trailing backslashes
+ * @returns {string} The string with special regex characters properly escaped with backslashes
  */
-export const escapeRegex = (input: string): string => {
-  // Properly escape special regex characters by adding a backslash before them
-  // The $& in the replacement string refers to the matched substring
+export const escapeRegex = ({
+  input,
+  removeLeadingTrailing = false,
+}: {
+  input: string;
+  removeLeadingTrailing?: boolean;
+}): string => {
   // Handle null/undefined input
   if (!input) return '';
 
-  // Escape special regex characters with a single backslash
-  // This ensures characters like '.', '+', etc. are treated as literals in regex
-  const escaped = input?.replace(/[*+?^${}()|[\]\\]/g, '');
+  // Escape ALL regex special characters that would cause issues in new RegExp()
+  // These characters have special meaning in regex and must be escaped:
+  // . * + ? ^ $ { } ( ) | [ ] \ - (hyphen can be special in character classes)
+  // We add a backslash before each of these characters to treat them as literals
+  //
+  // Safe characters that DON'T need escaping: & % # " : < > / , ; ' = ~ ` ! @
+  const escaped = input.replace(/[.*+?^${}()|[\]\\-]/g, '\\$&');
 
-  // Remove leading and trailing backslashes
-  return removeLeadingTrailingBackslash(escaped);
+  // Remove leading and trailing backslashes if requested
+  return removeLeadingTrailing
+    ? removeLeadingTrailingBackslash(escaped)
+    : escaped;
 };
 
 /**
