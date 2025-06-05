@@ -130,7 +130,6 @@ export {
   mapPermissionsToStrings,
   normalizeEnumValue,
   permissionsData,
-  removeLeadingTrailingBackslash,
   removeLeadingTrailingChars,
   replaceUrlDynamicParts,
   reportCustomError,

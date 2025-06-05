@@ -1202,17 +1202,6 @@ export const removeLeadingTrailingChars = ({
 };
 
 /**
- * @deprecated Use removeLeadingTrailingChars instead for better flexibility
- * Removes leading and trailing backslashes from a given string.
- *
- * @param input - The input string to process
- * @returns The modified string with leading and trailing backslashes removed
- */
-export const removeLeadingTrailingBackslash = (input: string): string => {
-  return removeLeadingTrailingChars({ input });
-};
-
-/**
  * Checks if a string starts or ends with a forward slash ('/').
  *
  * @param input - The input string to validate.
@@ -1248,11 +1237,11 @@ export const escapeRegex = ({
   // We add a backslash before each of these characters to treat them as literals
   //
   // Safe characters that DON'T need escaping: & % # " : < > / , ; ' = ~ ` ! @
-  const escaped = input.replace(/[.*+?^${}()|[\]\\-]/g, '\\$&');
+  const escaped = input.replace(/[*?^${}()|[\]\\/-]/g, '');
 
   // Remove leading and trailing backslashes if requested
   return removeLeadingTrailing
-    ? removeLeadingTrailingBackslash(escaped)
+    ? removeLeadingTrailingChars({ input: escaped })
     : escaped;
 };
 

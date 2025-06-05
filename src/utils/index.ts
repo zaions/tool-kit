@@ -86,7 +86,6 @@ export {
   isZValidNumber,
   isZValidNumbers,
   normalizeEnumValue,
-  removeLeadingTrailingBackslash,
   removeLeadingTrailingChars,
   replaceUrlDynamicParts,
   toRad,
